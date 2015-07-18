@@ -1,2 +1,18 @@
-.content
+.navigation
   = link_to image_tag(gravatar_url 200), root_url, title: 'Christian Rolle', id: 'avatar'
+  = link_to 'circletwitterbird', "http://twitter.com/chrissonar", class: 'symbol'
+  = link_to 'circlegithubalt', "https://github.com/christianrolle", class: 'symbol'
+  = link_to 'circlestackoverflow', "http://stackoverflow.com/users/3749865/tobago", class: 'symbol'
+  = link_to 'circlelinkedin', "http://de.linkedin.com/pub/christian-rolle/5a/745/592", class: 'symbol'
+  = link_to 'circlegoogleplus', "https://plus.google.com/102771590584470849413", class: 'symbol'
+.content
+  %h1 Hi, I'm Christian Rolle
+  %p I'm a Ruby full stack web developer in the enterprise business with a passion for people.
+  %p 
+    You might enjoy reading 
+    = link_to 'my blog', 'http://chris-on-rails.blogspot.de/'
+    = '.'
+  %p 
+    I work at 
+    = link_to 'MedlinQ', 'https://www.medlinq.com/'
+    in Hamburg.
