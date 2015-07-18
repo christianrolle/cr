@@ -1,2 +1,5 @@
 module ApplicationHelper
+  def gravatar_url size=32
+    "http://www.gravatar.com/avatar/c1873b0d2c86671bb1b3d44b53b48c09.png?s=#{size}"
+  end
 end
