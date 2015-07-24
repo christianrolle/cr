@@ -27,3 +27,4 @@ production:
   pool: 5
   username: christian
   password: Chr3st31N.!6789
+  host: localhost
