@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 
-
+ruby '2.2.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
+# enables all platform features: https://devcenter.heroku.com/articles/rails-integration-gems for more information.
+gem 'rails_12factor'
 # Use sqlite3 as the database for Active Record
 group :production, :staging do
   gem "pg"
@@ -13,6 +15,8 @@ end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'haml'
+gem 'foundation-rails'
+gem 'foundation-icons-sass-rails', '~> 3.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
