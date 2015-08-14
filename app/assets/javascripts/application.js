@@ -16,4 +16,12 @@
 //= require turbolinks
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+/* 
+  workaround for default font 'Times New Roman', which fails in Chrome with:
+  "Uncaught Error: Syntax error, unrecognized expression: [data-'Times New Roman'-abide]"
+*/
+//$(function(){ $(document).foundation(); });
+Foundation.set_namespace = function () {
+    this.global.namespace = [];
+};
+$(document).foundation();
