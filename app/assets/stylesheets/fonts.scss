@@ -1,9 +1,9 @@
 @font-face{
   font-family: "Social Icons";
-  src: font_path('socialfont.eot');
-  src: font_path('socialfont.svg#SSSocialCircle') format('svg'),
-    font_path('socialfont.woff') format('woff'),
-    font_path('socialfont.ttf') format('truetype');
+  src: font-url('socialfont.eot');
+  src: font-url('socialfont.svg#SSSocialCircle') format('svg'),
+    font-url('socialfont.woff') format('woff'),
+    font-url('socialfont.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
