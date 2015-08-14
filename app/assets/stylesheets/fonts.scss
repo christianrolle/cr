@@ -1,7 +1,9 @@
 @font-face{
-  font-family: "Social Icons";
+  font-family: "SocialIcons";
   src: font-url('socialfont.eot');
-  src: font-url('socialfont.svg#SSSocialCircle') format('svg'),
+/*  src: font-url('socialfont.eot?#iefix') format(embedded-opentype),*/
+/*  src: font-url('socialfont.svg#SSSocialCircle') format('svg'),*/
+  src: font-url('socialfont.svg#socialicons') format('svg'),
     font-url('socialfont.woff') format('woff'),
     font-url('socialfont.ttf') format('truetype');
   font-weight: normal;
@@ -11,7 +13,7 @@
 html:hover [class^="ss-"]{-ms-zoom: 1;}
 
 .icon{
-  font-family: 'Social Icons';
+  font-family: 'SocialIcons';
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   -ms-text-rendering: optimizeLegibility;
