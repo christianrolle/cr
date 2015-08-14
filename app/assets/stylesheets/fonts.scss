@@ -1,20 +1,9 @@
-/*
 @font-face{
   font-family: "Social Icons";
-  src: url('MonoSocialIconsFont-1.10.eot');
-  src: url('assets/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg'),
-    url('MonoSocialIconsFont-1.10.woff') format('woff'),
-    url('MonoSocialIconsFont-1.10.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-*/
-@font-face{
-  font-family: "Social Icons";
-  src: asset-url('socialfont.eot');
-  src: asset-url('socialfont.svg#SSSocialCircle') format('svg'),
-    asset-url('socialfont.woff') format('woff'),
-    asset-url('socialfont.ttf')  format('truetype');
+  src: font_path('socialfont.eot');
+  src: font_path('socialfont.svg#SSSocialCircle') format('svg'),
+    font_path('socialfont.woff') format('woff'),
+    font_path('socialfont.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
