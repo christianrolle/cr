@@ -11,10 +11,10 @@
 */
 @font-face{
   font-family: "Social Icons";
-  src: url('socialfont.eot');
-  src: url('socialfont.svg#SSSocialCircle') format('svg'),
-    url('socialfont.woff') format('woff'),
-    url('socialfont.ttf')  format('truetype');
+  src: asset-url('socialfont.eot');
+  src: asset-url('socialfont.svg#SSSocialCircle') format('svg'),
+    asset-url('socialfont.woff') format('woff'),
+    asset-url('socialfont.ttf')  format('truetype');
   font-weight: normal;
   font-style: normal;
 }
