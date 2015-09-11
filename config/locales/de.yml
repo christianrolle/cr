@@ -1,2 +1,5 @@
 de:
   meta_description: Suchst du einen full-stack Ruby on Rails Web Entwickler? Dann bist du hier goldrichtig. Project management und langjährige Erfahungen als Software Entwickler.
+  date:
+    formats:
+      abbr_long: "%b %e, %Y"
