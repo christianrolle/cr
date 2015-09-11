@@ -1,4 +1,8 @@
 %h1 Articles
-%ul.articles
+%ul.posts
   - @articles.each do |article|
-    %li= article.title
+    %li
+      .published_at= article.published_at
+      %h2
+        = link_to article.title, article
+
