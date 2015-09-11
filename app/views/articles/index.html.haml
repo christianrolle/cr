@@ -2,7 +2,7 @@
 %ul.inline-list
   - @articles.each do |article|
     %li
-      .published_at= I18n.localize article.published_on, format: :abbr_long
+      .published_on= I18n.localize article.published_on, format: :abbr_long
       %h2
         = link_to article.title, article
 

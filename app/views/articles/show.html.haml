@@ -1,4 +1,4 @@
 %header
   %h1= @article.title
-  .published_at= @article.published_at
+  .published_on= I18n.localize @article.published_on, format: :abbr_long
 %article= @article.content
