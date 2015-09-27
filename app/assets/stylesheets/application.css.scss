@@ -12,7 +12,9 @@
  *
  *= require_tree .
  *= require_self
- */
+*/
+@import "foundation_and_overrides";
+
 body{
   background-color: #EEE;
   font-size: 21px;
@@ -33,6 +35,4 @@ body{
       color: #555; 
     }
   }
-}
-a.fi{
 }
