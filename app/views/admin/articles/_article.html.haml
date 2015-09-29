@@ -1,0 +1,6 @@
+%ul
+  %li{ id: dom_id(article) }
+    = article.title
+    = link_to 'show', article
+    = link_to 'edit', edit_admin_article_path(article.id)
+    = link_to 'destroy', admin_article_path(article.id), remote: true, method: :destroy
