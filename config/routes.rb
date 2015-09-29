@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   match 'logout', to: "user_sessions#destroy", via: :get
   root 'welcome#index'
 
+  resources :user_sessions, only: :create
   resources :articles, path: 'blog', only: [:index, :show]
   namespace :admin do
     resources :articles, except: :show
