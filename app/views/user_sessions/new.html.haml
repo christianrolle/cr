@@ -1,15 +1,14 @@
-Login
-- logger.debug 'User session'+ @user_session.inspect
-- logger.debug 'User session'+ @user.inspect
-- form_for @user_session do |f|
-  = f.error_messages
+%ul
+- @user_session.errors.full_messages.each do |message|
+  %li= message
+= form_for @user_session do |f|
   %p
-    = f.label :username
+    = f.label :email
     %br
-    = f.text_field :username
+    = f.text_field :email
   %p
     = f.label :password
     %br
     = f.password_field :password
                           
-  %p= f.submit "Submit"
+  %p= f.submit "Login"
