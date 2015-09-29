@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150927180158) do
+ActiveRecord::Schema.define(version: 20150927183934) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -41,22 +41,34 @@ ActiveRecord::Schema.define(version: 20150927180158) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
-  create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+  create_table "user_sessions", force: :cascade do |t|
+    t.string   "session_id", null: false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "user_sessions", ["session_id"], name: "index_user_sessions_on_session_id"
+  add_index "user_sessions", ["updated_at"], name: "index_user_sessions_on_updated_at"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name",                default: "", null: false
+    t.string   "login",                            null: false
+    t.string   "crypted_password",                 null: false
+    t.string   "password_salt",                    null: false
+    t.string   "email",                            null: false
+    t.string   "persistence_token",                null: false
+    t.string   "single_access_token",              null: false
+    t.string   "perishable_token",                 null: false
+    t.integer  "login_count",         default: 0,  null: false
+    t.integer  "failed_login_count",  default: 0,  null: false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
 
 end
