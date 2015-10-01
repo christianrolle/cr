@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 ruby '2.2.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-# enables all platform features: https://devcenter.heroku.com/articles/rails-integration-gems for more information.
-gem 'rails_12factor'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'haml'
@@ -24,18 +22,26 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # Generates friendly slug ids
 gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
+#gem 'unicorn'
+# Use Unicorn as the app server
+gem "unicorn-rails"
 
+# When the Rack::Timeout limit is hit, it closes the requests and generates a stacktrace in the logs 
+# that can be used for future debugging of long running code
+gem 'rack-timeout'
 # stages
 group :production, :staging do
   # Use postgresql as the database for Active Record
   gem "pg"
+  # enables all platform features: https://devcenter.heroku.com/articles/rails-integration-gems for more information.
+  # This gem adds the rails_stdout_logging gem, which sends the logs to standard output.
+  # This is useful in a production environment but not in development when Rails already does it by default.
+  gem 'rails_12factor'
 end
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
-  # Use Unicorn as the app server
-  gem "unicorn-rails"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   # Access an IRB console on exception pages or by using <%= console %> in views
