@@ -1,0 +1,9 @@
+= render partial: 'shared/errors', object: @article.errors
+= form_for [:admin, @article] do |f|
+  .right
+    = f.submit 'Speichern'
+    = link_to 'zurück', admin_articles_path
+  = f.label :title
+  = f.text_field :title
+  = f.label :text
+  = f.text_area :content, rows: 50
