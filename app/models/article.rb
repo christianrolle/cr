@@ -9,6 +9,10 @@ class Article < ActiveRecord::Base
     published_at.to_date
   end
 
+  def published?
+    published_at.present?
+  end
+  
   def generate_slug
     self.slug = title.parameterize
   end
