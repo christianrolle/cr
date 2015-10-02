@@ -1,6 +1,6 @@
 class Admin::ArticlesController < ApplicationController
   def index
-    @articles = Article.all
+    @articles = Article.published.all
   end
 
   def new
@@ -18,6 +18,13 @@ class Admin::ArticlesController < ApplicationController
 
   def edit
     @article = Article.find params[:id]
+  end
+
+  def update
+    @article = Article.find params[:id]
+    @article.attributes = article_params
+    @article.save
+    return render(action: :edit)
   end
 
   def destroy

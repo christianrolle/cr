@@ -1,9 +1,9 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.all
+    @articles = Article.published.all
   end
 
   def show
-    @article = Article.friendly.find params[:id]
+    @article = Article.find_by_slug params[:id]
   end
 end
