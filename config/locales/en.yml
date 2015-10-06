@@ -3,3 +3,17 @@ en:
   date:
     formats:
       abbr_long: "%b %e, %Y"
+
+  activerecord:
+    models:
+      article: article
+    attributes:
+      article:
+        title: Title
+        content: Text
+        published_at: Published at
+  helpers:
+    submit:
+      create: 'Create %{model}'
+      update: 'Save %{model}'
+    
