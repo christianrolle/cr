@@ -1,8 +1,5 @@
 en:
   meta_description: Are you looking for a full-stack Ruby on Rails web developer? Then you've come to the right place. Project management and extensive experience as a developer.
-  date:
-    formats:
-      abbr_long: "%b %e, %Y"
 
   activerecord:
     models:
@@ -16,4 +13,11 @@ en:
     submit:
       create: 'Create %{model}'
       update: 'Save %{model}'
-    
+  date:
+    formats:
+      abbr_long: "%b %e, %Y"
+#   time:
+#    formats:
+#      default: "%Y-%m-%d %H:%M"
+#      long: "%B %d, %Y %I:%M %p"
+#      short: "%d %b %I:%M %p"

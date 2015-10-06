@@ -1,5 +1,10 @@
 de:
   admin:
     articles:
+      edit:
+        title: "Artikel '%{article}' bearbeiten"
+      new:
+        title: "Neuen Artikel erstellen"
       form:
         back: Zurück zur Liste
+        preview: Vorschau
