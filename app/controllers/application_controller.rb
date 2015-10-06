@@ -7,7 +7,17 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  before_filter :set_locale
+
 private
+  def extract_locale_from_accept_language_header
+    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+  end
+
+  def set_locale
+    I18n.locale = extract_locale_from_accept_language_header || I18n.default_locale
+  end
+
   def current_user_session
     return @current_user_session if defined?(@current_user_session)
     @current_user_session = UserSession.find
