@@ -1,4 +1,6 @@
 %header
   %h1= @article.title
   .published_on= I18n.localize @article.published_on, format: :abbr_long
-%article= @article.content
+%article
+  = preserve do
+    = MarkdownService.call @article.content

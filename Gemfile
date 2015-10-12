@@ -24,8 +24,9 @@ gem 'jbuilder', '~> 2.0'
 #gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
 #gem 'unicorn'
 # Use Unicorn as the app server
-gem "unicorn-rails"
-
+gem 'unicorn-rails'
+gem 'rouge'
+gem 'redcarpet'
 # When the Rack::Timeout limit is hit, it closes the requests and generates a stacktrace in the logs 
 # that can be used for future debugging of long running code
 gem 'rack-timeout'

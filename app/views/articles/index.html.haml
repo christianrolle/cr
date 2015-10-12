@@ -4,4 +4,4 @@
     %li
       .published_on= I18n.localize article.published_on, format: :abbr_long
       %h2
-        = link_to article.title, article
+        = link_to article.title, article_path(article.slug)

@@ -1,6 +1,7 @@
 %ul
   %li{ id: dom_id(article) }
-    = article.title
+    %b= article.title
+    = article.published_at
     = link_to 'show', article_path(article.slug) if article.published?
     = link_to 'edit', [:edit, :admin, article]
     = link_to 'destroy', [:admin, article], remote: true, method: :destroy
