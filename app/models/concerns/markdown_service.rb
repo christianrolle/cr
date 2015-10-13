@@ -5,11 +5,9 @@ class MarkdownService
     include Rouge::Plugins::Redcarpet
     protected
     def rouge_formatter(opts = {})
-#      ::Rouge::Formatters::HTML.new(opts.merge({ css_class: "hll" }))
       options = { 
-        css_class: 'highlight', 
-        line_numbers: true
-      }
+        css_class:    'highlight', 
+        line_numbers: true }
       Rouge::Formatters::HTML.new options
     end
   end
@@ -33,10 +31,7 @@ class MarkdownService
     options = {
       autolink:           true, 
       tables:             true,
-#      wrap:               true,
-#      disable_indented_code_blocks: true,
-      fenced_code_blocks: true
-    }
+      fenced_code_blocks: true }
     Redcarpet::Markdown.new(Renderer, options)
   end
 
