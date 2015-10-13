@@ -46,6 +46,6 @@ en:
       - October
       - November
       - December
-   time:
+  time:
     formats:
       default: "%Y-%m-%d %H:%M"
