@@ -15,9 +15,37 @@ en:
       update: 'Save %{model}'
   date:
     formats:
-      abbr_long: "%b %e, %Y"
-#   time:
-#    formats:
-#      default: "%Y-%m-%d %H:%M"
-#      long: "%B %d, %Y %I:%M %p"
-#      short: "%d %b %I:%M %p"
+      default: "%m-%d-%Y"
+      long: "%B %-d, %Y"
+      short: "%b %-d, %Y"
+    abbr_month_names:
+      - 
+      - Jan
+      - Feb
+      - Mar
+      - Apr
+      - May
+      - Jun
+      - Jul
+      - Aug
+      - Sep
+      - Oct
+      - Nov
+      - Dec
+    month_names:
+      - 
+      - January
+      - February
+      - March
+      - April
+      - May
+      - June
+      - July
+      - August
+      - September
+      - October
+      - November
+      - December
+   time:
+    formats:
+      default: "%Y-%m-%d %H:%M"

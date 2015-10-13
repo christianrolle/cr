@@ -2,6 +2,6 @@
 %ul.inline-list
   - @articles.each do |article|
     %li
-      .published_on= I18n.localize article.published_on, format: :abbr_long
+      .published_on= I18n.localize article.published_on, format: :short
       %h2
         = link_to article.title, article_path(article.slug)

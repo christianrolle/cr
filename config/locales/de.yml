@@ -14,9 +14,37 @@ de:
       update: '%{model} speichern'
   date:
     formats:
-      abbr_long: "%b %e, %Y"
-#  time:
-#    formats:
-#      default: "%d.%m.%Y %H:%M"
-#      long: "%A, %d. %B %Y, %H:%M Uhr"
-#      short: "%d. %B, %H:%M Uhr"
+      default: "%d.%m.%Y"
+      long: "%-d. %B %Y"
+      short: "%-d. %b. %Y"
+    abbr_month_names:
+      -
+      - Jan
+      - Feb
+      - Mär
+      - Apr
+      - Mai
+      - Jun
+      - Jul
+      - Aug
+      - Sep
+      - Okt
+      - Nov
+      - Dez
+    month_names:
+      - 
+      - Januar
+      - Februar
+      - März
+      - April
+      - Mai
+      - Juni
+      - Juli
+      - August
+      - September
+      - Oktober
+      - November
+      - Dezember
+  time:
+    formats:
+      default: "%d.%m.%Y %H:%M"
