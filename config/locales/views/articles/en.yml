@@ -4,7 +4,7 @@ en:
       edit:
         title: "Edit article '%{article}'"
       new:
-        title: "Create new article"
+        title: Create new article
       form:
         back: Back to list
         preview: Preview
