@@ -1,14 +1,22 @@
 @font-face{
   font-family: "SocialIcons";
   src: font-url('socialfont.eot');
-/*  src: font-url('socialfont.eot?#iefix') format(embedded-opentype),*/
-/*  src: font-url('socialfont.svg#SSSocialCircle') format('svg'),*/
   src: font-url('socialfont.svg#socialicons') format('svg'),
     font-url('socialfont.woff') format('woff'),
     font-url('socialfont.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
+@font-face{
+  font-family: "Open Sans";
+/*  src: font-url('socialfont.eot');
+  src: font-url('socialfont.svg#socialicons') format('svg'),*/
+  src: font-url('open_sans_regular.woff2') format('woff2'),
+    font-url('open_sans_regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* This triggers a redraw in IE to Fix IE8's :before content rendering. */
 html:hover [class^="ss-"]{-ms-zoom: 1;}
 

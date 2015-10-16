@@ -1,7 +1,8 @@
-%h1 Articles
-%ul.inline-list
+%header.row
+  %h2 Blog
+%ul.no-bullet.row
   - @articles.each do |article|
     %li
-      .published_on= I18n.localize article.published_on, format: :short
+      %time{ datetime: l(article.published_on) }= l article.published_on, format: :short
       %h2
         = link_to article.title, article_path(article.slug)

@@ -1,4 +1,5 @@
 %header
+  %time{ datetime: l(@article.published_on) }= l @article.published_on, format: :long
+%article
   %h1= @article.title
-  .published_on= I18n.localize @article.published_on, format: :long
-%article= preserve { MarkdownService.call @article.content }
+  = preserve { MarkdownService.call @article.content }
