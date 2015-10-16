@@ -1,4 +1,7 @@
 en:
+  articles:
+    index:
+      blog_by: Blog by Christian Rolle
   admin:
     articles:
       edit:

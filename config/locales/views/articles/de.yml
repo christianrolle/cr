@@ -1,4 +1,7 @@
 de:
+  articles:
+    index:
+      blog_by: "Blog von %{author}"
   admin:
     articles:
       edit:
