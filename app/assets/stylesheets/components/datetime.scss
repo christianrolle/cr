@@ -1,0 +1,11 @@
+.datetime-picker{
+  input{
+    width: 10em;
+  }
+  .postfix{
+    width: 3em;
+    .fi-calendar{
+      font-size: 2em;
+    }
+  }
+}

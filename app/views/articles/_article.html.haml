@@ -1,0 +1,4 @@
+%li.article
+  %time{ datetime: l(article.published_on) }
+    = l article.published_on, format: :short
+  %h2= link_to article.title, article_path(article.slug)
