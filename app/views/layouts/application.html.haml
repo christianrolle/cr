@@ -5,8 +5,9 @@
     %meta{ name: 'description', content: "You are looking for a full-stack Ruby on Rails web developer? Then you've come to the right place. Project management and extensive experience as a developer." }
     %meta{ name: 'author', content: 'Christian Rolle' }
     %meta{ charset: 'utf-8' }
-    %meta{ name: 'viewport', content: 'width=device-width', 'initial-scale' => '1.0' }
-
+    %meta{ name: 'viewport', content: 'width=device-width', 
+            'initial-scale' => 1, 'maximum-scale' => 1, 
+            'user-scalable' => 'no' }
     = favicon_link_tag gravatar_url
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag "vendor/modernizr"
@@ -14,18 +15,21 @@
     = csrf_meta_tags
   
   %body{ id: controller_name }
-    %nav.bar.large-3.small-12.columns
-      = link_to image_tag(gravatar_url 200), root_url, title: 'Christian Rolle', class: 'avatar'
-      .sub.clearfix
-        %h1.author= link_to 'Christian Rolle', root_url
-        .social
-          = link_to 'twitter', "http://twitter.com/chrissonar", class: 'icon', 
-              target: '_blank'
-          = link_to 'githuboctocat', "https://github.com/christianrolle", 
-              class: 'icon', target: '_blank'
-          = link_to 'linkedin', "http://de.linkedin.com/pub/christian-rolle/5a/745/592", 
-              class: 'icon', target: '_blank'
-          .show-for-large-up
-            Test
-    .main.large-9.small-12.columns.right
-      = yield
+    .container-fluid
+      .row
+        %nav.bar.col-xs-12.col-sm-4.col-md-2
+          = link_to image_tag(gravatar_url 200), root_url, 
+              title: 'Christian Rolle', class: 'avatar'
+          .sub.clearfix
+            %h1.author= link_to 'Christian Rolle', root_url
+            .social
+              = link_to 'twitter', "http://twitter.com/chrissonar", class: 'icon', 
+                  target: '_blank'
+              = link_to 'githuboctocat', "https://github.com/christianrolle", 
+                  class: 'icon', target: '_blank'
+              = link_to 'linkedin', "http://de.linkedin.com/pub/christian-rolle/5a/745/592", 
+                  class: 'icon', target: '_blank'
+              .hidden-xs.hidden-sm
+                Test
+        %main.col-xs-12.col-sm-8.col-md-10.col-sm-offset-4.col-md-offset-2
+          = yield

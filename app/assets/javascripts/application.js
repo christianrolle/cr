@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
 //= require turbolinks
 //= require admin/articles.coffee
 
@@ -21,7 +20,9 @@
   "Uncaught Error: Syntax error, unrecognized expression: [data-'Times New Roman'-abide]"
 */
 //$(function(){ $(document).foundation(); });
+/*
 Foundation.set_namespace = function () {
   this.global.namespace = [];
 };
 $(document).foundation();
+*/
