@@ -10,28 +10,29 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
 */
-@import "foundation_and_overrides";
+@import "fonts.scss";
+@import "foundation-icons";
+@import "foundation_and_overrides.scss";
+@import "articles.scss";
+@import "admin/articles.scss";
 
 body{
-  background-color: #EEE;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+  background-color: $snow;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif !important;
+  
   margin: 0;
   min-height: 100%;
   nav.bar{
     display: block;
-    background-color: #CCC;
+    background-color: $gainsboro;
+//    background-image: image-url('books_klein.png') no-repeat;
     .avatar{
-      display: inline-block;
       img{
-        border-radius: 70px;
-        border: 5px solid #555;
+        height: auto;
+        border-radius: 100%;
       }
-    }
-    h1.author{
-      @extend h3;
     }
   }
   main{
@@ -40,32 +41,91 @@ body{
 }
 @media #{$small-up}{
   nav.bar{
-    text-align: left !important;
-    padding: 5px 0px 0px 0px;
+    padding: 0.5% 1% 0.5% 3%;
     transition: all 0.2s ease-out 0s;
     .avatar{
+      display: inline-block;
       float: left;
+      padding-right: 10%;
       img{
-        max-width: 80px;
-        border: 4px solid #555;
+        width: 70px;
+        border: 0.2em solid $charcoal;
         transition: all 0.2s ease-in 0s;
+      }
+    }
+    .sub{
+      display: inline-block;
+      text-align: center !important;
+      h1.author{
+        font-size: $h3-font-size;
+        line-height: 1;
+        padding-top: 5px;
+      }
+      .social{
+        padding-top: 8px;
+        .icon{
+          margin: 0 3px 0 0;
+          font-size: $h3-font-size !important;
+          line-height: 1em;
+        }
       }
     }
   }
 }
-
+/*
+@media #{$medium-only}{
+  nav.bar{
+    padding: 0.4% 3% 0.4% 3%;
+    .avatar{
+      padding-right: 5%;
+      img{
+        width: 60px;
+        border: 0.3em solid #555;
+      }
+    }
+    .sub{
+      position: relative;
+      top: 2%;
+      h1.author{
+        float: left;  
+        font-size: $h2-font-size !important;
+        padding-right: 5%;
+      }
+      .social{
+        position: relative;
+        top: 20px;
+      }
+    }
+  }
+}
+*/
 @media #{$large-up}{
   nav.bar{
     text-align: right !important;
-    padding: 10px 20px 0px 0px;
+    padding: 1% 3% 0px 0px;
     position: fixed;
     height: 100%;
     transition: all 0.2s ease-in 0s;
     .avatar{
+      display: inline-block;
       float: none;
+      padding-right: 0px;
       img{
-        max-width: 100px;
+        width: 100px;
+        border: 0.3em solid $charcoal;
         transition: all 0.2s ease-out 0s;
+      }
+    }
+    h1.author{
+      font-size: $h2-font-size !important;
+      padding: 1em 0em 0.5em 0em !important;
+    }
+    .sub{
+      text-align: right !important;
+      display: block;
+      .social .icon{
+        text-align: right;
+        margin: 0 0 0 3px;
       }
     }
   }

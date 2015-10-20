@@ -1,4 +1,45 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+#articles{
+  header{
+    margin-top: 1em;  
+    font-size: 0.9em;
+    color: $aluminum;
+  }
+  article{
+    max-width: 1014px;
+    .text{
+//      border-top: 5px solid $smoke;
+      padding: 5px;
+      background-color: $smoke;
+//      border: 2px solid $iron;
+      border-radius: 5px;
+      h1{
+        font-family: "Open Sans" !important;
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+      .highlight{
+        table{
+          border: 2px solid $iron;
+          border-radius: 5px;
+        }
+        .gutter{
+          background-color: $iron;
+        }  
+        .code{
+          width: 100%;
+//          width: 80em;
+          background-color: $white-smoke;
+          pre{
+            font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace !important;
+            span{
+            }
+//            width: 50em;  
+          }
+        }
+      }
+    }
+  }
+}

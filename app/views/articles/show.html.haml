@@ -2,4 +2,4 @@
   %time{ datetime: l(@article.published_on) }= l @article.published_on, format: :long
 %article
   %h1= @article.title
-  = preserve { MarkdownService.call @article.content }
+  .text= preserve { MarkdownService.call @article.content }

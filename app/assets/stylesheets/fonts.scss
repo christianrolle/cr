@@ -17,6 +17,16 @@
   font-style: normal;
 }
 
+@font-face{
+  font-family: "Lobster";
+/*  src: font-url('socialfont.eot');
+  src: font-url('socialfont.svg#socialicons') format('svg'),*/
+  src: font-url('lobster.woff2') format('woff2'),
+    font-url('lobster.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* This triggers a redraw in IE to Fix IE8's :before content rendering. */
 html:hover [class^="ss-"]{-ms-zoom: 1;}
 
@@ -36,7 +46,6 @@ html:hover [class^="ss-"]{-ms-zoom: 1;}
 }
 a.icon {
   content: attr(title);
-  margin-right: 0.3em;
   font-size: 130%;
 }
 

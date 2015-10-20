@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
-//= require_tree .
+//= require admin/articles.coffee
 
 /* 
   workaround for default font 'Times New Roman', which fails in Chrome with:
@@ -22,6 +22,6 @@
 */
 //$(function(){ $(document).foundation(); });
 Foundation.set_namespace = function () {
-    this.global.namespace = [];
+  this.global.namespace = [];
 };
 $(document).foundation();

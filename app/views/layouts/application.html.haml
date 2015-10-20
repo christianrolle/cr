@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-%html
+%html{ lang: locale }
   %head
     %title Christian Rolle
     %meta{ name: 'description', content: "You are looking for a full-stack Ruby on Rails web developer? Then you've come to the right place. Project management and extensive experience as a developer." }
@@ -14,15 +14,18 @@
     = csrf_meta_tags
   
   %body{ id: controller_name }
-    %nav.bar.large-2.small-12.columns
+    %nav.bar.large-3.small-12.columns
       = link_to image_tag(gravatar_url 200), root_url, title: 'Christian Rolle', class: 'avatar'
-      %h1.author= link_to 'Christian Rolle', root_url
-      .social
-        = link_to 'twitter', "http://twitter.com/chrissonar", class: 'icon'
-        = link_to 'githuboctocat', "https://github.com/christianrolle", class: 'icon'
-        = link_to 'linkedin', "http://de.linkedin.com/pub/christian-rolle/5a/745/592", 
-            class: 'icon'
-        .show-for-large-up
-          Test
-    .main.large-10.small-12.columns.right
+      .sub.clearfix
+        %h1.author= link_to 'Christian Rolle', root_url
+        .social
+          = link_to 'twitter', "http://twitter.com/chrissonar", class: 'icon', 
+              target: '_blank'
+          = link_to 'githuboctocat', "https://github.com/christianrolle", 
+              class: 'icon', target: '_blank'
+          = link_to 'linkedin', "http://de.linkedin.com/pub/christian-rolle/5a/745/592", 
+              class: 'icon', target: '_blank'
+          .show-for-large-up
+            Test
+    .main.large-9.small-12.columns.right
       = yield

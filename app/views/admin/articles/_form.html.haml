@@ -1,13 +1,18 @@
 = render partial: 'shared/errors', object: @article.errors
-= form_for [:admin, @article] do |f|
+= form_for [:admin, @article], html: { id: nil, class: 'article' } do |f|
   .row.collapse
     %ul.button-group.round.small-12.large-8.columns
       %li= f.submit class: 'button'
       %li= link_to t('.preview'), @article, class: 'button'
       %li= link_to t('.back'), admin_articles_path, class: 'button'
-    .right.small-12.large-4.columns
-      = f.label :published_at
-      = f.datetime_local_field :published_at
+    .small-12.large-4.columns
+      = f.label :published_at, class: 'text-right'
+      .row.collapse.right.postfix-radius.datetime-picker
+        .small-9.columns
+          = f.datetime_local_field :published_at 
+        .small-3.columns
+          %span.postfix
+            %i.fi-calendar
   .row.collapse.prefix-radius
     .small-2.large-1.columns= f.label :title, class: 'prefix'
     .small-10.large-11.columns= f.text_field :title
