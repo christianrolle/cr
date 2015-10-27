@@ -1,5 +1,9 @@
 class Article < ActiveRecord::Base
   before_validation :generate_slug
+
+  has_many :article_tags, :dependent: :delete_all
+  has_many :tags, through: :article_tags
+
   validates :title, uniqueness: true, length: { in: 3..200 }
   validates :slug, uniqueness: true
 
