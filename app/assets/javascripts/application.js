@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require vendor/bootstrap3-typeahead.min.js
+//= require components/typeahead.js
 //= require admin/articles
