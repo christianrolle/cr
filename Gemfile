@@ -7,6 +7,7 @@ gem 'rails', '4.2.1'
 gem 'sass-rails', '~> 5.0'
 gem 'haml'
 gem 'bootstrap-sass'
+gem 'bootstrap3-datetimepicker-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -26,7 +27,8 @@ gem 'jbuilder', '~> 2.0'
 # Use Unicorn as the app server
 gem 'unicorn-rails'
 gem 'rouge'
-gem 'redcarpet'
+gem 'kramdown'
+gem 'middleman-syntax'
 # When the Rack::Timeout limit is hit, it closes the requests and generates a stacktrace in the logs 
 # that can be used for future debugging of long running code
 gem 'rack-timeout'
