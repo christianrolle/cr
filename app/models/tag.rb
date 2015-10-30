@@ -1,5 +1,5 @@
 class Tag < ActiveRecord::Base
-  scope :ordered, order('name ASC')
+  scope :ordered, -> { order('name ASC') }
 
   def self.search(term=nil)
     return scoped if term.blank?
