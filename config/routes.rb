@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :articles, path: 'blog', only: [:index, :show]
   resources :tags, only: :index
   namespace :admin do
-    resources :articles, except: :show
-    resources :article_tags, only: [:create, :destroy]
+    resources :article_tags, only: :destroy
+    resources :articles, except: :show do
+      resources :article_tags, only: :create
+    end
   end
 end
