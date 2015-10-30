@@ -5,6 +5,12 @@
       = f.submit class: 'btn btn-default'
       = link_to t('.preview'), @article, class: 'btn btn-default'
       = link_to t('.back'), admin_articles_path, class: 'btn btn-default'
+      .form-group.col-xs-2
+        = text_field_tag "article[tag_names]", nil, autocomplete: 'off',
+          class: 'form-control typeahead', placeholder: 'tags',
+          data: { search: tags_path, 
+                  submit: admin_article_article_tags_path(@article) }
+
     .col-xs-12.col-md-2
       .form-group
         .row.text-right
@@ -14,19 +20,12 @@
             = f.datetime_local_field :published_at, class: 'form-control'
             %span.input-group-addon
               %span.glyphicon.glyphicon-calendar{ "aria-hidden" => true }
-    .col-xs-12.col-md-2
-      .form-group
-        .row.text-right
-          = f.label :tags
-        .row.pull-right
-          .input-group.text-right
-            = text_field_tag "article[tag_names]", nil, autocomplete: 'off',
-                class: 'typeahead',
-                data: { provide: 'typeahead', search: tags_path, submit: admin_article_tags_path }
-
   .row
-    .form-group.col-xs-6
+    #article_tags.col-xs-12= render @article.article_tags
+  .row
+    .form-group.col-xs-8
       = f.label :title
       = f.text_field :title, class: 'form-control'
+
   .row
     .form-group.col-xs-8= f.text_area :content, rows: 40, class: 'form-control'
