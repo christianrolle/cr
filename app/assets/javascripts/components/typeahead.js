@@ -14,7 +14,12 @@ function autocomplete(selector){
   $(selector).each(function(id, element){
     $(element).one('focus', function(event){
       $(this).typeahead({
-//        updater: autocomplete_submitter
+        updater: function(data){
+          var input = $(this.$element);
+          var url = input.attr('data-submit');
+          var type = input.attr('data-method') || 'POST';
+          $.ajax({ type: type, url: url, data: data })
+        }
       });
     });
   });
