@@ -1,0 +1,4 @@
+.tag{ id: dom_id(article_tag) }
+  = article_tag.name
+  = link_to 'x', admin_article_tag_path(article_tag), method: :delete, 
+      remote: true
