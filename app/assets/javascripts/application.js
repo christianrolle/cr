@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require moment
+//= require moment/de.js
+//= require moment/en-gb.js
 //= require bootstrap-datetimepicker
 //= require vendor/bootstrap3-typeahead.min.js
 //= require components/typeahead.js
@@ -27,9 +29,12 @@ $.extend(true, $.fn.datetimepicker.defaults, {
 })                                                                              
 /* Bootstrap datetimepicker default configuration end */                        
 $(document).ready(function(){
+  moment.locale( $('html').attr('lang') );
+
   $('input[type=datetime-local]').datetimepicker({
-    format: 'DD.MM.YYYY, HH:mm',                                                
-    extraFormats: ['YYYY-MM-DD HH:mm:ss']
+    format: "L, LT",
+    extraFormats: ['YYYY-MM-DD HH:mm:ss'],
+    locale: moment.locale()
   }).next().on('click', function(){
     $(this).prev().data('DateTimePicker').show()
   })
