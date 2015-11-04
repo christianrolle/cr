@@ -33,7 +33,6 @@ class Admin::ArticlesController < ApplicationController
   end
 private
   def article_params
-    logger.debug '#'*100
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content, :published_at)
   end
 end
