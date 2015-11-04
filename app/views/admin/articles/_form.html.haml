@@ -18,7 +18,7 @@
         .row.pull-right
           .input-group.text-right
             = f.datetime_local_field :published_at, class: 'form-control'
-            %span.input-group-addon
+            %span.input-group-addon.pointer
               %span.glyphicon.glyphicon-calendar{ "aria-hidden" => true }
   .row
     #article_tags.col-xs-12= render @article.article_tags

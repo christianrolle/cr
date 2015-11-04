@@ -22,9 +22,12 @@
 body{
   background-color: $smoke;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif !important;
-  
   margin: 0;
   min-height: 100%;
+
+  .pointer{
+    cursor: pointer;
+  }
   nav.bar{
     background-color: $gainsboro;
     .avatar{
