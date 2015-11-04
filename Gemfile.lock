@@ -232,6 +232,7 @@ DEPENDENCIES
   jquery-rails
   kramdown
   middleman-syntax
+  momentjs-rails
   pg
   rack-timeout
   rails (= 4.2.1)
