@@ -16,9 +16,12 @@ function autocomplete(selector){
       $(this).typeahead({
         updater: function(data){
           var input = $(this.$element);
-          var url = input.attr('data-submit');
-          var type = input.attr('data-method') || 'POST';
-          $.ajax({ type: type, url: url, data: data })
+          $.ajax({ 
+            type: input.attr('data-method') || 'POST', 
+            url: input.attr('data-submit'), 
+            data: data,
+            success: input.val('')
+          })
         }
       });
     });
