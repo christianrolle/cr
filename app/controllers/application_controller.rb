@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   before_filter :set_locale
+  
+  ACCEPTED_LOCALES = %w(de en)
 
 private
   def extract_locale_from_accept_language_header
@@ -15,7 +17,8 @@ private
   end
 
   def accepted_locale
-    return 'de' if extract_locale_from_accept_language_header.eql?('de')
+    extracted_locale = extract_locale_from_accept_language_header
+    return extracted_locale if ACCEPTED_LOCALES.include?(extracted_locale)
     I18n.default_locale
   end
 
