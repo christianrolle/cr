@@ -6,9 +6,10 @@
       = link_to t('.preview'), @article, class: 'btn btn-default'
       = link_to t('.back'), admin_articles_path, class: 'btn btn-default'
       .form-group.col-xs-2
+        %i.glyphicon.glyphicon-search.pre.form-control-mark
         = text_field_tag "article[tag_names]", nil, autocomplete: 'off',
           class: 'form-control typeahead', placeholder: 'tags',
-          data: { search: tags_path, 
+          data: { search: admin_article_tags_path(@article), 
                   submit: admin_article_article_tags_path(@article) }
 
     .col-xs-12.col-md-2
