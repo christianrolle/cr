@@ -5,10 +5,10 @@ Rails.application.routes.draw do
 
   resources :user_sessions, only: :create
   resources :articles, path: 'blog', only: [:index, :show]
-  resources :tags, only: :index
   namespace :admin do
     resources :article_tags, only: :destroy
     resources :articles, except: :show do
+      resources :tags, only: :index
       resources :article_tags, only: :create
     end
   end
