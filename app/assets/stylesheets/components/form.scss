@@ -3,6 +3,7 @@
     &.pre{
       @extend .form-control-feedback;
       color: $iron;
+      z-index: 3;
       right: auto;
       &+input{
         text-indent: 20px;  
