@@ -1,0 +1,12 @@
+.form-group{
+  .glyphicon.form-control-mark{
+    &.pre{
+      @extend .form-control-feedback;
+      color: $iron;
+      right: auto;
+      &+input{
+        text-indent: 20px;  
+      }      
+    }
+  }
+}
