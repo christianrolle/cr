@@ -1,8 +1,7 @@
 class Tag < ActiveRecord::Base
   scope :ordered, -> { order('name ASC') }
-
-  def self.search(term=nil)
-    return scoped if term.blank?
-    where 'name LIKE :term', { term: "%#{term}%" }
-  end
+  scope :excluding, -> (tag_ids=[]) { where.not id: tag_ids if tag_ids.any? }
+  scope :search, -> (term=nil) { 
+    where 'name LIKE :term', { term: "%#{term}%" } if term.present?
+  }
 end
