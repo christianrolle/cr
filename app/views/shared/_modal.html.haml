@@ -1,0 +1,14 @@
+.modal
+  .modal-dialog{ role: 'document' }
+    .modal-content{ class: controller_name }
+      .modal-header
+        %button.close{ type: :button, 'aria-label' => 'Close', 
+                        data: { dismiss: "modal" } }
+          %span{ "aria-hidden" => "true" } &times;
+          %span.sr-only= 'close'
+        %h4.modal-title= title
+      .modal-body
+        = yield
+      .modal-footer
+        %button.btn.btn-default{ type: 'button', data: { dismiss: 'modal' } }
+          Close
