@@ -4,10 +4,10 @@ de:
       blog_by: "Blog von %{author}"
   admin:
     articles:
+      index: 
+        new: Neuen Artikel erstellen
       edit:
         title: "Artikel '%{article}' bearbeiten"
-      new:
-        title: Neuen Artikel erstellen
       form:
         back: Zurück zur Liste
         preview: Vorschau

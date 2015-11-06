@@ -4,10 +4,10 @@ en:
       blog_by: Blog by Christian Rolle
   admin:
     articles:
+      index: 
+        new: Neuen Artikel erstellen
       edit:
         title: "Edit article '%{article}'"
-      new:
-        title: Create new article
       form:
         back: Back to list
         preview: Preview
