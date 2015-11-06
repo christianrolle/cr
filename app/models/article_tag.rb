@@ -1,5 +1,6 @@
 class ArticleTag < ActiveRecord::Base
-  belongs_to :tag
+  belongs_to :tag, counter_cache: true
+  belongs_to :article
 
   validates :article, :tag, presence: true
 
