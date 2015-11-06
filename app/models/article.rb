@@ -8,6 +8,9 @@ class Article < ActiveRecord::Base
   validates :slug, uniqueness: true
 
   scope :published, -> { where.not(published_at: nil) }
+  scope :unpublished_first, -> { order('published_at IS NULL DESC') }
+  scope :creation_order, -> { order('created_at ASC') }
+  scope :ordered, -> { order('published_at DESC') }
 
   def published_on
     published_at.to_date
