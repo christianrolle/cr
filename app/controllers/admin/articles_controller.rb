@@ -1,6 +1,6 @@
 class Admin::ArticlesController < ApplicationController
   def index
-    @articles = Article.all
+    @articles = Article.unpublished_first.ordered.creation_order.all
   end
 
   def new
