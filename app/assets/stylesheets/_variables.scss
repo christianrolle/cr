@@ -18,8 +18,12 @@ $oil         : #333333;
 // $jet         : #222222;
 // $black       : #000000;
 
+// colored
+$brand-danger:  #660000;
+$brand-success:  #005500;
+
 $link-color             : $charcoal;
-$headings-font-family   : "Lobster";
+//$headings-font-family   : "Lobster";
 
 $screen       : "only screen";
 $retina       : "#{$screen} and (min-width : 320px)";
