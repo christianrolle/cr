@@ -1,0 +1,5 @@
+de:
+  admin:
+    tags:
+      tag:
+        delete: "Wollen Sie das Tag '%{name}' wirklich löschen?"

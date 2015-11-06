@@ -1,0 +1,5 @@
+de:
+  admin:
+    tags:
+      tag:
+        delete: "Do you really want to delete the tag '%{name}'?"
