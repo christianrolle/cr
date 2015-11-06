@@ -17,8 +17,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "components/form.scss";
+@import "components/list.scss";
 @import "articles.scss";
 @import "admin/articles.scss";
+@import "admin/tags.scss";
 
 body{
   background-color: $smoke;
