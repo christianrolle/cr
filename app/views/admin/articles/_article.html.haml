@@ -1,7 +1,13 @@
-%ul
-  %li{ id: dom_id(article) }
-    %b= article.title
-    = article.published_at
-    = link_to 'show', article_path(article.slug) if article.published?
-    = link_to 'edit', [:edit, :admin, article]
-    = link_to 'destroy', [:admin, article], remote: true, method: :destroy
+%li.alternated.list-group-item.clearfix{ id: dom_id(article) }
+  .row
+    %h1.h3.lobster.col-md-8= article.title
+    .col-md-2
+      = I18n.l(article.published_at.to_date) if article.published?
+    .col-md-2.text-right
+      = link_to_if article.published?, '', article_path(article.slug),
+          class: 'btn btn-default glyphicon glyphicon-eye-open', 
+          target: '_blank', rel: 'preview'
+      = link_to '', [:edit, :admin, article], 
+          class: 'btn btn-default glyphicon glyphicon-pencil'
+      = link_to '', [:admin, article], remote: true, method: :destroy, 
+          class: 'btn btn-default glyphicon glyphicon-trash'
