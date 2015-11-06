@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :user_sessions, only: :create
   resources :articles, path: 'blog', only: [:index, :show]
   namespace :admin do
+    resources :tags, except: :new
     resources :article_tags, only: :destroy
     resources :articles, except: :show do
       resources :tags, only: :index
