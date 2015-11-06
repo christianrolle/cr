@@ -1,9 +1,10 @@
 %li.alternated.list-group-item{ id: dom_id(tag) }
   = tag.name
   %span.label.label-default.label-pill
+    = tag.article_tags_count
   .pull-right.buttons
     = link_to '', edit_admin_tag_path(tag), remote: true, 
         class: 'glyphicon glyphicon-pencil btn btn-success'
     = link_to '', admin_tag_path(tag), method: :delete, remote: true,
-        data: { confirm: 'Wirklich?' },
+        data: { confirm: t('.delete', name: tag.name) },
         class: 'glyphicon glyphicon-trash btn btn-danger'
