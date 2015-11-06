@@ -1,9 +1,12 @@
+.margin-bottom-md
 #user_nav
   - if current_user
-    = link_to t('admin.articles.new.title'), new_admin_article_path
-    .right
-      = link_to "Logout", logout_path
-    = render @articles
+    .row.margin-bottom-md
+      .col-md-2
+        = link_to t('.new'), new_admin_article_path, class: 'btn btn-default'
+      .col-md-8
+      .col-md-1
+        = link_to "Logout", logout_path, class: 'btn btn-default'
+    %ul.list-group.articles= render @articles
   - else
-    .right
-      = link_to "Login", login_path
+    .pull-right= link_to "Login", login_path, class: 'btn btn-default'
