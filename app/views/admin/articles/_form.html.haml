@@ -13,7 +13,8 @@
             data: { search: admin_article_tags_path(@article), 
                     submit: admin_article_article_tags_path(@article) }
         %span.input-group-addon
-          %span.glyphicon.glyphicon-plus{ "aria-hidden" => true }
+          = link_to '', admin_tags_path, class: 'glyphicon glyphicon-list-alt',
+              remote: true
     .col-xs-12.col-md-2
       .form-group
         .row.text-right
