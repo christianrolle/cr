@@ -16,9 +16,11 @@
 //= require moment
 //= require moment/de.js
 //= require moment/en-gb.js
+//= require bootstrap-sprockets
 //= require bootstrap-datetimepicker
 //= require vendor/bootstrap3-typeahead.min.js
 //= require components/typeahead.js
+//= require components/modal.js
 //= require admin/articles
 
 /* Bootstrap datetimepicker default configuration start */                      
