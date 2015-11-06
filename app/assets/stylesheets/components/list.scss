@@ -1,0 +1,8 @@
+.list-group-item{
+  &.alternated{
+    background-color: $smoke;
+    &:nth-child(odd){
+      background-color: $gainsboro;
+    }
+  }  
+}
