@@ -1,0 +1,8 @@
+%i.glyphicon.glyphicon-search.pre.form-control-mark
+= text_field_tag "article[tag_names]", nil, autocomplete: 'off', 
+      id: nil, class: 'form-control typeahead tags', placeholder: 'Tags',
+      data: { search: admin_article_tags_path(@article), 
+              submit: admin_article_article_tags_path(@article) }
+%span.input-group-addon
+  = link_to '', admin_tags_path, class: 'glyphicon glyphicon-list-alt',
+        remote: true

@@ -1,0 +1,2 @@
+%i{ class: "glyphicon glyphicon-tag#{'s' if tags.size > 1}" }
+  = tags.map(&:name).join(', ')

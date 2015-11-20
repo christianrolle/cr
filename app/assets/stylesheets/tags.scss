@@ -1,0 +1,20 @@
+.tags{
+  color: $aluminum; 
+  &.glyphicon{
+    position: static;
+    top: 0px;
+    &:before{
+      float: left;
+      margin-right: 0.5em;
+    }
+  }
+  > *{ 
+    font-family: "Open Sans" !important;
+    font-weight: normal;
+    float: left;
+    &:not(:last-child):after{ 
+      margin-right: 0.5em;
+      content: ',' 
+    }
+  }
+}
