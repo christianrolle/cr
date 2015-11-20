@@ -1,21 +1,15 @@
 = render partial: 'shared/errors', object: @article.errors
 = form_for [:admin, @article], html: { id: nil, class: 'article' } do |f|
   .row
-    .btn-group.round.col-xs-12.col-md-8
-      = f.submit class: 'btn btn-default'
-      = link_to t('.preview'), @article, class: 'btn btn-default'
-      = link_to t('.back'), admin_articles_path, class: 'btn btn-default'
-      .col-md-1
-      .form-group.input-group.col-xs-2
-        %i.glyphicon.glyphicon-search.pre.form-control-mark
-        = text_field_tag "article[tag_names]", nil, autocomplete: 'off', 
-            id: nil, class: 'form-control typeahead tags', placeholder: 'Tags',
-            data: { search: admin_article_tags_path(@article), 
-                    submit: admin_article_article_tags_path(@article) }
-        %span.input-group-addon
-          = link_to '', admin_tags_path, class: 'glyphicon glyphicon-list-alt',
-              remote: true
-    .col-xs-12.col-md-2
+    .col-md-6.col-xs-12
+      .col-xs-12.col-md-8.btn-group.round
+        = f.submit class: 'btn btn-default'
+        = link_to t('.preview'), @article, 
+              class: 'btn btn-default' unless @article.new_record?
+        = link_to t('.back'), admin_articles_path, class: 'btn btn-default'
+      .form-group.input-group.col-xs-12.col-md-4
+        = render 'admin/tags/search' unless @article.new_record?
+    .col-xs-12.col-md-4
       .form-group
         .row.text-right
           = f.label :published_at

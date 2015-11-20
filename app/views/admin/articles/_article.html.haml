@@ -1,6 +1,9 @@
 %li.alternated.list-group-item.clearfix{ id: dom_id(article) }
   .row
-    %h1.h3.lobster.col-md-8= article.title
+    .col-md-8
+      %h1.h3.lobster
+        = article.title
+      = ArticlePresenter.new(article, self).tags_with_icon if article.tags.any?
     .col-md-2
       = I18n.l(article.published_at.to_date) if article.published?
     .col-md-2.text-right

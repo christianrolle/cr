@@ -1,5 +1,7 @@
 %header
   %time{ datetime: l(@article.published_on) }= l @article.published_on, format: :long
 %article
-  %h1= @article.title
+  %h1.lobster= @article.title
+  = ArticlePresenter.new(@article, self).tags_with_icon
+  =# render partial: 'tags/tags',  ArticlePresenter.new(@article, self).tags_with_icon
   .text= preserve { MarkdownService.call @article.content }

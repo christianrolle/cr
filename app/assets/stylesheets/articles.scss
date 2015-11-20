@@ -1,7 +1,56 @@
-// Place all the styles related to the Articles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 #articles{
+  .published{
+    .article{
+      padding: 1em 0px;
+      &:not(:first-child){
+        border-top: 1px solid $gainsboro;
+        position: relative;
+      }
+      h1{
+        margin-top: 2px;
+        display: block;
+        &:before{
+          font-family: "Glyphicons Halflings" !important;
+          color: $aluminum;
+          float: right;
+          padding-left: 5px;
+        }
+      }
+      a{
+        position: absolute;
+        overflow: hidden;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        text-indent: 100%;
+        white-space: nowrap;
+        text-align: right;
+      }
+      strong{ font-weight: normal; }
+      summary{
+        display: block;
+        &:before{
+          text-align: right;
+        }
+      }
+      &:hover{
+        *:not(h1){
+          color: $aluminum;
+        }
+        h1{
+          text-shadow: 1px 1px 2px $aluminum;
+          padding-left: 4px;
+          transition: all 0.1s linear;
+          &:before{
+            transition: all 0.1s linear;
+            color: $charcoal;
+            padding-left: 1px;
+          }
+        }
+      }
+    }
+  }
   header{
     margin-top: 1em;  
     font-size: 0.9em;
@@ -10,11 +59,7 @@
   article{
     max-width: 1014px;
     .text{
-//      border-top: 5px solid $smoke;
-      padding: 5px;
-      background-color: $smoke;
-//      border: 2px solid $iron;
-      border-radius: 5px;
+      padding: 1em 0px;
       h1{
         font-family: "Open Sans" !important;
         font-size: 1.5em;
@@ -30,13 +75,11 @@
         }  
         .code{
           width: 100%;
-//          width: 80em;
           background-color: $white-smoke;
           pre{
             font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace !important;
             span{
             }
-//            width: 50em;  
           }
         }
       }
