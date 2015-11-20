@@ -19,9 +19,11 @@
 @import "components/general.scss";
 @import "components/form.scss";
 @import "components/list.scss";
+@import "tags.scss";
 @import "articles.scss";
 @import "admin/articles.scss";
 @import "admin/tags.scss";
+@import "rouge";
 
 body{
   background-color: $smoke;
@@ -44,6 +46,7 @@ body{
       .author{
         margin: 0px;
       }
+      a{ color: $charcoal; }
      }
   }
   main{

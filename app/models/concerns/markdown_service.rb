@@ -1,5 +1,3 @@
-#require 'rouge/plugins/redcarpet'
-
 class MarkdownService
 =begin
   class Renderer < Redcarpet::Render::HTML
