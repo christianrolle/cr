@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.published.all
+    @articles = Article.published.by_publishing.includes(:tags).all
   end
 
   def show
