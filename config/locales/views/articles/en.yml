@@ -2,6 +2,8 @@ en:
   articles:
     index:
       blog_by: Blog by Christian Rolle
+    article:
+      read: "... read more"
   admin:
     articles:
       index: 
