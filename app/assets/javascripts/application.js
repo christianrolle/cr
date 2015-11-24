@@ -31,7 +31,7 @@ $.extend(true, $.fn.datetimepicker.defaults, {
   showClear: true                                                               
 })                                                                              
 /* Bootstrap datetimepicker default configuration end */                        
-$(document).ready(function(){
+$(document).on('page:change', function(){
   moment.locale( $('html').attr('lang') );
 
   $('input[type=datetime-local]').datetimepicker({
