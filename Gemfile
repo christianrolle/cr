@@ -13,7 +13,10 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # Use Unicorn as the app server
-gem 'unicorn-rails'
+#gem 'unicorn-rails'
+# Use Puma as the app server
+gem 'puma'
+
 gem 'rouge'
 gem 'kramdown'
 gem 'middleman-syntax'
