@@ -7,11 +7,19 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  before_filter :set_locale
+  before_filter :set_locale, :strict_transport_security
   
   ACCEPTED_LOCALES = %w(de en)
 
 private
+  def strict_transport_security
+    response.headers["Strict-Transport-Security"] = 'max-age=31536000; includeSubDomains'
+  end
+
+  def set_locale
+    I18n.locale = accepted_locale
+  end
+
   def extract_locale_from_accept_language_header
     request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
   end
@@ -20,10 +28,6 @@ private
     extracted_locale = extract_locale_from_accept_language_header
     return extracted_locale if ACCEPTED_LOCALES.include?(extracted_locale)
     I18n.default_locale
-  end
-
-  def set_locale
-    I18n.locale = accepted_locale
   end
 
   def current_user_session
