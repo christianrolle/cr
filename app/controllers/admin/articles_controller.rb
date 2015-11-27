@@ -1,6 +1,7 @@
 class Admin::ArticlesController < ApplicationController
   def index
-    @articles = Article.unpublished_first.by_publishing.by_creation.all
+    @articles = Article.includes(:tags)
+                  .unpublished_first.by_publishing.by_creation            
   end
 
   def new
@@ -33,6 +34,7 @@ class Admin::ArticlesController < ApplicationController
   end
 private
   def article_params
-    params.require(:article).permit(:title, :content, :published_at)
+    params.require(:article)
+      .permit(:title_de, :title_en, :content_de, :content_en, :published_at)
   end
 end
