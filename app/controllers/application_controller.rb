@@ -9,25 +9,25 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_locale, :strict_transport_security
   
-  ACCEPTED_LOCALES = %w(de en)
-
 private
   def strict_transport_security
     response.headers["Strict-Transport-Security"] = 'max-age=31536000; includeSubDomains'
   end
 
   def set_locale
-    I18n.locale = accepted_locale
+    session[:locale] ||= extract_locale_from_header
+    return switch_locale_and_redirect_to_referer if params[:locale].present?
+    @locale = Locale.new session[:locale]
+    I18n.locale = @locale.current
   end
 
-  def extract_locale_from_accept_language_header
+  def switch_locale_and_redirect_to_referer
+    session[:locale] = params[:locale]
+    redirect_to request.referer
+  end
+  
+  def extract_locale_from_header
     request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
-  end
-
-  def accepted_locale
-    extracted_locale = extract_locale_from_accept_language_header
-    return extracted_locale if ACCEPTED_LOCALES.include?(extracted_locale)
-    I18n.default_locale
   end
 
   def current_user_session
