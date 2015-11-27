@@ -22,17 +22,19 @@
     #article_tags.col-xs-12= render @article.article_tags
 
   .row
-    .form-group.col-xs-8
-      = f.label :title_en
-      = f.text_field :title_en, class: 'form-control'
-  .row
-    .form-group.col-xs-8
-      = f.text_area :content_en, rows: 40, class: 'form-control'
-
-  .row
-    .form-group.col-xs-8
-      = f.label :title_de
-      = f.text_field :title_de, class: 'form-control'
-  .row
-    .form-group.col-xs-8
-      = f.text_area :content_de, rows: 40, class: 'form-control'
+    .col-sm-6.col-xs-12
+      .form-group
+        = f.label :title_en, t('.english')
+        = f.text_field :title_en, class: 'form-control',
+            placeholder: Article.human_attribute_name('title')
+      .form-group
+        = f.text_area :content_en, rows: 40, class: 'form-control',
+            placeholder: Article.human_attribute_name('content')
+    .col-sm-6.col-xs-12
+      .form-group
+        = f.label :title_de, t('.german')
+        = f.text_field :title_de, class: 'form-control', 
+            placeholder: Article.human_attribute_name('title')
+      .form-group
+        = f.text_area :content_de, rows: 40, class: 'form-control',
+            placeholder: Article.human_attribute_name('content')
