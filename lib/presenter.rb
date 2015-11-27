@@ -1,7 +1,12 @@
 class Presenter < SimpleDelegator
-  def initialize model, view
+  def initialize model, view=nil
     @view = view
     super(model)
+  end
+
+  def context view
+    @view = view
+    self
   end
 
   private
