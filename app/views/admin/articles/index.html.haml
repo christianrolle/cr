@@ -7,6 +7,8 @@
       .col-md-8
       .col-md-1
         = link_to "Logout", logout_path, class: 'btn btn-default'
-    %ul.list-group.articles= render @articles
+    %ul.list-group.articles
+      = render present_collection(@articles)
+
   - else
     .pull-right= link_to "Login", login_path, class: 'btn btn-default'
