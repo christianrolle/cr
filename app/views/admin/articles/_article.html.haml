@@ -2,10 +2,10 @@
   .row
     .col-md-8
       %h1.h3.lobster
-        = article.title
-      = ArticlePresenter.new(article, self).tags_with_icon if article.tags.any?
+        = article.localized_or_default_title
+      = article.tags_with_icon
     .col-md-2
-      = I18n.l(article.published_at.to_date) if article.published?
+      = article.localized_publishing_date
     .col-md-2.text-right
       = link_to_if article.published?, '', article_path(article.slug),
           class: 'btn btn-default glyphicon glyphicon-eye-open', 
