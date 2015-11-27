@@ -4,4 +4,4 @@
   %h1.lobster.glyphicon.glyphicon-chevron-right= article.title 
   = link_to t('.read'), article_path(article.slug), type: 'text', rel: 'next',
       hreflang: locale
-  = ArticlePresenter.new(article, self).tags_with_icon
+  = article.tags_with_icon
