@@ -4,9 +4,11 @@ class Article < ActiveRecord::Base
   has_many :article_tags, dependent: :delete_all
   has_many :tags, through: :article_tags
 
-  validates :title, uniqueness: true, length: { in: 3..200 }
+  validates :title_en, uniqueness: true, length: { in: 3..200 }
+  validates :title_de, uniqueness: true, length: { in: 3..200 },
+    allow_blank: true
   validates :slug, uniqueness: true
-  validate :has_at_least_one_tag, if: :published, if: :published?
+  validate :has_at_least_one_tag, if: :published?
 
   scope :published, -> { where.not(published_at: nil) }
   scope :localized, ->(locale) { where.not("title_#{locale}" => nil) }
@@ -23,7 +25,7 @@ class Article < ActiveRecord::Base
   end
   
   def generate_slug
-    self.slug = title.parameterize
+    self.slug = title_en.parameterize
   end
 
   private
