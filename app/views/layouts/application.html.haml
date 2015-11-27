@@ -9,7 +9,8 @@
             'initial-scale' => 1, 'maximum-scale' => 1, 
             'user-scalable' => 'no' }
     = favicon_link_tag gravatar_url
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'application', media: 'all', 
+        'data-turbolinks-track' => true
     = javascript_include_tag "vendor/modernizr"
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -22,17 +23,22 @@
               title: 'Christian Rolle', class: 'avatar'
           .sub.clearfix
             %h1.author.lobster= link_to 'Christian Rolle', root_url
+            .locale
+              = link_to t("view.locale_#{@locale.secondary}"), 
+                  locale: @locale.secondary, rel: :alternate
             .social
-              = link_to 'twitter', "http://twitter.com/chrissonar", class: 'icon', 
-                  target: '_blank'
+              = link_to 'twitter', "http://twitter.com/chrissonar", 
+                  class: 'icon', target: '_blank'
               = link_to 'githuboctocat', "https://github.com/christianrolle", 
                   class: 'icon', target: '_blank'
-              = link_to 'linkedin', "http://de.linkedin.com/pub/christian-rolle/5a/745/592", 
+              = link_to 'linkedin', 
+                  "http://de.linkedin.com/pub/christian-rolle/5a/745/592", 
                   class: 'icon', target: '_blank'
               .hidden-xs.hidden-sm
                 = link_to 'Blog', articles_path, class: 'h3'
                 %br
-                = link_to 'Google blog', 'http://chris-on-rails.blogspot.de/', class: 'h3'
+                = link_to 'Google blog', 'http://chris-on-rails.blogspot.de/', 
+                    class: 'h3'
         %main.col-xs-12.col-sm-8.col-md-10.col-sm-offset-4.col-md-offset-2
           = yield
     #modal
