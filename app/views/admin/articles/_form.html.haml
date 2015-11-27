@@ -20,10 +20,19 @@
               %span.glyphicon.glyphicon-calendar{ "aria-hidden" => true }
   .row
     #article_tags.col-xs-12= render @article.article_tags
-  .row
-    .form-group.col-xs-8
-      = f.label :title
-      = f.text_field :title, class: 'form-control'
 
   .row
-    .form-group.col-xs-8= f.text_area :content, rows: 40, class: 'form-control'
+    .form-group.col-xs-8
+      = f.label :title_en
+      = f.text_field :title_en, class: 'form-control'
+  .row
+    .form-group.col-xs-8
+      = f.text_area :content_en, rows: 40, class: 'form-control'
+
+  .row
+    .form-group.col-xs-8
+      = f.label :title_de
+      = f.text_field :title_de, class: 'form-control'
+  .row
+    .form-group.col-xs-8
+      = f.text_area :content_de, rows: 40, class: 'form-control'
