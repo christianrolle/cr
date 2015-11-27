@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.published.by_publishing.includes(:tags).all
+    @articles = Article.localized(I18n.locale).published.includes(:tags)
+                  .by_publishing
   end
 
   def show
