@@ -9,6 +9,7 @@ class Article < ActiveRecord::Base
   validate :has_at_least_one_tag, if: :published, if: :published?
 
   scope :published, -> { where.not(published_at: nil) }
+  scope :localized, ->(locale) { where.not("title_#{locale}" => nil) }
   scope :unpublished_first, -> { order('published_at IS NULL DESC') }
   scope :by_creation, -> { order('created_at ASC') }
   scope :by_publishing, -> { order('published_at DESC') }
