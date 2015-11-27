@@ -8,4 +8,10 @@ module ApplicationHelper
       content
     end
   end
+
+  def present_collection collection, presenter_class=nil
+    return collection if collection.blank?
+    presenter_class ||= "#{collection.first.class}Presenter".constantize
+    collection.map{ |model| presenter_class.new(model, self) }
+  end
 end
