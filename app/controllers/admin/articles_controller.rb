@@ -9,12 +9,8 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new article_params
-    if @article.save
-      redirect_to [:edit, :admin, @article]
-    else
-      render(action: :new) 
-    end
+    @article = Article.create
+    redirect_to [:edit, :admin, @article]
   end
 
   def edit
@@ -25,7 +21,7 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.find params[:id]
     @article.attributes = article_params
     @article.save
-    return render(action: :edit)
+    #render(action: :edit)
   end
 
   def destroy
