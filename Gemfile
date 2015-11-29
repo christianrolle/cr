@@ -14,6 +14,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # Use Puma as the app server
 gem 'puma'
+gem 'date_validator'
 
 gem 'rouge'
 gem 'kramdown'
