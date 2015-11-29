@@ -30,6 +30,14 @@ $.extend(true, $.fn.datetimepicker.defaults, {
   showTodayButton: true,                                                        
   showClear: true                                                               
 })                                                                              
+
+moment.locale('en', {
+  longDateFormat : {
+    L : "YYYY-MM-DD",
+    LT : "HH:mm",
+  }
+})
+
 /* Bootstrap datetimepicker default configuration end */                        
 $(document).on('page:change', function(){
   moment.locale( $('html').attr('lang') );
