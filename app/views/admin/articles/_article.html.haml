@@ -7,9 +7,9 @@
     .col-md-2
       = article.localized_publishing_date
     .col-md-2.text-right
-      = link_to_if article.published?, '', article_path(article.slug),
-          class: 'btn btn-default glyphicon glyphicon-eye-open', 
-          target: '_blank', rel: 'preview'
+      = link_to('', article_path(article.slug), rel: 'preview',
+          class: 'btn btn-default glyphicon glyphicon-eye-open',
+          target: '_blank') if article.published?
       = link_to '', [:edit, :admin, article], 
           class: 'btn btn-default glyphicon glyphicon-pencil'
       = link_to '', [:admin, article], remote: true, method: :destroy, 
