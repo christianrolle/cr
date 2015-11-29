@@ -1,5 +1,7 @@
-= render partial: 'shared/errors', object: @article.errors
-= form_for [:admin, @article], html: { id: nil, class: 'article' } do |f|
+%ul#validation_errors.errors.alert
+  = render partial: 'shared/errors', object: @article.errors
+= form_for [:admin, @article], remote: true, 
+    html: { id: nil, class: 'article' } do |f|
   .row
     .col-md-6.col-xs-12
       .col-xs-12.col-md-8.btn-group.round
