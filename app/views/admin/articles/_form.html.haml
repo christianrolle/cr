@@ -1,7 +1,6 @@
 %ul#validation_errors.errors.alert
-  = render partial: 'shared/errors', object: @article.errors
 = form_for [:admin, @article], remote: true, 
-    html: { id: nil, class: 'article' } do |f|
+    html: { id: nil, class: 'admin article' } do |f|
   .row
     .col-md-6.col-xs-12
       .col-xs-12.col-md-8.btn-group.round
@@ -10,7 +9,13 @@
               class: 'btn btn-default' unless @article.new_record?
         = link_to t('.back'), admin_articles_path, class: 'btn btn-default'
       .form-group.input-group.col-xs-12.col-md-4
-        = render 'admin/tags/search' unless @article.new_record?
+        %i.glyphicon.glyphicon-search.pre.form-control-mark
+        = text_field_tag "article[tag_names]", nil, autocomplete: 'off', 
+            id: nil, class: 'form-control tag search', placeholder: 'Tags',
+            data: { search: admin_tags_path }
+        %span.input-group-addon
+          = link_to '', admin_tags_path, class: 'glyphicon glyphicon-list-alt',
+              remote: true
     .col-xs-12.col-md-4
       .form-group
         .row.text-right
@@ -21,7 +26,9 @@
             %span.input-group-addon.pointer
               %span.glyphicon.glyphicon-calendar{ "aria-hidden" => true }
   .row
-    #article_tags.col-xs-12= render @article.article_tags
+    .tags.col-xs-12
+      = hidden_field_tag 'article[tag_ids][]', nil, id: nil
+      = render partial: 'tag', collection: @article.tags
 
   .row
     .col-sm-6.col-xs-12

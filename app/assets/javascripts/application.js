@@ -22,7 +22,7 @@
 //= require components/typeahead.js
 //= require components/modal.js
 //= require components/analytics.js
-//= require admin/articles
+//= require admin/articles.js
 
 /* Bootstrap datetimepicker default configuration start */                      
 $.extend(true, $.fn.datetimepicker.defaults, {                                  

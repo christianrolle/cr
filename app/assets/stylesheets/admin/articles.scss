@@ -2,9 +2,11 @@
   .articles{
     .h3{ margin: 0px; }
   }
-  form.article{
-    .row{
-      margin: 0;
+  &.article{
+    .row{ margin: 0; }
+    .tags{
+      input:not(:checked) + label{ text-decoration: line-through; }
+      label:not(:last-of-type):after{ content: ',' }
     }
   }
 }

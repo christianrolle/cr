@@ -2,14 +2,13 @@ class Article < ActiveRecord::Base
   has_many :article_tags, dependent: :delete_all
   has_many :tags, through: :article_tags
 
-  before_validation :set_slug, 
-    if: -> { published? && (title_en_changed? || title_de_changed?) }
+  before_validation :set_slug 
 
   validates :published_at, date: { allow_blank: true }
-  validates :title, presence: true, if: :published?
+  validates :title, presence: true, allow_blank: false
   validates :title_en, :title_de, 
-    uniqueness: true, length: { in: 3..200 }, if: :published?, allow_nil: true
-  validates :slug, uniqueness: true, allow_nil: true
+    uniqueness: true, length: { in: 3..200 }, allow_blank: true
+  validates :slug, uniqueness: true
   validates :content_en, presence: true, if: -> { published? && title_en.present? }
   validates :content_de, presence: true, if: -> { published? && title_de.present? }
   validate :has_at_least_one_tag, if: :published?
@@ -19,11 +18,6 @@ class Article < ActiveRecord::Base
   scope :unpublished_first, -> { order('published_at IS NULL DESC') }
   scope :by_creation, -> { order('created_at ASC') }
   scope :by_publishing, -> { order('published_at DESC') }
-
-  def write_attribute name, value
-    return if value.blank?
-    super(name, value)
-  end 
 
   def title
     title_en || title_de
@@ -38,7 +32,7 @@ class Article < ActiveRecord::Base
   end
   
   def set_slug
-    self.slug = title.parameterize
+    self.slug = title.parameterize if title.present?
   end
 
   private

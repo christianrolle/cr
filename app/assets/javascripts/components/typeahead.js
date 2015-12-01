@@ -17,7 +17,7 @@ function autocomplete(selector){
         updater: function(data){
           var input = $(this.$element);
           $.ajax({ 
-            type: input.attr('data-method') || 'POST', 
+            type: input.attr('data-method') || 'GET', 
             url: input.attr('data-submit'), 
             data: data,
             success: input.val('')

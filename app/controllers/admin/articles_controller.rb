@@ -9,8 +9,8 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.create
-    redirect_to [:edit, :admin, @article]
+    @article = Article.new article_params
+    return render_validation unless @article.save
   end
 
   def edit
@@ -20,8 +20,9 @@ class Admin::ArticlesController < ApplicationController
   def update
     @article = Article.find params[:id]
     @article.attributes = article_params
-    @article.save
-    #render(action: :edit)
+    logger.debug '==== '+@article.changes.inspect
+    return render_validation unless @article.save
+    render nothing: true
   end
 
   def destroy
@@ -29,8 +30,13 @@ class Admin::ArticlesController < ApplicationController
     @article.destroy
   end
 private
+  def render_validation
+    render template: 'shared/validate'
+  end
+
   def article_params
     params.require(:article)
-      .permit(:title_de, :title_en, :content_de, :content_en, :published_at)
+      .permit(:title_de, :title_en, :content_de, :content_en, :published_at,
+        tag_ids: [])
   end
 end
