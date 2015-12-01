@@ -1,0 +1,3 @@
+= check_box_tag 'article[tag_ids][]', tag.id, :checked, class: 'hidden',
+    id: "tag_#{tag.id}"
+= label_tag "tag_#{tag.id}", tag.name
