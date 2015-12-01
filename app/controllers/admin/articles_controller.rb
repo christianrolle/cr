@@ -20,7 +20,6 @@ class Admin::ArticlesController < ApplicationController
   def update
     @article = Article.find params[:id]
     @article.attributes = article_params
-    logger.debug '==== '+@article.changes.inspect
     return render_validation unless @article.save
     render nothing: true
   end
