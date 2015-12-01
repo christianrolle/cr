@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    attributes:
+      article:
+        content_de: German text
+        content_en: English text
+        title: Title
+        published_at: Published at
