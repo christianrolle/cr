@@ -3,14 +3,6 @@ en:
   view:
     locale_de: German version
     locale_en: English version
-  activerecord:
-    models:
-      article: article
-    attributes:
-      article:
-        title: Title
-        content: Text
-        published_at: Published at
   helpers:
     submit:
       create: 'Create %{model}'
@@ -54,6 +46,7 @@ en:
   errors:
     format: "%{attribute} %{message}"
     messages:
+      at_least_one: must be at least 1
       accepted: must be accepted
       blank: can't be blank
       present: must be blank
