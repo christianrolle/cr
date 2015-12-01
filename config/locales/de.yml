@@ -3,14 +3,6 @@ de:
   view:
     locale_de: Deutsche Version
     locale_en: Englische Version
-  activerecord:
-    models:
-      article: Artikel
-    attributes:
-      article:
-        title: Titel
-        content: Text
-        published_at: Veröffentlicht am
   helpers:
     submit:
       create: '%{model} erstellen'
