@@ -6,6 +6,7 @@ de:
       read: "... weiterlesen"
   admin:
     articles:
+      saved: "The article '%{article}' was saved successfully."
       index: 
         new: Neuen Artikel erstellen
       edit:
