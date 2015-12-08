@@ -11,6 +11,7 @@ class Admin::ArticlesController < ApplicationController
   def create
     @article = Article.new article_params
     return render_validation unless @article.save
+    render_success
   end
 
   def edit
@@ -21,7 +22,7 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.find params[:id]
     @article.attributes = article_params
     return render_validation unless @article.save
-    render nothing: true
+    render_success
   end
 
   def destroy
@@ -29,6 +30,11 @@ class Admin::ArticlesController < ApplicationController
     @article.destroy
   end
 private
+  def render_success
+    flash[:notice] = I18n.t("admin.articles.saved", article: @article.title)
+    render template: 'shared/message'
+  end
+
   def render_validation
     render template: 'shared/validate'
   end
