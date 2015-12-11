@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   match 'login', to: "user_sessions#new", via: :get
   match 'logout', to: "user_sessions#destroy", via: :get
+  get "sitemap.xml" => "home#sitemap", format: :xml, as: :sitemap
+  get "robots.txt" => "home#robots", format: :text, as: :robots
   root 'articles#index'
 
   resources :user_sessions, only: :create
