@@ -25,6 +25,7 @@
             %h1.author.lobster= link_to 'Christian Rolle', root_url
             .locale
               = link_to t("view.locale_#{@locale.secondary}"), 
+                  root_url(locale: @locale.secondary),
                   locale: @locale.secondary, rel: :alternate
             .social
               = link_to 'twitter', "http://twitter.com/chrissonar", 
