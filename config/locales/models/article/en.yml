@@ -1,5 +1,6 @@
 en:
   activerecord:
+    article:  Article
     attributes:
       article:
         content_de: German text
