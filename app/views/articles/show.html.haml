@@ -1,3 +1,5 @@
+- content_for :title, @article_presenter.localized_title
+- content_for :description, @article_presenter.localized_title
 %header
   %time{ datetime: l(@article_presenter.published_on) }= l @article_presenter.published_on, format: :long
 %article

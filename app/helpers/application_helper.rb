@@ -1,4 +1,14 @@
 module ApplicationHelper
+  def page_title title
+    return 'Christian Rolle' if title.blank?
+    title
+  end
+
+  def page_description description
+    return I18n.t(:meta_description) if description.blank?
+    description
+  end
+
   def gravatar_url size=32
     image_path "https://www.gravatar.com/avatar/c1873b0d2c86671bb1b3d44b53b48c09.png?s=#{size}"
   end

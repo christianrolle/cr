@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 %html{ lang: locale }
   %head
-    %title Christian Rolle
-    %meta{ name: 'description', content: "You are looking for a full-stack Ruby on Rails web developer? Then you've come to the right place. Project management and extensive experience as a developer." }
+    %title= page_title(yield :title)
+    %meta{ name: 'description', content: page_description(yield :description) }
     %meta{ name: 'author', content: 'Christian Rolle' }
     %meta{ charset: 'utf-8' }
     %meta{ name: 'viewport', content: 'width=device-width', 
