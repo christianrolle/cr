@@ -6,47 +6,35 @@
         border-top: 1px solid $gainsboro;
         position: relative;
       }
-      h1{
+      a{
         margin-top: 2px;
         display: block;
+        white-space: nowrap;
+        text-decoration: none;
+
         &:before{
           font-family: "Glyphicons Halflings" !important;
           color: $aluminum;
           float: right;
           padding-left: 5px;
         }
-      }
-      a{
-        position: absolute;
-        overflow: hidden;
-        top: 0px;
-        left: 0px;
-        right: 0px;
-        bottom: 0px;
-        text-indent: 200%;
-        white-space: nowrap;
-        text-align: right;
+        &:hover{
+          text-shadow: 1px 1px 2px $aluminum;
+          padding-left: 4px;
+          transition: all 0.1s linear;
+
+          &:before{
+            transition: all 0.1s linear;
+            color: $charcoal;
+            padding-left: 1px;
+          }
+        }
       }
       strong{ font-weight: normal; }
       summary{
         display: block;
         &:before{
           text-align: right;
-        }
-      }
-      &:hover{
-        *:not(h1){
-          color: $aluminum;
-        }
-        h1{
-          text-shadow: 1px 1px 2px $aluminum;
-          padding-left: 4px;
-          transition: all 0.1s linear;
-          &:before{
-            transition: all 0.1s linear;
-            color: $charcoal;
-            padding-left: 1px;
-          }
         }
       }
     }
