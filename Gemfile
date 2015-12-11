@@ -14,6 +14,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # Use Puma as the app server
 gem 'puma'
+# Generates XML sitemaps dynamically
+gem 'dynamic_sitemaps'
+# schedules CRON jobs for example for updating sitemap.xml once a day
+gem 'whenever'
 gem 'date_validator'
 
 gem 'rouge'
