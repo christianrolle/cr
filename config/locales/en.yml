@@ -1,5 +1,6 @@
 en:
   meta_description: Are you looking for a full-stack Ruby on Rails web developer? Then you've come to the right place. Project management and extensive experience as a developer.
+  main_page: 'Main page'
   view:
     locale_de: German version
     locale_en: English version
