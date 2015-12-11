@@ -2,11 +2,9 @@ de:
   articles:
     index:
       blog_by: "Blog von %{author}"
-    article:
-      read: "... weiterlesen"
   admin:
     articles:
-      saved: "The article '%{article}' was saved successfully."
+      saved: "Der Artikel '%{article}' wurde erfolgreich gespeichert."
       index: 
         new: Neuen Artikel erstellen
       edit:
