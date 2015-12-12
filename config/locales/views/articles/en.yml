@@ -4,11 +4,11 @@ en:
       blog_by: Blog by Christian Rolle
   admin:
     articles:
-      saved: "The article '%{article}' was saved successfully."
+      saved: "The article '%{title}' was saved successfully."
       index: 
         new: Neuen Artikel erstellen
       edit:
-        title: "Edit article '%{article}'"
+        title: "Edit article '%{title}'"
       form:
         back: Back to list
         preview: Preview

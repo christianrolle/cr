@@ -4,11 +4,11 @@ de:
       blog_by: "Blog von %{author}"
   admin:
     articles:
-      saved: "Der Artikel '%{article}' wurde erfolgreich gespeichert."
+      saved: "Der Artikel '%{title}' wurde erfolgreich gespeichert."
       index: 
         new: Neuen Artikel erstellen
       edit:
-        title: "Artikel '%{article}' bearbeiten"
+        title: "Artikel '%{title}' bearbeiten"
       form:
         back: Zurück zur Liste
         preview: Vorschau
