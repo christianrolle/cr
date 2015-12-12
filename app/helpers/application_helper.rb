@@ -22,7 +22,7 @@ module ApplicationHelper
   def decorate_collection collection, decorator_class=nil, decorator_type=nil
     return collection if collection.blank?
     decorator_class ||= "#{collection.first.class}#{decorator_type}".constantize
-    collection.map{ |model| decorator_class.new(model) }
+    collection.map{ |model| decorator_class.new(model, locale) }
   end
 
   def present model, presenter_class=nil
