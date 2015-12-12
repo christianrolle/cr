@@ -19,9 +19,14 @@ module ApplicationHelper
     end
   end
 
-  def present_collection collection, presenter_class=nil
+  def decorate_collection collection, decorator_class=nil, decorator_type=nil
     return collection if collection.blank?
-    presenter_class ||= "#{collection.first.class}Presenter".constantize
-    collection.map{ |model| presenter_class.new(model, self) }
+    decorator_class ||= "#{collection.first.class}#{decorator_type}".constantize
+    collection.map{ |model| decorator_class.new(model) }
+  end
+
+  def present model, presenter_class=nil
+    presenter_class ||= "#{model.class}Presenter".constantize
+    presenter_class.new(model, self)
   end
 end
