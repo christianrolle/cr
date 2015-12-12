@@ -5,6 +5,6 @@ de:
       article:
         content_de: Deutscher Text
         content_en: Englischer Text
-        title: Titel
+        title_en_or_de: Englischer oder deutscher Titel
         published_at: Veröffentlicht am
 
