@@ -10,11 +10,7 @@ class LocalizedArticle < LocalizedDecorator
   def content
     localized_attribute :content
   end
-=begin
-  def slug
-    localized_attribute :slug
-  end
-=end
+
   def publishing_date
     return unless published?
     localize_date published_at.to_date
