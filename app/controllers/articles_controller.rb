@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    article = Article.find_by_slug params[:id]
-    @article_presenter = ArticlePresenter.new article
+    article = LocalizedArticle.find_by_slug params[:id]
+    @localized_article = LocalizedArticle.new article
   end
 end
