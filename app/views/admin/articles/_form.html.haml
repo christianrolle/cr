@@ -1,4 +1,4 @@
-.messages.alert
+.messages.alert= flash[:notice]
 = form_for [:admin, @article], remote: true, 
     html: { id: nil, class: 'admin article' } do |f|
   .row
@@ -6,7 +6,7 @@
       .col-xs-12.col-md-8.btn-group.round
         = f.submit class: 'btn btn-default'
         = link_to t('.preview'), @article, 
-              class: 'btn btn-default' unless @article.new_record?
+              class: 'btn btn-default' if @article.slug.present?
         = link_to t('.back'), admin_articles_path, class: 'btn btn-default'
       .form-group.input-group.col-xs-12.col-md-4
         %i.glyphicon.glyphicon-search.pre.form-control-mark

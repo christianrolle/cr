@@ -1,9 +1,10 @@
-- content_for :title, @article_presenter.localized_title
-- content_for :description, @article_presenter.localized_title
+- content_for :title, @localized_article.title
+- content_for :description, @localized_article.title
 %header
-  %time{ datetime: l(@article_presenter.published_on) }= l @article_presenter.published_on, format: :long
+  %time{ datetime: l(@localized_article.published_on) }
+    = l @localized_article.published_on, format: :long
 %article
-  %h1.lobster= @article_presenter.localized_title
-  = @article_presenter.context(self).tags_with_icon
+  %h1.lobster= @localized_article.title
+  = present(@localized_article, ArticlePresenter).tags_with_icon
   .text
-    = preserve { MarkdownService.call @article_presenter.localized_content }
+    = preserve { MarkdownService.call @localized_article.content }

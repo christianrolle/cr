@@ -1,2 +1,2 @@
 %ul.list-unstyled.published.articles.col-xs-12.col-md-6
-  = render present_collection(@articles, ArticlePresenter)
+  = render decorate_collection(@articles, LocalizedArticle)

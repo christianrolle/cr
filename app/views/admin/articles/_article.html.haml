@@ -2,10 +2,10 @@
   .row
     .col-md-8
       %h1.h3.lobster
-        = article.localized_title
-      = article.tags_with_icon
+        = article.title
+      = present(article, ArticlePresenter).tags_with_icon
     .col-md-2
-      = article.localized_publishing_date
+      = article.publishing_date
     .col-md-2.text-right
       = link_to('', article_path(article.slug), rel: 'preview',
           class: 'btn btn-default glyphicon glyphicon-eye-open',
