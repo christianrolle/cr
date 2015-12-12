@@ -1,4 +1,6 @@
 class Admin::ArticlesController < ApplicationController
+  rescue_from ActiveRecord::RecordInvalid, with: :render_validation
+
   def index
     @articles = Article.includes(:tags)
                   .unpublished_first.by_publishing.by_creation            
@@ -10,8 +12,8 @@ class Admin::ArticlesController < ApplicationController
 
   def create
     @article = Article.new article_params
-    return render_validation unless @article.save
-    render_success
+    @article.save!
+    flash[:notice] = success_note(@article)
   end
 
   def edit
@@ -19,10 +21,11 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.find params[:id]
-    @article.attributes = article_params
-    return render_validation unless @article.save
-    render_success
+    article = Article.find params[:id]
+    article.attributes = article_params
+    article.save!
+    flash.now[:notice] = success_note(@article)
+    render template: 'shared/message'
   end
 
   def destroy
@@ -30,12 +33,12 @@ class Admin::ArticlesController < ApplicationController
     @article.destroy
   end
 private
-  def render_success
-    flash[:notice] = I18n.t("admin.articles.saved", article: @article.title)
-    render template: 'shared/message'
+  def success_note article
+    I18n.t("admin.articles.saved", title: LocalizedArticle.new(article).title)
   end
 
-  def render_validation
+  def render_validation record_invalid_exception
+    @errors = record_invalid_exception.record.errors
     render template: 'shared/validate'
   end
 
@@ -43,5 +46,6 @@ private
     params.require(:article)
       .permit(:title_de, :title_en, :content_de, :content_en, :published_at,
         tag_ids: [])
+      .transform_values{ |value| value if value.present? }
   end
 end
