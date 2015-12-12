@@ -33,18 +33,10 @@ private
     slug = title.parameterize if title.present?
     self.slug = slug
   end
-=begin
+
   def has_at_least_one_tag
     return true if tags.any?
     errors.add(:tags, :at_least_one)
-  end
-=end
-  def has_at_least_one_tag
-    return true if tags.any?
-    message = I18n.t('errors.format', 
-        attribute: self.class.human_attribute_name(:tags), 
-        message: I18n.t('errors.messages.at_least_one'))
-    errors.add(:base, message)
   end
 
   def title_en_or_de
