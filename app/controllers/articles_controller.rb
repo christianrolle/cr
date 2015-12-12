@@ -6,6 +6,6 @@ class ArticlesController < ApplicationController
 
   def show
     article = LocalizedArticle.find_by_slug params[:id]
-    @localized_article = LocalizedArticle.new article
+    @localized_article = LocalizedArticle.new article, locale
   end
 end
