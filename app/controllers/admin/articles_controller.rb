@@ -24,7 +24,7 @@ class Admin::ArticlesController < ApplicationController
     article = Article.find params[:id]
     article.attributes = article_params
     article.save!
-    flash.now[:notice] = success_note(@article)
+    flash.now[:notice] = success_note(article)
     render template: 'shared/message'
   end
 
