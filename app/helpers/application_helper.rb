@@ -27,6 +27,8 @@ module ApplicationHelper
 
   def present model, presenter_class=nil
     presenter_class ||= "#{model.class}Presenter".constantize
-    presenter_class.new(model, self)
+    presenter = presenter_class.new(model, self)
+    return presenter unless block_given?
+    yield(presenter)
   end
 end
