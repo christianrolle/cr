@@ -10,5 +10,7 @@
     .text
       = preserve { MarkdownService.call @localized_article.content }
   %footer
-    = link_to 'Twitter', article_presenter.social_share_url(:twitter)
-    = link_to 'Google+', article_presenter.social_share_url(:google_plus)
+    = link_to_share_social :twitter, via: 'chrissonar', 
+        url: article_presenter.url, text: @localized_article.title
+    = link_to_share_social :googleplus, url: article_presenter.url
+    = link_to_share_social :facebook, u: article_presenter.url
