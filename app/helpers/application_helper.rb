@@ -1,4 +1,10 @@
 module ApplicationHelper
+  SOCIAL_SHARE_SERVICE_URLS = {
+    twitter: 'https://twitter.com/intent/tweet',
+    googleplus: 'https://plus.google.com/share',
+    facebook: 'https://www.facebook.com/sharer/sharer.php'
+  }
+
   def page_title title
     return 'Christian Rolle' if title.blank?
     title
@@ -30,5 +36,11 @@ module ApplicationHelper
     presenter = presenter_class.new(model, self)
     return presenter unless block_given?
     yield(presenter)
+  end
+
+  def link_to_share_social service, options={}
+    url = SOCIAL_SHARE_SERVICE_URLS[service] + '?' + options.to_param
+    link_to I18n.t("social.#{service}"), url, rel: :nofollow, 
+      class: "share #{service}"
   end
 end
