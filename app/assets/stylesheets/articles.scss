@@ -52,6 +52,22 @@
         font-size: 1.5em;
         font-weight: bold;
       }
+      table{
+        td, th{
+          border: 1px solid $iron;
+          padding: 0.25em 0.5em;
+        }
+        tr{ 
+          border-left: 2px solid $iron; 
+          border-right: 2px solid $iron; 
+          &:first-child{ border-top: 2px solid $iron; }
+          &:last-child{ border-bottom: 2px solid $iron; }
+        }
+        tr:first-child th:first-child { border-top-left-radius: 10px; }
+        tr:first-child th:last-child { border-top-right-radius: 10px; }
+        tr:last-child td:first-child { border-bottom-left-radius: 10px; }
+        tr:last-child td:last-child { border-bottom-right-radius: 10px; }
+      }
       .highlight{
         table{
           border: 2px solid $iron;
