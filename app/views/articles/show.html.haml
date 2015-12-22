@@ -3,8 +3,12 @@
 %header
   %time{ datetime: l(@localized_article.published_on) }
     = l @localized_article.published_on, format: :long
-%article
-  %h1.lobster= @localized_article.title
-  = present(@localized_article, ArticlePresenter).tags_with_icon
-  .text
-    = preserve { MarkdownService.call @localized_article.content }
+- present(@localized_article, ArticlePresenter) do |article_presenter|
+  %article
+    %h1.lobster= @localized_article.title
+    = article_presenter.tags_with_icon
+    .text
+      = preserve { MarkdownService.call @localized_article.content }
+  %footer
+    = link_to 'Twitter', article_presenter.social_share_url(:twitter)
+    = link_to 'Google+', article_presenter.social_share_url(:google_plus)
