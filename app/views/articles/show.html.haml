@@ -10,6 +10,7 @@
     .text
       = preserve { MarkdownService.call @localized_article.content }
   %footer
+    %span= t('.share')
     = link_to_share_social :twitter, via: 'chrissonar', 
         url: article_presenter.url, text: @localized_article.title
     = link_to_share_social :googleplus, url: article_presenter.url
