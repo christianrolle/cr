@@ -12,5 +12,5 @@
           target: '_blank') if article.published?
       = link_to '', [:edit, :admin, article], 
           class: 'btn btn-default glyphicon glyphicon-pencil'
-      = link_to '', [:admin, article], remote: true, method: :destroy, 
+      = link_to '', [:admin, article], remote: true, method: :delete, 
           class: 'btn btn-default glyphicon glyphicon-trash'
