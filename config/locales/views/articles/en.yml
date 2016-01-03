@@ -2,6 +2,8 @@ en:
   articles:
     index:
       blog_by: Blog by Christian Rolle
+    show:
+      share: Share
   admin:
     articles:
       saved: "The article '%{title}' was saved successfully."
