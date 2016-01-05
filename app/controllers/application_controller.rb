@@ -27,7 +27,8 @@ private
   end
   
   def extract_locale_from_header
-    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+    locale = request.env['HTTP_ACCEPT_LANGUAGE'] || I18n.default_locale.to_s
+    locale.scan(/^[a-z]{2}/).first
   end
 
   def current_user_session
