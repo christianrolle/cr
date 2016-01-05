@@ -3,6 +3,10 @@ class LocalizedArticle < LocalizedDecorator
     new Article.find_by_slug(slug)
   end
 
+  def summary
+    localized_attribute :summary
+  end
+
   def title
     localized_attribute :title
   end
