@@ -5,5 +5,7 @@ en:
       article:
         content_de: German text
         content_en: English text
+        summary_de: German summary
+        summary_en: English summary
         title_en_or_de: English or german title
         published_at: Published at
