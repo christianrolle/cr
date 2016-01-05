@@ -4,7 +4,7 @@ class LocalizedArticle < LocalizedDecorator
   end
 
   def summary
-    localized_attribute :summary
+    localized_attribute(:summary) || title
   end
 
   def title
