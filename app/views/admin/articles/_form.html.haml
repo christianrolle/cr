@@ -35,7 +35,7 @@
       .form-group
         = f.label :title_en, t('.english')
         = f.text_field :title_en, class: 'form-control',
-            placeholder: Article.human_attribute_name('title')
+            placeholder: Article.human_attribute_name('title_en')
       .form-group
         = f.text_area :summary_en, rows: 3, class: 'form-control',
             placeholder: Article.human_attribute_name('summary_en')
@@ -47,7 +47,7 @@
       .form-group
         = f.label :title_de, t('.german')
         = f.text_field :title_de, class: 'form-control', 
-            placeholder: Article.human_attribute_name('title')
+            placeholder: Article.human_attribute_name('title_de')
       .form-group
         = f.text_area :summary_de, rows: 3, class: 'form-control',
             placeholder: Article.human_attribute_name('summary_de')

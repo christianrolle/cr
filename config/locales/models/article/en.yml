@@ -3,9 +3,10 @@ en:
     article:  Article
     attributes:
       article:
+        title_de: German title
+        title_en: English title
         content_de: German text
         content_en: English text
         summary_de: German summary
         summary_en: English summary
-        title_en_or_de: English or german title
         published_at: Published at
