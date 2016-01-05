@@ -1,5 +1,10 @@
 - content_for :title, @localized_article.title
 - content_for :description, @localized_article.title
+- content_for :meta do
+  %meta{ itemprop: :name, content: @localized_article.title }
+  %meta{ itemprop: :description, content: @localized_article.summary }
+  %meta{ itemprop: :image, content: gravatar_url(200) }
+
 %header
   %time{ datetime: l(@localized_article.published_on) }
     = l @localized_article.published_on, format: :long
@@ -14,4 +19,5 @@
     = link_to_share_social :twitter, via: 'chrissonar', 
         url: article_presenter.url, text: @localized_article.title
     = link_to_share_social :googleplus, url: article_presenter.url
-    = link_to_share_social :facebook, u: article_presenter.url
+    = link_to_share_social :facebook, u: article_presenter.url, 
+        title: @localized_article.title, summary: @localized_article.summary
