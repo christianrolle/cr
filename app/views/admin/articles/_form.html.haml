@@ -37,13 +37,20 @@
         = f.text_field :title_en, class: 'form-control',
             placeholder: Article.human_attribute_name('title')
       .form-group
+        = f.text_area :summary_en, rows: 3, class: 'form-control',
+            placeholder: Article.human_attribute_name('summary_en')
+      .form-group
         = f.text_area :content_en, rows: 40, class: 'form-control',
-            placeholder: Article.human_attribute_name('content')
+            placeholder: Article.human_attribute_name('content_en')
+
     .col-sm-6.col-xs-12
       .form-group
         = f.label :title_de, t('.german')
         = f.text_field :title_de, class: 'form-control', 
             placeholder: Article.human_attribute_name('title')
       .form-group
+        = f.text_area :summary_de, rows: 3, class: 'form-control',
+            placeholder: Article.human_attribute_name('summary_de')
+      .form-group
         = f.text_area :content_de, rows: 40, class: 'form-control',
-            placeholder: Article.human_attribute_name('content')
+            placeholder: Article.human_attribute_name('content_de')
