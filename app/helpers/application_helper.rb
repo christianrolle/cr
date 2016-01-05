@@ -20,7 +20,7 @@ module ApplicationHelper
   end
   
   def modal title, content
-    render layout: 'shared/modal', locals: { title: 'Tags' } do
+    render layout: 'shared/modal', locals: { title: title } do
       content
     end
   end
