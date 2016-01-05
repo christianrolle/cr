@@ -25,12 +25,12 @@
 //= require components/social_share.js
 //= require admin/articles.js
 
-/* Bootstrap datetimepicker default configuration start */                      
-$.extend(true, $.fn.datetimepicker.defaults, {                                  
-  useCurrent: false,                                                            
-  showTodayButton: true,                                                        
-  showClear: true                                                               
-})                                                                              
+/* Bootstrap datetimepicker default configuration start */
+$.extend(true, $.fn.datetimepicker.defaults, {
+  useCurrent: false,
+  showTodayButton: true,
+  showClear: true
+})
 
 moment.locale('en', {
   longDateFormat : {
@@ -39,7 +39,7 @@ moment.locale('en', {
   }
 })
 
-/* Bootstrap datetimepicker default configuration end */                        
+/* Bootstrap datetimepicker default configuration end */
 $(document).on('page:change', function(){
   moment.locale( $('html').attr('lang') );
 
@@ -48,7 +48,7 @@ $(document).on('page:change', function(){
     extraFormats: ['YYYY-MM-DD HH:mm:ss'],
     locale: moment.locale()
   }).next().on('click', function(){
-    $(this).prev().data('DateTimePicker').show()
-  })
+      $(this).prev().data('DateTimePicker').show()
+    })
 })
 
