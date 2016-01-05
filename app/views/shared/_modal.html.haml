@@ -1,4 +1,4 @@
-.modal
+.modal{ role: 'dialog', 'aria-labelledby' => 'modalLabel' }
   .modal-dialog{ role: 'document' }
     .modal-content{ class: controller_name }
       .modal-header
@@ -6,7 +6,7 @@
                         data: { dismiss: "modal" } }
           %span{ "aria-hidden" => "true" } &times;
           %span.sr-only= 'close'
-        %h4.modal-title= title
+        %h4#modalLabel.modal-title= title
       .modal-body
         = yield
       .modal-footer
