@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151127133536) do
+ActiveRecord::Schema.define(version: 20160105065523) do
 
   create_table "article_tags", force: :cascade do |t|
     t.integer "article_id"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20151127133536) do
     t.string   "issue"
     t.string   "title_de"
     t.text     "content_de"
+    t.text     "summary_de"
+    t.text     "summary_en"
   end
 
   create_table "blog_posts", force: :cascade do |t|
