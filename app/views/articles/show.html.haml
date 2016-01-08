@@ -5,6 +5,7 @@
     %meta{ property: 'og:locale', content: @localized_article.locale }
     %meta{ property: 'og:type', content: 'article' }
     %meta{ property: 'og:title', content: @localized_article.title }
+    %meta{ property: 'og:headline', content: @localized_article.title }
     %meta{ property: 'og:description', content: @localized_article.summary }
     %meta{ property: 'og:image', content: gravatar_url(200) }
     %meta{ property: 'og:url', content: article_presenter.url }
