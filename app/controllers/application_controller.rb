@@ -7,12 +7,13 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  before_filter :set_locale#, :strict_transport_security
+  before_filter :set_locale, :strict_transport_security
   
 private
-#  def strict_transport_security
-#    response.headers["Strict-Transport-Security"] = 'max-age=31536000; includeSubDomains'
-#  end
+  def strict_transport_security
+    #response.headers["Strict-Transport-Security"] = 'max-age=31536000; includeSubDomains'
+    response.headers["Strict-Transport-Security"] = 'max-age=0; includeSubDomains'
+  end
 
   def set_locale
     session[:locale] ||= extract_locale_from_header
