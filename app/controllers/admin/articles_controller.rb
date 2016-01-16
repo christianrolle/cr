@@ -7,7 +7,7 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def show
-    article = LocalizedArticle.find params[:id]
+    article = Article.find params[:id]
     article.published_on ||= Time.current
     @localized_article = LocalizedArticle.new article, locale
     render template: 'articles/show'
