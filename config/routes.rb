@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :tags, except: :new
     resources :article_tags, only: :destroy
-    resources :articles, except: :show do
+    resources :articles do
       resources :tags, only: :index
       resources :article_tags, only: :create
     end
