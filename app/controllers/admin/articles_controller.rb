@@ -6,6 +6,12 @@ class Admin::ArticlesController < ApplicationController
                   .unpublished_first.by_publishing.by_creation            
   end
 
+  def show
+    article = LocalizedArticle.find params[:id]
+    @localized_article = LocalizedArticle.new article, locale
+    render template: 'articles/show'
+  end
+
   def new
     @article = Article.new
   end
