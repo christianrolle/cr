@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
   
 private
   def strict_transport_security
-    response.headers["Strict-Transport-Security"] = 'max-age=31536000; includeSubDomains'
+    #response.headers["Strict-Transport-Security"] = 'max-age=31536000; includeSubDomains'
+    response.headers["Strict-Transport-Security"] = 'max-age=0; includeSubDomains'
   end
 
   def set_locale
