@@ -29,17 +29,17 @@
                   root_url(locale: @locale.secondary),
                   locale: @locale.secondary, rel: :alternate
             .social
-              = link_to 'twitter', "http://twitter.com/chrissonar", 
+              = link_to 'twitter', "https://twitter.com/chrissonar", 
                   class: 'icon', target: '_blank'
               = link_to 'githuboctocat', "https://github.com/christianrolle", 
                   class: 'icon', target: '_blank'
               = link_to 'linkedin', 
-                  "http://de.linkedin.com/pub/christian-rolle/5a/745/592", 
+                  "https://de.linkedin.com/pub/christian-rolle/5a/745/592", 
                   class: 'icon', target: '_blank'
               %br
               = link_to 'Blog', articles_path, class: 'h3'
               .hidden-xs.hidden-sm
-              = link_to 'Google blog', 'http://chris-on-rails.blogspot.de/', 
+              = link_to 'Google blog', 'https://www.chris-on-rails.blogspot.de/', 
                   class: 'h3'
         %main.col-xs-12.col-sm-8.col-md-10.col-sm-offset-4.col-md-offset-2
           = yield
