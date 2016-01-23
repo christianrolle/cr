@@ -87,6 +87,26 @@
         }
       }
     }
+    em{
+      background-color: rgba(0, 0, 0, 0.04);
+      border-radius: 3px;
+      font-size: 85%;
+      margin-right: 0.4em;
+      padding: 0.2em 0;
+      font-style: normal;
+      font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
+      
+      &::before{
+        content: " ";
+        padding: 0.2em;
+      }
+      &::after{
+        content: " ";
+        letter-spacing: -0.2em;
+        margin-right: 0.2em;
+      }
+
+    }
   }
   footer{
     margin-bottom: 2em;
