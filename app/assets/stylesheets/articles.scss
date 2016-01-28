@@ -1,93 +1,107 @@
-#articles{
-  .published{
-    .article{
+#articles {
+  .published {
+    .article {
       padding: 1em 0px;
+
       &:not(:first-child){
         border-top: 1px solid $gainsboro;
         position: relative;
       }
-      a{
+      a {
         margin-top: 2px;
         display: block;
         text-decoration: none;
 
-        &:before{
+        &:before {
           font-family: "Glyphicons Halflings" !important;
           color: $aluminum;
           float: right;
           padding-left: 5px;
         }
-        &:hover{
+        &:hover {
           text-shadow: 1px 1px 2px $aluminum;
           padding-left: 4px;
           transition: all 0.1s linear;
 
-          &:before{
+          &:before {
             transition: all 0.1s linear;
             color: $charcoal;
             padding-left: 1px;
           }
         }
       }
-      strong{ font-weight: normal; }
-      summary{
+      strong { font-weight: normal; }
+      summary {
         display: block;
-        &:before{
-          text-align: right;
-        }
+
+        &:before{ text-align: right; }
       }
     }
   }
-  header{
+  header {
     margin-top: 1em;  
     font-size: 0.9em;
     color: $aluminum;
   }
-  article{
+  article {
     max-width: 1014px;
-    .text{
+
+    .text {
       padding: 1em 0px;
-      h1{
+      h1 {
         font-family: "Open Sans" !important;
         font-size: 1.5em;
         font-weight: bold;
       }
-      table{
-        td, th{
+      table {
+        td, th {
           border: 1px solid $iron;
           padding: 0.25em 0.5em;
         }
-        tr{ 
+        tr {
           border-left: 2px solid $iron; 
           border-right: 2px solid $iron; 
-          &:first-child{ border-top: 2px solid $iron; }
-          &:last-child{ border-bottom: 2px solid $iron; }
+          &:first-child { border-top: 2px solid $iron; }
+          &:last-child { border-bottom: 2px solid $iron; }
         }
         tr:first-child th:first-child { border-top-left-radius: 10px; }
         tr:first-child th:last-child { border-top-right-radius: 10px; }
         tr:last-child td:first-child { border-bottom-left-radius: 10px; }
         tr:last-child td:last-child { border-bottom-right-radius: 10px; }
       }
-      .highlight{
-        table{
+      .highlight {
+        table {
           border: 2px solid $iron;
           border-radius: 5px;
         }
-        .gutter{
-          background-color: $iron;
-        }  
-        .code{
+        .gutter { background-color: $iron; }  
+        .code {
           width: 100%;
           background-color: $white-smoke;
-          pre{
+
+          pre {
             font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace !important;
-            span{
-            }
           }
         }
       }
     }
-    em{
+    .example.box { 
+      border: 1px solid #ccc; 
+      border-radius: 4px; 
+      background-color: #FFF; 
+      display: block; 
+      margin: 0 0 10px; 
+      padding: 9.5px; 
+
+      &.form-group input + label { 
+        font-weight: bold;
+
+        &.success { &::after { background-color: $brand-success; } }
+        &.danger { &::after { background-color: $brand-danger; } }
+        &.warning { &::after { background-color: $brand-warning; } }
+      }
+    }
+    em {
       background-color: rgba(0, 0, 0, 0.04);
       border-radius: 3px;
       font-size: 85%;
@@ -96,11 +110,11 @@
       font-style: normal;
       font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
       
-      &::before{
+      &::before {
         content: " ";
         padding: 0.2em;
       }
-      &::after{
+      &::after {
         content: " ";
         letter-spacing: -0.2em;
         margin-right: 0.2em;
@@ -108,27 +122,29 @@
 
     }
   }
-  footer{
+  footer {
     margin-bottom: 2em;
 
-    span{ margin-right: 1em; }
+    span { margin-right: 1em; }
   }
 
-  ol.tags{
-    color: $aluminum; 
-    &.glyphicon{
+  ol.tags {
+    color: $aluminum;
+
+    &.glyphicon {
       position: static;
       top: 0px;
-      &:before{
+      &:before {
         float: left;
         margin-right: 0.5em;
       }
     }
-    > *{ 
+    > * { 
       font-family: "Open Sans" !important;
       font-weight: normal;
       float: left;
-      &:not(:last-child):after{ 
+
+      &:not(:last-child):after { 
         margin-right: 0.5em;
         content: ',' 
       }
