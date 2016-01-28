@@ -93,12 +93,19 @@
       margin: 0 0 10px; 
       padding: 9.5px; 
 
-      &.form-group input + label { 
-        font-weight: bold;
+      &.form-group {
+        input + label { font-weight: bold; }
 
-        &.success { &::after { background-color: $brand-success; } }
-        &.danger { &::after { background-color: $brand-danger; } }
-        &.warning { &::after { background-color: $brand-warning; } }
+        input[type=checkbox]:checked + label { 
+          &.success { &::before { background-color: $brand-success; } }
+          &.danger { &::before { background-color: $brand-danger; } }
+          &.warning { &::before { background-color: $brand-warning; } }
+        }
+        input[type=radio]:checked + label { 
+          &.success { &::after { background-color: $brand-success; } }
+          &.danger { &::after { background-color: $brand-danger; } }
+          &.warning { &::after { background-color: $brand-warning; } }
+        }
       }
     }
     em {
