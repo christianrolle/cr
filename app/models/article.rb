@@ -13,7 +13,7 @@ class Article < ActiveRecord::Base
   validates :content_de, presence: true, if: -> { published? && title_de.present? }
   validate :has_at_least_one_tag, if: :published?
 
-  scope :published, -> { where.not(published_at: nil) }
+  scope :published, -> { where("published_at < ?", Time.current) }
   scope :localized, ->(locale) { where.not("title_#{locale}" => nil) }
   scope :unpublished_first, -> { order('published_at IS NULL DESC') }
   scope :by_creation, -> { order('created_at ASC') }
