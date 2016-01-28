@@ -1,0 +1,99 @@
+.box { 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  background-color: #FFF; 
+  display: block; 
+  margin: 0 0 10px; 
+  padding: 9.5px; 
+}
+.awesome label { 
+  font-weight: bold; 
+} 
+.awesome input[type=checkbox], 
+.awesome input[type=radio] { 
+  opacity: 0; 
+} 
+.awesome input[type=checkbox] + label { 
+  display: inline-block; 
+  position: relative; 
+  padding-left: 5px; 
+  margin-right: 30px; 
+} 
+.awesome input[type=checkbox] + label::before, 
+.awesome input[type=checkbox] + label::after { 
+  left: 0; display: inline-block; 
+  position: absolute; 
+  margin-left: -17px; 
+} 
+.awesome input[type=checkbox] + label::before { 
+  width: 17px; 
+  height: 17px; 
+  top: 2px; 
+  content: ""; 
+  border: 1px solid #888; 
+  border-radius: 3px; 
+  background-color: #fff; 
+} 
+.awesome input[type=checkbox] + label::after { 
+  width: 16px; 
+  height: 16px; 
+  top: 0; 
+  padding-left: 3px; 
+  padding-top: 1px; 
+  font-size: 11px;
+  color: #555; 
+} 
+.awesome input[type=checkbox]:checked + label::after { 
+  font-family: "Glyphicons Halflings"; 
+  content: '\e013'; 
+  color: #FFF; 
+  top: 2px; 
+} 
+.awesome input[type=checkbox]:checked + label::before { 
+  background-color: #22760c; 
+  border-color: #22760c; 
+}
+.awesome input[type=checkbox]:focus + label::before { 
+  outline: thin dotted; 
+  outline: 5px auto -webkit-focus-ring-color;
+} 
+.awesome input[type=radio] + label::before { 
+  background-color: #fff; 
+  border: 1px solid #ccc; 
+  border-radius: 50%;
+  content: "";
+  display: inline-block;
+  height: 17px;
+  left: 0;
+  margin-left: -20px;
+  position: absolute;
+  width: 17px;
+}
+.awesome input[type=radio] + label {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 0;
+  margin-right: 30px;
+  font-weight: bold;
+}
+.awesome input[type=radio] + label::after {
+  background-color: #555;
+  border-radius: 50%;
+  content: " ";
+  display: inline-block;
+  height: 11px;
+  left: 3px;
+  margin-left: -20px;
+  position: absolute;
+  top: 3px;
+  transform: scale(0, 0);
+  transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33) 0s;
+  width: 11px;
+  top: 3px; }
+.awesome input[type=radio]:checked + label::before { transform: scale(1, 1); }
+.awesome input[type="radio"]:checked + label::after { transform: scale(1, 1); }
+.awesome input[type=radio]:focus + label::before { 
+  outline: thin dotted; 
+  outline: 5px auto -webkit-focus-ring-color;
+}
