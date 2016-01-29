@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160105065523) do
+ActiveRecord::Schema.define(version: 20160129114651) do
 
   create_table "article_tags", force: :cascade do |t|
     t.integer "article_id"
@@ -22,14 +22,18 @@ ActiveRecord::Schema.define(version: 20160105065523) do
     t.string   "title_en"
     t.text     "content_en"
     t.datetime "published_at"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "slug"
     t.string   "issue"
     t.string   "title_de"
     t.text     "content_de"
     t.text     "summary_de"
     t.text     "summary_en"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "blog_posts", force: :cascade do |t|
