@@ -31,8 +31,11 @@ class Admin::ArticlesController < ApplicationController
     article = Article.find params[:id]
     article.attributes = article_params
     article.save!
-    flash.now[:notice] = success_note(article)
-    render template: 'shared/message'
+    flash[:notice] = success_note(article)
+    respond_to do |format|
+      format.js { render template: 'shared/message' }
+      format.html { redirect_to [:edit, :admin, article] }
+    end
   end
 
   def destroy
@@ -52,7 +55,7 @@ private
   def article_params
     params.require(:article)
       .permit(:title_de, :title_en, :content_de, :content_en, :summary_de, 
-        :summary_en, :published_at, tag_ids: [])
+        :summary_en, :published_at, :avatar, tag_ids: [])
       .transform_values{ |value| value if value.present? }
   end
 end
