@@ -25,6 +25,11 @@ module ApplicationHelper
     end
   end
 
+  def close_button
+    content_tag :button, 'Close', class: 'btn btn-default', 
+      'data-dismiss' => 'modal'
+  end
+
   def decorate_collection collection, decorator_class=nil, decorator_type=nil
     return collection if collection.blank?
     decorator_class ||= "#{collection.first.class}#{decorator_type}".constantize
