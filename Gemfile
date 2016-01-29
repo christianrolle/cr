@@ -19,7 +19,7 @@ gem 'dynamic_sitemaps'
 # schedules CRON jobs for example for updating sitemap.xml once a day
 gem 'whenever'
 gem 'date_validator'
-
+gem 'paperclip', '~> 4.3'
 gem 'rouge'
 gem 'kramdown'
 gem 'middleman-syntax'
