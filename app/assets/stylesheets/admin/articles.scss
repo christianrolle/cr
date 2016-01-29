@@ -1,12 +1,17 @@
-#articles .admin{
-  .articles{
-    .h3{ margin: 0px; }
+#articles .admin {
+  .articles {
+    .h3 { margin: 0px; }
   }
-  &.article{
-    .row{ margin: 0; }
-    .tags{
-      input:not(:checked) + label{ text-decoration: line-through; }
-      label:not(:last-of-type):after{ content: ',' }
+  &.article {
+    .row { margin: 0; }
+    .tags {
+      input:not(:checked) + label { text-decoration: line-through; }
+      label:not(:last-of-type):after { content: ',' }
+    }
+    .avatar {
+      height: 100px;
+      width: 150px;
+      border: 2px solid #000;
     }
   }
 }
