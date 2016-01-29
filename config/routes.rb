@@ -14,5 +14,8 @@ Rails.application.routes.draw do
       resources :tags, only: :index
       resources :article_tags, only: :create
     end
-  end
+ end
+ get 'admin/articles/:article_id/avatars/edit', 
+  to: 'admin/article_avatars#edit', 
+  as: 'edit_admin_article_avatar'
 end
