@@ -1,2 +1,7 @@
+- content_for :meta do
+  %meta{ property: 'og:title', content: 'Christian Rolle' }
+  %meta{ property: 'og:description', content: 'Senior Ruby on Rails developer with a passion for people.' }
+  %meta{ property: 'og:image', content: gravatar_url(200) }
+
 %ul.list-unstyled.published.articles.col-xs-12.col-md-6
   = render decorate_collection(@articles, LocalizedArticle)
