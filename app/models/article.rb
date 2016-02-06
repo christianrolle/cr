@@ -14,7 +14,8 @@ class Article < ActiveRecord::Base
   validates :content_en, presence: true, if: -> { published? && title_en.present? }
   validates :content_de, presence: true, if: -> { published? && title_de.present? }
   validate :has_at_least_one_tag, if: :published?
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/,
+    allow_nil: true
 
   scope :published, -> { where("published_at < ?", Time.current) }
   scope :localized, ->(locale) { where.not("title_#{locale}" => nil) }
