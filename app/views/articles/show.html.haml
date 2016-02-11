@@ -2,20 +2,11 @@
   - content_for :title, @localized_article.title
   - content_for :description, @localized_article.title
   - content_for :meta do
-    -#%meta{ property: 'og:locale', content: @localized_article.locale }
-    -#%meta{ property: 'og:type', content: 'article' }
     %meta{ property: 'og:title', content: @localized_article.title }
-    -#%meta{ property: 'og:headline', content: @localized_article.title }
     %meta{ property: 'og:description', content: @localized_article.summary }
     %meta{ property: 'og:image', content: gravatar_url(200) }
-    -#%meta{ property: 'og:url', content: article_presenter.url }
-    -#%meta{ property: 'og:site_name', content: 'problems.map(&:solved)' }
     %meta{ property: 'twitter:card', content: 'summary' }
     %meta{ name: 'twitter:site', content: '@chrissonar' }
-    -#%meta{ name: 'twitter:title', content: @localized_article.title }
-    -#%meta{ name: 'twitter:description', content: @localized_article.summary }
-    -#%meta{ name: 'twitter:creator', content: '@chrissonar' }
-    -#%meta{ name: 'twitter:image', content: gravatar_url(200) }
 
   %header
     %time{ datetime: l(@localized_article.published_on) }
@@ -29,8 +20,6 @@
 
   %footer
     %span= t('.share')
-    =# link_to_share_social :twitter, via: 'chrissonar', 
-        url: article_presenter.url, text: @localized_article.title
     = link_to_share_social :twitter, via: 'chrissonar', 
         url: article_presenter.url, 
         text: @localized_article.title
