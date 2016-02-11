@@ -21,6 +21,7 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.new article_params
     @article.save!
     flash[:notice] = success_note(@article)
+    redirect_to [:edit, :admin, @article]
   end
 
   def edit
