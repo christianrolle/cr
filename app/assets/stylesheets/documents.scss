@@ -1,0 +1,474 @@
+@font-face {
+    font-family: 'Web OpenSans Lt';
+    src: url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-Light.eot?o3rp7v');
+    src: url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-Light.eot?&o3rp7v#iefix') format("embedded-opentype"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-Light.woff?o3rp7v') format("woff"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-Light.ttf?o3rp7v') format("truetype"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-Light.svg?o3rp7v#OpenSans-Light') format("svg")
+}
+
+@font-face {
+    font-family: 'Web OpenSans Lt It';
+    src: url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-LightItalic.eot?o3rp7v');
+    src: url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-LightItalic.eot?&o3rp7v#iefix') format("embedded-opentype"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-LightItalic.woff?o3rp7v') format("woff"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-LightItalic.ttf?o3rp7v') format("truetype"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-LightItalic.svg?o3rp7v#OpenSans-LightItalic') format("svg")
+}
+
+@font-face {
+    font-family: 'Web OpenSans Rg';
+    src: url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-Regular.eot?o3rp7v');
+    src: url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-Regular.eot?&o3rp7v#iefix') format("embedded-opentype"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-Regular.woff?o3rp7v') format("woff"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-Regular.ttf?o3rp7v') format("truetype"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-Regular.svg?o3rp7v#OpenSans-Regular') format("svg")
+}
+
+@font-face {
+    font-family: 'Web OpenSans It';
+    src: url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-Italic.eot?o3rp7v');
+    src: url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-Italic.eot?&o3rp7v#iefix') format("embedded-opentype"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-Italic.woff?o3rp7v') format("woff"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-Italic.ttf?o3rp7v') format("truetype"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-Italic.svg?o3rp7v#OpenSans-Italic') format("svg")
+}
+
+@font-face {
+    font-family: 'Web OpenSans Sb';
+    src: url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-Semibold.eot?o3rp7v');
+    src: url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-Semibold.eot?&o3rp7v#iefix') format("embedded-opentype"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-Semibold.woff?o3rp7v') format("woff"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-Semibold.ttf?o3rp7v') format("truetype"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-Semibold.svg?o3rp7v#OpenSans-Semibold') format("svg")
+}
+
+@font-face {
+    font-family: 'Web OpenSans Cn Lt';
+    src: url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-CondLight.eot?o3rp7v');
+    src: url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-CondLight.eot?&o3rp7v#iefix') format("embedded-opentype"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-CondLight.woff?o3rp7v') format("woff"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-CondLight.ttf?o3rp7v') format("truetype"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-CondLight.svg?o3rp7v#OpenSans-CondLight') format("svg")
+}
+
+@font-face {
+    font-family: 'Web OpenSans Cn Lt It';
+    src: url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-CondLightItalic.eot?o3rp7v');
+    src: url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-CondLightItalic.eot?&o3rp7v#iefix') format("embedded-opentype"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-CondLightItalic.woff?o3rp7v') format("woff"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-CondLightItalic.ttf?o3rp7v') format("truetype"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-CondLightItalic.svg?o3rp7v#OpenSans-CondLightItalic') format("svg")
+}
+
+@font-face {
+    font-family: 'Web OpenSans Cn Bd';
+    src: url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-CondBold.eot?o3rp7v');
+    src: url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-CondBold.eot?&o3rp7v#iefix') format("embedded-opentype"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-CondBold.woff?o3rp7v') format("woff"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-CondBold.ttf?o3rp7v') format("truetype"), url('https://lebenslauf.com/assets/fonts/OpenSans/OpenSans-CondBold.svg?o3rp7v#OpenSans-CondBold') format("svg")
+}
+
+#document {
+    font-family: 'Pdf OpenSans Lt', 'Web OpenSans Lt'
+}
+
+#document .bold {
+    font-family: 'Pdf OpenSans Rg', 'Web OpenSans Rg'
+}
+
+#document .italic {
+    font-family: 'Pdf OpenSans Lt It', 'Web OpenSans Lt It'
+}
+
+#document.coverletter .page {
+    padding: 8em 8em 6em;
+    width: 70em;
+    height: 107.62857em
+}
+
+#document.coverletter .page[data-index="0"]:after {
+    content: 'Bewerbung';
+    position: absolute;
+    top: 0;
+    left: 6.8em;
+    display: block;
+    padding: 1em;
+    width: 7em;
+    height: 7em;
+    line-height: 13em;
+    text-align: center;
+    font-size: 1.3em;
+    color: #fff;
+    text-transform: uppercase
+}
+
+#document.coverletter .page .sender {
+    position: absolute;
+    right: 8em;
+    top: 8em;
+    text-align: right
+}
+
+#document.coverletter .page .recipient {
+    float: left;
+    margin-top: 12em
+}
+
+#document.coverletter .page .sender .text,
+#document.coverletter .page .recipient .text {
+    padding: 0.33em 0.66em;
+    font-size: 1.5em;
+    line-height: 1.6em
+}
+
+#document.coverletter .page .date {
+    clear: left;
+    float: right;
+    margin: 0 0 4em
+}
+
+#document.coverletter .page .date .text {
+    padding: 0.33em 0.66em;
+    font-size: 1.5em;
+    line-height: 1.6em
+}
+
+#document.coverletter .page .subject {
+    clear: right;
+    margin-bottom: 3em
+}
+
+#document.coverletter .page .subject .text {
+    text-transform: uppercase;
+    font-family: 'Pdf OpenSans Cn Lt', 'Web OpenSans Cn Lt';
+    font-size: 3em;
+    padding: 0.3em;
+    line-height: 0.9em
+}
+
+#document.coverletter .page .subject .text .bold {
+    font-family: 'Pdf OpenSans Cn Bd', 'Web OpenSans Cn Bd'
+}
+
+#document.coverletter .page .subject .text .italic {
+    font-family: 'Pdf OpenSans Cn Lt It', 'Web OpenSans Cn Lt It'
+}
+
+#document.coverletter .page .paragraph .text {
+    padding: 0.33em 0.66em;
+    width: 45.3em;
+    font-size: 1.5em;
+    line-height: 1.6em;
+    text-align: justify;
+    white-space: normal
+}
+
+#document.cv .page {
+    padding: 5em 4.2em 6.5em;
+    width: 77.6em;
+    height: 110.12857em
+}
+
+#document.cv .page .title {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 61em
+}
+
+#document.cv .page .title .text {
+    text-transform: uppercase;
+    font-family: 'Pdf OpenSans Cn Lt', 'Web OpenSans Cn Lt';
+    font-size: 6em;
+    padding: 0.125em;
+    line-height: 0.9em
+}
+
+#document.cv .page .title .text .bold {
+    font-family: 'Pdf OpenSans Cn Bd', 'Web OpenSans Cn Bd'
+}
+
+#document.cv .page .title .text .italic {
+    font-family: 'Pdf OpenSans Cn Lt It', 'Web OpenSans Cn Lt It'
+}
+
+#document.cv .page[data-index="0"]:after {
+    content: 'Lebenslauf';
+    position: absolute;
+    top: 0;
+    left: 4em;
+    display: block;
+    padding: 1em;
+    width: 7em;
+    height: 7em;
+    line-height: 13em;
+    text-align: center;
+    font-size: 1.3em;
+    color: #fff;
+    text-transform: uppercase
+}
+
+#document.cv .page .photo {
+    position: absolute !important;
+    z-index: 2;
+    top: 11.7em;
+    right: 0;
+    padding-right: 0.5em;
+    border-right-width: 4.7em;
+    border-right-style: solid;
+    max-width: 34em;
+    max-height: 11.7em
+}
+
+#document.cv .page .photo img {
+    max-width: 34em;
+    max-height: 11.7em
+}
+
+#document.cv .page .section {
+    clear: both
+}
+
+#document.cv .page .section[data-index="0"] {
+    position: relative;
+    height: 19.75em;
+    margin-bottom: 2em
+}
+
+#document.cv .page .section[data-index="1"] .column[data-index="0"] {
+    display: table;
+    float: left;
+    max-width: 36em
+}
+
+#document.cv .page .section[data-index="1"] .column[data-index="1"] {
+    display: table;
+    max-width: 36em;
+    margin-left: 41.6em;
+    margin-right: -41.6em
+}
+
+#document.cv .page .paragraph {
+    max-width: 36em;
+    margin-top: 2.5em;
+    clear: left;
+    overflow: hidden;
+    *zoom: 1
+}
+
+#document.cv .page .paragraph.continuing {
+    margin-top: 0
+}
+
+#document.cv .page .paragraph .heading {
+    display: block;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 0.4em;
+    font-size: 2.7em;
+    color: #444
+}
+
+#document.cv .page .paragraph .heading .text {
+    padding: 0.1em 0.3em
+}
+
+#document.cv .page .paragraph table {
+    line-height: 1.8em
+}
+
+#document.cv .page .paragraph table,
+#document.cv .page .paragraph table tbody,
+#document.cv .page .paragraph table tr,
+#document.cv .page .paragraph table td {
+    display: block;
+    float: left;
+    clear: left;
+    width: 100%
+}
+
+#document.cv .page .paragraph table tr {
+    padding: 0.9em 0;
+    border-top: 1px solid #eee
+}
+
+#document.cv .page .paragraph table tr:first-child {
+    margin-top: 0;
+    border-top: 0;
+    padding-top: 0
+}
+
+#document.cv .page .paragraph table tr td {
+    vertical-align: top;
+    font-size: 1.3em;
+    word-wrap: break-word
+}
+
+#document.cv .page .paragraph table tr td .text {
+    padding: 0.1em 0.7em
+}
+
+#document.cv .page .paragraph table tr td.field {
+    font-family: 'Pdf OpenSans Rg', 'Web OpenSans Rg'
+}
+
+#document.cv .page .paragraph table tr td.field .bold {
+    font-family: 'Pdf OpenSans Sb', 'Web OpenSans Sb'
+}
+
+#document.cv .page .paragraph table tr td.field .italic {
+    font-family: 'Pdf OpenSans It', 'Web OpenSans It'
+}
+
+#document.cv .page .paragraph[data-category="personal"] {
+    min-width: 30em;
+    padding-bottom: 0.9em
+}
+
+#document.cv .page .paragraph[data-category="personal"] .heading {
+    margin-bottom: 0.3em
+}
+
+#document.cv .page .paragraph[data-category="personal"] table {
+    display: table;
+    float: none;
+    width: 100%
+}
+
+#document.cv .page .paragraph[data-category="personal"] table tbody {
+    display: table-row-group;
+    float: none
+}
+
+#document.cv .page .paragraph[data-category="personal"] table tr {
+    display: table-row;
+    float: none;
+    border-top: 0;
+    padding: 0
+}
+
+#document.cv .page .paragraph[data-category="personal"] table tr td {
+    display: table-cell;
+    float: none;
+    padding: 0.2em 0
+}
+
+#document.cv .page .paragraph[data-category="personal"] table tr td.field {
+    width: 35%
+}
+
+#document.cv .page .paragraph[data-category="personal"] table tr td .text {
+    padding: 0.2em 0.7em
+}
+
+#document .page .pageNumber,
+#document .attachment .pageNumber {
+    position: absolute;
+    right: 4em;
+    bottom: -0.5mm;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    text-align: center;
+    box-shadow: -1em -1em 0 #fff, 1em -1em 0 #fff, -1em 0 0 #fff, 1em 0 0 #fff;
+    padding: 1em;
+    width: 7em;
+    height: 2em;
+    color: #fff
+}
+
+html.action-Render #document .page .pageNumber,
+html.action-Render #document .attachment .pageNumber {
+    background-clip: padding-box
+}
+
+#document .page .pageNumber:before,
+#document .attachment .pageNumber:before {
+    content: 'Seite '
+}
+
+#document .page .pageNumber.selected,
+#document .attachment .pageNumber.selected {
+    box-shadow: none
+}
+
+#document.color-red .page .subject .text,
+#document.color-red .page .title .text {
+    color: #EB4A3B
+}
+
+#document.color-red .page[data-index="0"]:after {
+    background-color: #EB4A3B
+}
+
+#document.color-red .page .photo {
+    border-right-color: #EB4A3B
+}
+
+#document.color-red .page .paragraph table tr td.field {
+    color: #EB4A3B !important
+}
+
+#document.color-red .page .signature img {
+    background: #000000
+}
+
+#document.color-red .page .pageNumber,
+#document.color-red .attachment .pageNumber {
+    background-color: #EB4A3B
+}
+
+#document.color-gold .page .subject .text,
+#document.color-gold .page .title .text {
+    color: #CAA878
+}
+
+#document.color-gold .page[data-index="0"]:after {
+    background-color: #CAA878
+}
+
+#document.color-gold .page .photo {
+    border-right-color: #CAA878
+}
+
+#document.color-gold .page .paragraph table tr td.field {
+    color: #CAA878 !important
+}
+
+#document.color-gold .page .signature img {
+    background: #000000
+}
+
+#document.color-gold .page .pageNumber,
+#document.color-gold .attachment .pageNumber {
+    background-color: #CAA878
+}
+
+#document.color-greyblue .page .subject .text,
+#document.color-greyblue .page .title .text {
+    color: #567995
+}
+
+#document.color-greyblue .page[data-index="0"]:after {
+    background-color: #567995
+}
+
+#document.color-greyblue .page .photo {
+    border-right-color: #567995
+}
+
+#document.color-greyblue .page .paragraph table tr td.field {
+    color: #567995 !important
+}
+
+#document.color-greyblue .page .signature img {
+    background: #567995
+}
+
+#document.color-greyblue .page .pageNumber,
+#document.color-greyblue .attachment .pageNumber {
+    background-color: #567995
+}
+
+#document.color-gray .page .subject .text,
+#document.color-gray .page .title .text {
+    color: #555
+}
+
+#document.color-gray .page[data-index="0"]:after {
+    background-color: #555
+}
+
+#document.color-gray .page .photo {
+    border-right-color: #555
+}
+
+#document.color-gray .page .paragraph table tr td.field {
+    color: #555 !important
+}
+
+#document.color-gray .page .signature img {
+    background: #555
+}
+
+#document.color-gray .page .pageNumber,
+#document.color-gray .attachment .pageNumber {
+    background-color: #555
+}
