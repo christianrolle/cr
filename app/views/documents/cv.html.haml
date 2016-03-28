@@ -1,0 +1,127 @@
+#document.cv
+  .page{"data-index" => "0"}
+    %span.pageNumber
+      %var.current> 1
+      \/
+      %var.total 2
+    .section{"data-index" => "0"}
+      .column{"data-index" => "0"}
+        %h2.title
+          .text{:contenteditable => "true"}
+            %p.line1 Christian Rolle
+    .section{"data-index" => "1"}
+      .colum.col-xs-12.col-md-6
+        %section.paragraph
+          %h3.heading Persönliche Daten
+          %table
+            %tbody
+              %tr.line{"data-category" => "fullname"}
+                %td.field
+                  .text{:contenteditable => "true"}
+                    %p.line1 Name
+                %td.value
+                  .text{:contenteditable => "true"}
+                    %p.line1 Christian Rolle
+              %tr.line
+                %td.field
+                  .text{:contenteditable => "true"}
+                    %p.line1 Anschrift
+                %td.value
+                  .text{:contenteditable => "true"}
+                    %p.line1 Lübecker Strasse 115
+                    %p.line2 19059, Schwerin
+              %tr.line.selected{"data-category" => "tel"}
+                %td.field
+                  .text{:contenteditable => "true"}
+                    %p.line1 Tel.
+                %td.value
+                  .text.placeholder{:contenteditable => "true"}
+                    %p.line1 0123 / 456 789
+              %tr.line{"data-category" => "email"}
+                %td.field
+                  .text{:contenteditable => "true"}
+                    %p.line1 E-Mail
+                %td.value
+                  .text{:contenteditable => "true"}
+                    %p.line1 rolle.christian@gmail.com
+              %tr.line
+                %td.field
+                  .text{:contenteditable => "true"}
+                    %p.line1 geb.
+                %td.value
+                  .text{:contenteditable => "true"}
+                    %p.line1 17.03.1978 in Wismar
+        %section.paragraph.continued
+          %h3.heading Berufliche Laufbahn
+          %table
+            %tbody
+              %tr.line
+                %td.field
+                  .text{:contenteditable => "true"}
+                    %p.line1 September 2013 – heute
+                %td.value
+                  .text{:contenteditable => "true"}
+                    %p.line1 MedlinQ GmbH, Hamburg
+                    %p.line2 Senior Ruby on Rails Developer (Full Stack)
+                    %p.line3.bullet ● Applikation Prämedikation für verschiedene Krankenhäuser
+                    %p.line4.bullet ● Applikation Anästhesie (legacy codebase) für verschiedene Krankenhäuser
+              %tr.line
+                %td.field
+                  .text{:contenteditable => "true"}
+                    %p.line1 August 2011 – August 2013
+                %td.value
+                  .text{:contenteditable => "true"}
+                    %p.line1 Trebing + Himstedt GmbH & Co. KG, Schwerin
+                    %p.line2 SAP MES Developer
+                    %p.line3.bullet ● Applikation Berechnung KPI Kennzahlen (SAP MII und Adobe FLEX)
+                    %p.line4.bullet ● Prototyp BDE Applikation im JavaNetWeaver
+                    %p.line5
+                      %br/
+      .colum.col-xs-12.col-md-6
+        %section.paragraph
+          %h3.heading Ausbildung
+          %table
+            %tbody
+              %tr.line
+                %td.field
+                  .text{:contenteditable => "true"}
+                    %p.line1 2001 – 2006
+                %td.value
+                  .text{:contenteditable => "true"}
+                    %p.line1 Multimedia Engineering and der Hochschule Wismar
+                    %p.line2 Abschluss: Diplom
+              %tr.line
+                %td.field
+                  .text{:contenteditable => "true"}
+                    %p.line1 1997 – 2000
+                %td.value
+                  .text{:contenteditable => "true"}
+                    %p.line1 Ausbildung Fachinformatiker Systemintegration
+                    %p.line2 AOK - Schwerin
+              %tr.line
+                %td.field
+                  .text{:contenteditable => "true"}
+                    %p.line1 1984 – 1996
+                %td.value
+                  .text{:contenteditable => "true"}
+                    %p.line1 Helene Waigel Gymnasium
+                    %p.line2 Abschluss: Abitur
+        %section.paragraph
+          %h3.heading Kenntnisse & Fähigkeiten
+          %table
+            %tbody
+              %tr.line
+                %td.field
+                  .text.placeholder{:contenteditable => "true"}
+                    %p.line1 Fremdsprachen
+                %td.value
+                  .text{:contenteditable => "true"}
+                    %p.line1 Englisch fließend in Wort und Schrift
+                    %p.line2 Russisch Grundkenntnisse in Wort und Schrift
+              %tr.line
+                %td.field
+                  .text{:contenteditable => "true"}
+                    %p.line1 Kenntnisse
+                %td.value
+                  .text{:contenteditable => "true"}
+                    %p.line1 Ruby on Rails, Javascript, Java, C++, C, PostgreSQL, MySQL, MSSQL, SQLite, XML, HTML, CSS, JQuery, Bootstrap, FLEX
