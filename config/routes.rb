@@ -19,4 +19,5 @@ Rails.application.routes.draw do
  get 'admin/articles/:article_id/avatars/edit', 
   to: 'admin/article_avatars#edit', 
   as: 'edit_admin_article_avatar'
+  match '/:document', to: 'documents#show', via: :get
 end
