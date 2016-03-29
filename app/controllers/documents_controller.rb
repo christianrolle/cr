@@ -1,7 +1,7 @@
 class DocumentsController < ApplicationController
 
   def show
-    render action: params[:id]
+    render action: params[:document]
   end
 
 end
