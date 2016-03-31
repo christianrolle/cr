@@ -1,0 +1,60 @@
+- ResumePresenter.new(self) do |presenter|
+  #document.resume
+    .page
+      .row.section
+        .col-xs-12.col-md-6
+          %section.paragraph
+            %h3.heading= t('.personal_data')
+            %ul.list-unstyled
+              %li
+                %h4= t('.name')
+                %span Christian Rolle
+              %li
+                %h4= t('.address')
+                %div= t('.street') 
+                %div 19059, Schwerin
+                %div= t('.germany')
+              %li
+                %h4 Tel.
+                %span +49 176 52172910
+              %li
+                %h4= t('.email')
+                %span rolle.christian@gmail.com
+              %li
+                %h4= t('.born')
+                %span 17.03.1978 in Wismar
+          %section.paragraph.continued
+            %h3.heading= t('.job_career')
+            %ol.list-unstyled
+              - %i(medlinq th bfpi fraunhofer bds).each do |company|
+                %li
+                  %h4.period= Resume.period company
+                  .company= Resume.translate company, :name
+                  .role= Resume.translate company, :role
+                  = presenter.resume company, :responsibilities
+                  = presenter.resume company, :achievements
+        .colum.col-xs-12.col-md-6
+          %section.paragraph
+            %h3.heading= t('.education')
+            %ol.list-unstyled
+              - %i(hs aok school).each do |education|
+                %li
+                  %h4.period= Resume.period education
+                  %p.topic= Resume.translate education, :topic
+                  %p.certificate= Resume.translate education, :certificate
+          %section.paragraph
+            %h3.heading= t('.skills')
+            %h4= t('.languages')
+            %ol.list-unstyled
+              %li.language
+                %span= t(".language.german")
+                = t(".language.native")
+              %li.language
+                %span= t(".language.english")
+                = t(".language.fluent")
+              %li.language
+                %span= t(".language.russian")
+                = t(".language.basic")
+
+            %h4= t('.knowledge')
+            .knowledge Ruby on Rails, RSpec, Javascript, JQuery, Java, C++, C, PostgreSQL, MySQL, MSSQL, SQLite, XML, HTML, HAML, CSS, SASS, Bootstrap, FLEX, Linux
