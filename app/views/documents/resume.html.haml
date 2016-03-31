@@ -1,3 +1,6 @@
+- content_for :meta do
+  %meta{ property: 'og:image', content: gravatar_url(200) }
+
 - ResumePresenter.new(self) do |presenter|
   #document.resume
     .page
