@@ -1,0 +1,60 @@
+de:
+  documents:
+    resume:
+      personal_data: Persönliche Daten
+      name: Name
+      address: Anschrift
+      street: Lübecker Stasse 115
+      germany: Deutschland
+      email: E-Mail
+      born: geb.
+      job_career: Berufliche Laufbahn
+      education: Ausbildung
+      skills: Kenntnisse & Fähigkeiten
+      knowledge: Kenntnisse
+      languages: Sprachkenntnisse
+      language:
+        german: Deutsch
+        english: Englisch
+        russian: Russisch
+        native: Muttersprache in Wort und Schrift
+        fluent: fließend in Wort und Schrift
+        basic: Grundkenntnisse in Wort und Schrift
+
+      role: Position
+      responsibilities: Verantwortlichkeiten
+      achievements: Besondere Erfolge
+      medlinq:
+        name: MedlinQ GmbH, Hamburg
+        role: Senior Ruby on Rails Entwickler (Full Stack)
+        responsibilities: Full Stack Software Entwicklung in Ruby on Rails, Mentor für andere Entwickler, führte Techniken ein, wie zum Beispiel automatisierte Tests und Refactorings.
+        achievements: Übernahm eine veraltete und ineffiziente Codebasis und überführte sie in eine produktive Applikation zur Dokumentation von Anästhesien im Operationsaal und Prämedikationen für verschiedene Kunden im Gesundheitswesen. Dabei werden auch Echtzeitdaten erfasst.
+      th: 
+        name: Trebing + Himstedt GmbH & Co. KG, Schwerin
+        role: SAP MES Entwickler
+        responsibilities: Software Entwicklung in SAP MII und SAP Java NetWeaver, Kunden Consultant, Produkt Managament.
+        achievements: Führte die Entwicklung eines KPI Prototypen mit Architekturproblemen zu einem erfolgreichen Abschluß und überführte es in ein effektives Produkt, basierend auf SAP MII und FLEX. Zu den Kunden zählte unter anderem WITTE Automotive GmbH und Hartmetall Werkzeugfabrik Paul Horn GmbH.
+      bfpi:
+        name: BfpI GmbH, Wismar
+        role: Ruby on Rails Entwickler (Full Stack)
+        responsibilities: Full Stack Software Entwicklung in Ruby on Rails und Lehrlingsausbilder.
+        achievements: Entwickelte erfolgreich verschiedene firmeninterne Anwendungen für den Windturbinenhersteller Nordex AG. Die Applikationen wurden verwendet, um interne Prozesse zu optimieren und beinhalteten eine Anwendung zur Risikoabschätzung für Ingenieure, ein Windturbinen-Anlagenkonfigurator und eine Aufgabenplanungssoftware mit ausgiebigen Freigabeprozessen.
+      fraunhofer: 
+        name: Fraunhofer IGD, Rostock
+        role: Praktikum C++ Entwickler
+        responsibilities: Entwickelte in C++ einen Prototypen für Bewegungserkennung und eine Anwendung zur Iriserkennung auf einem Symbian OS Mobiltelefon.
+        achievements: 
+      bds:
+        name: BDS GmbH, Wismar
+        role: Sachbearbeiter Datenkommunikation
+        responsibilities: Administration und Steuerung der Datenkommunikation zwischen Aker Yards und Subunternehmern.
+        achievements: Unterstützte den reibungslosen Austausch von digitalen Konstruktionszeichnungen und nahm kleinere Änderungen vor.
+      hs:
+        topic: Multimediatechnik, Hochschule Wismar
+        certificate: Diplom Ingenieur
+      aok:
+        topic: Ausbildung Fachinformatiker Systemintegration, AOK Schwerin
+        certificate: Fachinformatiker
+      school:
+        topic: Gymnasium, Wismar
+        certificate: Abitur

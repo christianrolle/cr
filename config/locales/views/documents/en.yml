@@ -1,0 +1,59 @@
+en:
+  documents:
+    resume:
+      personal_data: Personal data
+      name: Name
+      address: Address
+      street: Lubecker Street 115
+      germany: Germany
+      email: Email
+      born: Born
+      job_career: Professional career
+      education: Education
+      skills: Knowledge & skills
+      knowledge: Knowledge
+      languages: Languages
+      language:
+        german: German
+        english: English
+        russian: Russian
+        native: native spoken and written
+        fluent: fluent spoken and written
+        basic: basic knowledge spoken and written
+      role: Role
+      responsibilities: Responsibilities
+      achievements: Notable achievements
+      medlinq:
+        name: MedlinQ GmbH, Hamburg
+        role: Senior Ruby on Rails developer (full stack)
+        responsibilities: Full stack software development in Ruby on Rails, mentoring other developers, introduced techniques like automated tests and refactorings.
+        achievements: Rescued a legacy and ineffective codebase and turned it into a productive application for documenting anesthesias and premedications for multiple health care customers. It takes advantage of real-time data.
+      th: 
+        name: Trebing + Himstedt GmbH & Co. KG, Schwerin
+        role: SAP MES developer
+        responsibilities: Software development in SAP MII and Java SAP NetWeaver, customer consultancy, product managament.
+        achievements: Successfully turned premature KPI protoype with architectural problems into an effective product, based on the SAP MII and FLEX. Clients include WITTE Automotive GmbH amongst others.
+      bfpi: 
+        name: BfpI GmbH, Wismar
+        role: Ruby on Rails developer (full stack)
+        responsibilities: Full stack software development in Ruby on Rails, trainee instructor.
+        achievements: Successfully developing several in-house applications for wind turbine manufacturer Nordex AG. The applications are used for optimizing internal processes, including a risk estimation application for engineers, a wind turbine type configuration application and a task planning application with extensive approval processes.
+      fraunhofer: 
+        name: Fraunhofer IGD, Rostock
+        role: Internship C++ developer
+        responsibilities: Developed C++ prototype applications for motion detection and iris recognition on a Symbian OS mobile device.
+        achievements: 
+      bds:
+        name: BDS GmbH, Wismar
+        role: Data communication manager
+        responsibilities: Managing data communication between Aker Yards and subcontractors.
+        achievements: Maintaining fluent transfer and simple changes of digital design drawings.
+      hs:
+        topic: Multimedia Engineering, University Wismar
+        certificate: Dipl. engineer computer science
+      aok:
+        topic: Apprenticeship IT systems integration specialist, AOK Schwerin
+        certificate: IT Specialist
+      school:
+        topic: High school, Wismar
+        certificate: Final secondary-school examinations
