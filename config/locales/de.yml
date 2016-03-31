@@ -1,6 +1,7 @@
 de:
   meta_description: Suchst du einen full-stack Ruby on Rails Web Entwickler? Dann bist du hier goldrichtig. Project management und langjährige Erfahungen als Software Entwickler.
   main_page: 'Startseite'
+  today: heute
   view:
     locale_de: Deutsche Version
     locale_en: Englische Version
@@ -13,6 +14,7 @@ de:
       default: "%d.%m.%Y"
       long: "%-d. %B %Y"
       short: "%-d. %b. %Y"
+      month: "%B %Y"
     abbr_month_names:
       -
       - Jan
