@@ -9,10 +9,9 @@
     %meta{ name: 'twitter:site', content: '@chrissonar' }
 
   %header
-    .pull-lg-left
+    .pull-lg-right
       %figure= image_tag @localized_article.avatar.url(:small)
     .clearfix
-
       %h1.lobster= @localized_article.title
       = article_presenter.tags_with_icon
 

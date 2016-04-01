@@ -39,10 +39,12 @@
     }
   }
   header {
+    max-width: 1014px;
     margin-top: 1em;  
     font-size: 0.9em;
     color: $aluminum;
-    figure { margin-right: 1em; }
+
+    figure { margin-left: 1em; }
     h1 { margin-top: 0px; }
   }
   article {
