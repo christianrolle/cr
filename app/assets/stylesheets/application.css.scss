@@ -118,5 +118,8 @@ body{
     }
   }
 }
-
-
+@media #{$desktop}{
+  .pull-lg-left {
+    float: left;
+  }
+}
