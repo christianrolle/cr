@@ -79,7 +79,7 @@ Rails.application.configure do
   
   config.paperclip_defaults = {
     storage: :s3,
-    s3_host_name: 's3-eu-west-1.amazonaws.com',
+#    s3_host_name: 's3-eu-west-1.amazonaws.com',
 #    url: ":s3_alias_url",
 #    s3_host_alias: "chrisrolle.com/images", 
     default_url: 'http://s3.amazonaws.com/christianrolle-assets/articles/:attachment/:style/missing.jpg',
