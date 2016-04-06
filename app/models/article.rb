@@ -1,10 +1,6 @@
 class Article < ActiveRecord::Base
   has_attached_file :avatar, 
-    styles: { small: '235x100#', medium: '100x150>', thumb: '50x75#' }, 
-    default_url: 'http://s3.amazonaws.com/christianrolle-assets/articles/:attachment/:style/missing.jpg',
-#    :url => ":s3_alias_url", # These two are only required when you alias S3 - e.g. want to use cdn.example.com rather than s3.amazonaws.com
-#    :s3_host_alias => "chrisrolle.com/images", 
-    storage: :s3
+    styles: { medium: '800x600>', small: ['64x64>', :jpg], thumb: ['150x150#', :jpg] }#, 
   has_many :article_tags, dependent: :delete_all
   has_many :tags, through: :article_tags
 
