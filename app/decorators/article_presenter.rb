@@ -13,8 +13,8 @@ class ArticlePresenter < Presenter
 
   def link_to_avatar
     return h.content_tag(:div, '', class: :avatar) if model.new_record?
-    avatar = model.avatar
-    image = h.image_tag(avatar.url(:medium)) if avatar.present?
+    avatar = model.image.thumb
+    image = h.image_tag(avatar.url) if avatar.present?
     h.link_to image, h.edit_admin_article_avatar_path(model), remote: true, 
       class: :avatar
   end
