@@ -1,7 +1,7 @@
 = form_for [:admin, @article], html: { id: nil, multipart: true } do |f|
   = token_tag form_authenticity_token
 
-  = f.file_field :avatar
+  = f.file_field :image
 
   .row.modal-footer
     = close_button
