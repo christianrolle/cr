@@ -1,6 +1,4 @@
 class Article < ActiveRecord::Base
-  has_attached_file :avatar, 
-    styles: { medium: '800x600>', small: ['64x64>', :jpg], thumb: ['150x150#', :jpg] }#, 
   has_many :article_tags, dependent: :delete_all
   has_many :tags, through: :article_tags
 

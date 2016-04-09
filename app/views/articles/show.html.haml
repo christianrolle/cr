@@ -4,13 +4,13 @@
   - content_for :meta do
     %meta{ property: 'og:title', content: @localized_article.title }
     %meta{ property: 'og:description', content: @localized_article.summary }
-    %meta{ property: 'og:image', content: @localized_article.avatar.url(:thumb) }
+    %meta{ property: 'og:image', content: nil }
     %meta{ property: 'twitter:card', content: 'summary' }
     %meta{ name: 'twitter:site', content: '@chrissonar' }
 
 
   %header
-    %figure=# image_tag @localized_article.avatar.url(:medium)
+    %figure=
     .title
       %h1.lobster= @localized_article.title
     = article_presenter.tags_with_icon

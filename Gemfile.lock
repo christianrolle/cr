@@ -70,11 +70,12 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     chronic (0.10.2)
-    climate_control (0.0.3)
-      activesupport (>= 3.0)
-    cocaine (0.5.8)
-      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -138,7 +139,7 @@ GEM
       middleman-core (~> 3.2)
       rouge (~> 1.0)
     mime-types (2.6.1)
-    mimemagic (0.3.0)
+    mini_magick (4.5.1)
     mini_portile (0.6.2)
     minitest (5.7.0)
     momentjs-rails (2.10.6)
@@ -160,12 +161,6 @@ GEM
       tilt (~> 1.4.1)
     padrino-support (0.12.5)
       activesupport (>= 3.1)
-    paperclip (4.3.2)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      cocaine (~> 0.5.5)
-      mime-types
-      mimemagic (= 0.3.0)
     pg (0.18.2)
     puma (2.15.3)
     rack (1.6.4)
@@ -260,6 +255,7 @@ DEPENDENCIES
   bootstrap-sass
   bootstrap3-datetimepicker-rails
   byebug
+  carrierwave (~> 0.10.0)
   coffee-rails (~> 4.1.0)
   date_validator
   dynamic_sitemaps
@@ -268,8 +264,8 @@ DEPENDENCIES
   jquery-rails
   kramdown
   middleman-syntax
+  mini_magick (~> 4.3)
   momentjs-rails
-  paperclip (~> 4.3)
   pg
   puma
   rack-timeout
