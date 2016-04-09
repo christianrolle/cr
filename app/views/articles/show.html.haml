@@ -10,8 +10,7 @@
 
 
   %header
-    = @localized_article.image.thumb.url
-    %figure= image_tag @localized_article.image.thumb.url
+    %figure=# image_tag @localized_article.image.thumb.url
     .title
       %h1.lobster= @localized_article.title
     = article_presenter.tags_with_icon
