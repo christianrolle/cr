@@ -56,7 +56,7 @@ private
   def article_params
     params.require(:article)
       .permit(:title_de, :title_en, :content_de, :content_en, :summary_de, 
-        :summary_en, :published_at, :avatar, tag_ids: [])
+        :summary_en, :published_at, :image, tag_ids: [])
       .transform_values{ |value| value if value.present? }
   end
 end
