@@ -42,7 +42,6 @@
     max-width: 1014px;
     margin-top: 1em;  
     font-size: 0.9em;
-    color: $aluminum;
 
     figure { margin-left: 1em; }
     h1 { margin-top: 0px; }
@@ -58,10 +57,8 @@
       color: $aluminum;
     }
     .text {
-      h1 {
-        font-family: "Open Sans" !important;
-        font-size: 1.5em;
-        font-weight: bold;
+      h3 {
+        font-family: "Lobster" !important;
       }
       table {
         td, th {
