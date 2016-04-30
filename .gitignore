@@ -17,3 +17,6 @@
 /tmp
 /public/assets
 /config/secrets.yml
+
+# Ignore AWS credentials
+.rvmrc
