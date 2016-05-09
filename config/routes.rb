@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   to: 'admin/article_avatars#edit', 
   as: 'edit_admin_article_avatar'
   match '/:document', to: 'documents#show', via: :get
+  match '/:layout/:document', to: 'documents#show', via: :get, 
+            defaults: { layout: :plain }
 end
