@@ -1,7 +1,7 @@
 class DocumentsController < ApplicationController
+  helper Layout::InlineHelper
 
   def show
-#    render action: , layout: layout
     render_document layout
   end
 
@@ -13,7 +13,6 @@ class DocumentsController < ApplicationController
 
   def layout
     return true if params[:layout].nil?
-    return false if params[:layout] == 'plain'
     params[:layout]
   end
 
