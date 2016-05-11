@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   def index
     @articles = Article.localized(I18n.locale).published.includes(:tags)
+                  .search(params[:search])
                   .by_publishing
   end
 
