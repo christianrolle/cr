@@ -20,6 +20,11 @@ class Article < ActiveRecord::Base
   scope :unpublished_first, -> { order('published_at IS NULL DESC') }
   scope :by_creation, -> { order('created_at ASC') }
   scope :by_publishing, -> { order('published_at DESC') }
+  scope :search, ->(term) {
+    term = term.to_s.strip
+    return if term.empty?
+    where("title_en LIKE :term OR title_de LIKE :term", { term: "%#{term}%" })
+  }
 
   def published_on
     published_at.to_date
