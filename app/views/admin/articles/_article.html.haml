@@ -5,7 +5,7 @@
         = article.title
       = present(article, ArticlePresenter).tags_with_icon
     .col-md-2
-      = article.publishing_date
+      = l article.published_at.to_date, format: :short
     .col-md-2.text-right
       = link_to('', article_path(article.slug), rel: 'preview',
           class: 'btn btn-default glyphicon glyphicon-eye-open',
