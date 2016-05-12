@@ -6,7 +6,6 @@ class ArticleSupplement < ActiveRecord::Base
   validate :has_at_least_one_tag, if: :published?
 
   scope :published, -> { where("published_at < ?", Time.current) }
-  scope :unpublished_first, -> { order('published_at IS NULL DESC') }
   scope :by_publishing, -> { order('published_at DESC') }
 
   def published?
