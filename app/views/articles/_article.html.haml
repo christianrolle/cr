@@ -1,6 +1,6 @@
 %li.article.row
-  %time.small{ datetime: l(article.published_on) }
-    = l article.published_on, format: :short
+  %time.small{ datetime: l(article.published_at) }
+    = l article.published_at.to_date, format: :short
   = link_to article.title, article_path(article.slug), type: 'text', 
       rel: 'next',  hreflang: locale, 
       class: 'lobster glyphicon glyphicon-chevron-right h1'
