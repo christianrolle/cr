@@ -1,9 +1,10 @@
 class Admin::ArticlesController < ApplicationController
+
   rescue_from ActiveRecord::RecordInvalid, with: :render_validation
 
   def index
     @articles = Article.includes(:tags)
-                  .unpublished_first.by_publishing.by_creation            
+                  .by_publishing.by_creation            
   end
 
   def show
