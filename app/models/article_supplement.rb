@@ -9,11 +9,6 @@ class ArticleSupplement < ActiveRecord::Base
   scope :unpublished_first, -> { order('published_at IS NULL DESC') }
   scope :by_publishing, -> { order('published_at DESC') }
 
-
-  def published_on
-    published_at.to_date
-  end
-
   def published?
     published_at.present?
   end
