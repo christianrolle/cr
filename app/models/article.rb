@@ -5,10 +5,10 @@ class Article < ActiveRecord::Base
   enum locale: [:de, :en]
 
   belongs_to :article_supplement
+  has_many :tags, through: :article_supplement
 
   before_validation :set_slug
 
-  validates :title, presence: true
   validates :title, 
     uniqueness: { scope: :locale }, 
     length: { in: 3..200 }, 
@@ -16,8 +16,14 @@ class Article < ActiveRecord::Base
   validates :slug, uniqueness: true, allow_nil: true
   validates :text, presence: true, if: -> { published? && title.present? }
 
-  scope :localized, -> { where.not("title" => nil) }
+  scope :localized, ->(locale) { where(locale: locales[locale.to_sym]) }
+  scope :with_tags, -> { includes(article_supplement: :tags) }
   scope :by_creation, -> { order('created_at ASC') }
+  scope :by_publishing, -> { 
+    includes(:article_supplement)
+      .merge(ArticleSupplement.published)
+      .merge(ArticleSupplement.by_publishing) 
+  }
   scope :search, ->(term) {
     term = term.to_s.strip
     return if term.empty?
