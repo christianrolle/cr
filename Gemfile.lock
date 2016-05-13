@@ -37,7 +37,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    addressable (2.3.8)
+    addressable (2.4.0)
     arel (6.0.3)
     authlogic (3.4.6)
       activerecord (>= 3.2)
@@ -64,13 +64,7 @@ GEM
     bootstrap3-datetimepicker-rails (4.17.37)
       momentjs-rails (>= 2.8.1)
     builder (3.2.2)
-    byebug (8.2.4)
-    capybara (2.5.0)
-      mime-types (>= 1.16)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      xpath (~> 2.0)
+    byebug (9.0.0)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -84,7 +78,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
-    concurrent-ruby (1.0.1)
+    concurrent-ruby (1.0.2)
     contracts (0.13.0)
     date_validator (0.9.0)
       activemodel
@@ -97,8 +91,8 @@ GEM
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
     fast_blank (1.0.0)
-    fastimage (1.9.0)
-      addressable (~> 2.3.5)
+    fastimage (2.0.0)
+      addressable (~> 2)
     ffi (1.9.10)
     ffi-compiler (0.1.3)
       ffi (>= 1.0.0)
@@ -156,9 +150,9 @@ GEM
       fog-json (~> 1.0)
       fog-xml (~> 0.1)
       ipaddress (~> 0.8)
-    fog-core (1.37.0)
+    fog-core (1.39.0)
       builder
-      excon (~> 0.45)
+      excon (~> 0.49)
       formatador (~> 0.2)
     fog-dynect (0.0.3)
       fog-core
@@ -176,8 +170,8 @@ GEM
       multi_json (~> 1.10)
     fog-local (0.3.0)
       fog-core (~> 1.27)
-    fog-openstack (0.1.2)
-      fog-core (>= 1.35)
+    fog-openstack (0.1.5)
+      fog-core (>= 1.38)
       fog-json (>= 1.0)
       fog-xml (>= 0.1)
       ipaddress (>= 0.8)
@@ -208,7 +202,7 @@ GEM
     fog-serverlove (0.1.2)
       fog-core
       fog-json
-    fog-softlayer (1.1.0)
+    fog-softlayer (1.1.1)
       fog-core
       fog-json
     fog-storm_on_demand (0.1.1)
@@ -223,7 +217,7 @@ GEM
     fog-voxel (0.1.0)
       fog-core
       fog-xml
-    fog-vsphere (0.6.3)
+    fog-vsphere (0.6.4)
       fog-core
       rbvmomi (~> 1.8)
     fog-xenserver (0.2.3)
@@ -232,6 +226,8 @@ GEM
     fog-xml (0.1.2)
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
+    foreman (0.81.0)
+      thor (~> 0.19.1)
     formatador (0.2.5)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
@@ -239,7 +235,7 @@ GEM
       tilt
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
-    hashie (3.4.3)
+    hashie (3.4.4)
     httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -255,35 +251,37 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.3)
     jwt (1.5.1)
-    kramdown (1.10.0)
-    listen (3.0.6)
+    kramdown (1.11.1)
+    listen (3.0.7)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9.7)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
-    middleman-core (4.1.6)
+    memoist (0.14.0)
+    middleman-core (4.1.8)
       activesupport (~> 4.2)
       addressable (~> 2.3)
       backports (~> 3.6)
       bundler (~> 1.1)
-      capybara (~> 2.5.0)
       contracts (~> 0.13.0)
       erubis
       execjs (~> 2.0)
       fast_blank
-      fastimage (~> 1.7)
+      fastimage (~> 2.0)
       hamster (~> 3.0)
       hashie (~> 3.4)
       i18n (~> 0.7.0)
-      listen (~> 3.0)
+      listen (~> 3.0.0)
+      memoist (~> 0.14)
       padrino-helpers (~> 0.13.0)
       parallel
       rack (>= 1.4.5, < 2.0)
       sass (>= 3.4)
+      servolux
       tilt (~> 1.4.1)
-      uglifier (~> 2.6)
+      uglifier (~> 3.0)
     middleman-syntax (2.1.0)
       middleman-core (>= 3.2)
       rouge (~> 1.0)
@@ -293,9 +291,9 @@ GEM
     mini_magick (4.5.1)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
-    momentjs-rails (2.11.0)
+    momentjs-rails (2.11.1)
       railties (>= 3.1)
-    multi_json (1.11.2)
+    multi_json (1.12.0)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     nokogiri (1.6.7.2)
@@ -306,11 +304,11 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
-    padrino-helpers (0.13.1)
+    padrino-helpers (0.13.2)
       i18n (~> 0.6, >= 0.6.7)
-      padrino-support (= 0.13.1)
-      tilt (~> 1.4.1)
-    padrino-support (0.13.1)
+      padrino-support (= 0.13.2)
+      tilt (>= 1.4.1, < 3)
+    padrino-support (0.13.2)
       activesupport (>= 3.1)
     parallel (1.8.0)
     pg (0.18.4)
@@ -373,7 +371,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    spring (1.6.4)
+    servolux (0.12.0)
+    spring (1.7.1)
     sprockets (3.6.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -390,9 +389,8 @@ GEM
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (2.7.2)
-      execjs (>= 0.3.0)
-      json (>= 1.8.0)
+    uglifier (3.0.0)
+      execjs (>= 0.3.0, < 3)
     web-console (2.3.0)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -401,8 +399,6 @@ GEM
     whenever (0.9.4)
       chronic (>= 0.6.3)
     xml-simple (1.1.5)
-    xpath (2.0.0)
-      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -419,6 +415,7 @@ DEPENDENCIES
   date_validator
   dynamic_sitemaps
   fog
+  foreman
   haml
   jbuilder (~> 2.0)
   jquery-rails
