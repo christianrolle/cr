@@ -17,7 +17,7 @@ class TranslatedArticle < ActiveRecord::Base
   validates :slug, 
     uniqueness: { scope: :locale }, 
     allow_nil: true
-  validates :text, presence: true, if: -> { published? && title.present? }
+  validates :text, presence: true, if: -> { released? && title.present? }
 
   scope :localized, ->(locale) { where(locale: locales[locale.to_s]) }
   scope :search, ->(term) {
@@ -27,7 +27,7 @@ class TranslatedArticle < ActiveRecord::Base
   }
   scope :by_publishing, -> { eager_load(:article).merge(Article.by_publishing) }
 
-  delegate :published?, :published_at, to: :article
+  delegate :released?, :published_at, to: :article
 
   private
 
