@@ -3,14 +3,16 @@ class Admin::ArticlesController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_validation
 
   def index
-    @articles = Article.includes(:tags)
-                  .by_publishing.by_creation            
+    @articles = Article.localized(locale)
+                        .preload(:tags)
+                        .by_publishing
+                        .by_creation
   end
 
   def show
-    article = Article.find params[:id]
-    article.published_at ||= Time.current
-    @localized_article = LocalizedArticle.new article, locale
+    @article = Article.find params[:id]
+    @article.published_at ||= Time.current
+#    @localized_article = LocalizedArticle.new article, locale
     render template: 'articles/show'
   end
 
