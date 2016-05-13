@@ -30,15 +30,26 @@ module Layout
       link_to icon(label), url, style: text_styles('color' => '#333333')
     end
 
+    def td_styles styles={}
+      styles['padding-top'] ||= '0px'
+      styles['padding-right'] ||= '0px'
+      styles['padding-bottom'] ||= '0px'
+      styles['padding-left'] ||= '0px'
+      styles['text-align'] ||= 'left'
+      serialize(styles)
+    end
+
     private
 
     def serialize styles={}
-      styles.map { |style, value| "#{style}: #{value};" }
+      styles.each_with_object('') { |(name, value), style|
+        style += "#{name}: #{value};"
+      }
     end
 
     def text_styles styles={}
       styles['color'] ||= '#000000'
-      styles['font-family'] ||= "'Arial', sans-serif"
+      styles['font-family'] ||= "'Verdana'"
       styles['font-size'] ||= '10pt'
       styles['text-align'] ||= 'left'
       serialize styles
@@ -46,7 +57,7 @@ module Layout
 
     def text styles={}
       styles['color'] ||= '#000000'
-      styles['font-family'] ||= "'Arial', sans-serif"
+      styles['font-family'] ||= "'Verdana', sans-serif"
       styles['font-size'] ||= '10pt'
       styles['text-align'] ||= 'left'
       styles
