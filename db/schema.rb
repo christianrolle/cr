@@ -11,11 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512101137) do
+ActiveRecord::Schema.define(version: 20160512214740) do
 
-  create_table "article_supplements", force: :cascade do |t|
-    t.datetime "published_at"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "article_tag_positions", force: :cascade do |t|
+    t.integer "article_id"
+    t.integer "tag_id"
+    t.integer "position"
   end
+
+  add_index "article_tag_positions", ["article_id"], name: "index_article_tag_positions_on_article_id", using: :btree
+  add_index "article_tag_positions", ["tag_id"], name: "index_article_tag_positions_on_tag_id", using: :btree
 
   create_table "article_tags", force: :cascade do |t|
     t.integer "article_id"
@@ -23,16 +31,9 @@ ActiveRecord::Schema.define(version: 20160512101137) do
   end
 
   create_table "articles", force: :cascade do |t|
-    t.string   "title"
-    t.text     "text"
     t.datetime "published_at"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.string   "slug"
-    t.text     "summary"
-    t.string   "image"
-    t.integer  "article_supplement_id"
-    t.integer  "locale",                default: 0
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "tags", force: :cascade do |t|
@@ -42,6 +43,22 @@ ActiveRecord::Schema.define(version: 20160512101137) do
     t.integer  "article_tags_count", default: 0
   end
 
+  create_table "translated_articles", force: :cascade do |t|
+    t.integer  "locale",     default: 0
+    t.string   "title"
+    t.text     "text"
+    t.text     "summary"
+    t.string   "slug"
+    t.string   "image"
+    t.integer  "article_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "translated_articles", ["article_id"], name: "index_translated_articles_on_article_id", using: :btree
+  add_index "translated_articles", ["locale"], name: "index_translated_articles_on_locale", using: :btree
+  add_index "translated_articles", ["slug"], name: "index_translated_articles_on_slug", using: :btree
+
   create_table "user_sessions", force: :cascade do |t|
     t.string   "session_id", null: false
     t.text     "data"
@@ -49,8 +66,8 @@ ActiveRecord::Schema.define(version: 20160512101137) do
     t.datetime "updated_at"
   end
 
-  add_index "user_sessions", ["session_id"], name: "index_user_sessions_on_session_id"
-  add_index "user_sessions", ["updated_at"], name: "index_user_sessions_on_updated_at"
+  add_index "user_sessions", ["session_id"], name: "index_user_sessions_on_session_id", using: :btree
+  add_index "user_sessions", ["updated_at"], name: "index_user_sessions_on_updated_at", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                default: "", null: false
@@ -72,4 +89,7 @@ ActiveRecord::Schema.define(version: 20160512101137) do
     t.datetime "updated_at",                       null: false
   end
 
+  add_foreign_key "article_tag_positions", "articles"
+  add_foreign_key "article_tag_positions", "tags"
+  add_foreign_key "translated_articles", "articles"
 end
