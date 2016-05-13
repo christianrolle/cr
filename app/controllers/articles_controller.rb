@@ -1,9 +1,12 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.localized(locale).search(params[:search]).by_publishing
+    @articles = TranslatedArticle.localized(locale)
+                                  .search(params[:search])
+                                  .preload(:tags)
+                                  .by_publishing
   end
 
   def show
-    @article = Article.find_by_slug params[:id]
+    @article = TranslatedArticle.find_by_slug params[:id]
   end
 end
