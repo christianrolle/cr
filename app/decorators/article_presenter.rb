@@ -1,6 +1,6 @@
 class ArticlePresenter < Presenter
+
   def tags_with_icon
-    tags = model.tags
     return if tags.blank?
     css = 'list-unstyled tags glyphicon glyphicon-tag'
     css << 's' if tags.size > 1
@@ -22,4 +22,9 @@ class ArticlePresenter < Presenter
   def url
     @url ||= h.article_url(model.slug)
   end
+
+  private
+
+  delegate :tags, to: :model
+
 end
