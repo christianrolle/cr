@@ -1,31 +1,38 @@
 class CreateGermanArticles < ActiveRecord::Migration
   def change
     Article.transaction do
-      Article.all.each do |article|
-        german_article = article.dup
+      Article.all.each do |legacy_article|
+
+        legacy_article.article_tags.each_with_index do |article_tag, index|
+          position = index + 1
+          legacy_article.article_tag_positions.create!({ 
+            tag: article_tag.tag, 
+            position: position 
+          })
+        end
+
+        article_attributes = {
+          article: legacy_article,
+          image: legacy_article.image,
+          created_at: legacy_article.created_at,
+          updated_at: legacy_article.updated_at
+        }
+        english_article = TranslatedArticle.new article_attributes
+        english_article.locale = :en
+        english_article.title = legacy_article.title_en
+        english_article.text = legacy_article.content_en
+        english_article.summary = legacy_article.summary_en
+        english_article.slug = legacy_article.slug
+
+        german_article = TranslatedArticle.new article_attributes
         german_article.locale = :de
-        article.locale = :en
-
-        german_article.slug = nil
-
-        article.title_de = nil
-        article.content_de = nil
-        article.summary_de = nil
-        german_article.title_en = german_article.title_de
-        german_article.content_en = german_article.content_de
-        german_article.summary_en = german_article.summary_de
-        german_article.title_de = nil
-        german_article.content_de = nil
-        german_article.summary_de = nil
-
-        attribtues = { published_at: article.published_at }
-        article_supplement = ArticleSupplement.create! attributes
-
-        article.article_supplement = article_supplement
-        german_article.article_supplement = article_supplement
-
-        article.save!
+        german_article.title = legacy_article.title_de
+        german_article.text = legacy_article.content_de
+        german_article.summary = legacy_article.summary_de
+        
+        english_article.save!
         german_article.save!
+
       end
     end
   end
