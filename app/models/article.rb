@@ -11,6 +11,10 @@ class Article < ActiveRecord::Base
   has_many :article_tag_positions, -> { order('article_tag_positions.position ASC') },
     dependent: :delete_all
   has_many :tags, through: :article_tag_positions
+  has_many :translated_articles
+  has_one :translated_article, ->(locale) { 
+    merge(TranslatedArticle.localized locale)
+  }
 
   before_validation :set_slug
 
@@ -23,7 +27,8 @@ class Article < ActiveRecord::Base
     allow_nil: true
   validates :content_en, presence: true, if: -> { released? && title.present? }
 
-  scope :by_creation, -> { order('created_at ASC') }
+  scope :localized, ->(locale) { eager_load(:translated_article) }
+  scope :by_creation, -> { order("#{table_name}.created_at ASC") }
   scope :published, -> { where("published_at < ?", Time.current) }
   scope :by_publishing, -> { published.order('published_at DESC') }
 
