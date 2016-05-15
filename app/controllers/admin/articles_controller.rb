@@ -4,8 +4,23 @@ class Admin::ArticlesController < ApplicationController
 
   def index
     @articles = TranslatedArticle.localized(locale)
-                                  .search(params[:search])
                                   .preload(:tags)
+                                  .by_publishing
+  end
+
+  def show
+    @article = Article.find params[:id]
+    @article.published_at ||= Time.current
+    render template: 'articles/show'
+  end
+
+  def new
+    @article = Article.new
+  end
+
+  def create
+    @article = Article.new article_params
+    @article.save!
     flash[:notice] = success_note(@article)
     redirect_to [:edit, :admin, @article]
   end
