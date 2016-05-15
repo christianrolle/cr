@@ -48,4 +48,15 @@ module ApplicationHelper
     link_to I18n.t("social.#{service}"), url, rel: :nofollow, 
       class: "share #{service} icon"
   end
+
+  def link_to_alternate
+    link_to t("view.locale_#{@locale.secondary}"), 
+      alternate_url, locale: @locale.secondary, rel: :alternate
+  end
+
+  private
+
+  def alternate_url
+    @locale.alternate_url || root_url(locale: @locale.secondary)
+  end
 end
