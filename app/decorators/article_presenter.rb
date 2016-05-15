@@ -20,7 +20,7 @@ class ArticlePresenter < Presenter
   end
  
   def url
-    @url ||= h.article_url(model.slug)
+    @url ||= h.article_url(model.slug, locale: locale)
   end
 
   private
