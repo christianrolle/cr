@@ -1,7 +1,7 @@
 %li.article.row
   %time.small{ datetime: l(translated_article.published_at) }
     = l translated_article.published_at.to_date, format: :short
-  = link_to translated_article.title, article_path(translated_article.slug), 
+  = link_to translated_article.title, article_path(translated_article.slug, locale: locale), 
       type: 'text', rel: 'next',  hreflang: locale, 
       class: 'lobster glyphicon glyphicon-chevron-right h1'
   = present(translated_article, ArticlePresenter).tags_with_icon
