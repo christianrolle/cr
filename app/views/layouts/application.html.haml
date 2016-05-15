@@ -23,11 +23,9 @@
           = link_to image_tag(gravatar_url 200), root_url, alt: t('main_page'), 
               title: 'Christian Rolle', class: 'avatar'
           .sub.clearfix
-            %h1.author.lobster= link_to 'Christian Rolle', root_url
+            %h1.author.lobster= link_to 'Christian Rolle', root_url(locale: locale)
             .locale
-              = link_to t("view.locale_#{@locale.secondary}"), 
-                  root_url(locale: @locale.secondary),
-                  locale: @locale.secondary, rel: :alternate
+              = link_to_alternate 
             .social
               = link_to 'twitter', "https://twitter.com/chrissonar", 
                   class: 'icon', target: '_blank'
@@ -37,7 +35,7 @@
                   "https://de.linkedin.com/pub/christian-rolle/5a/745/592", 
                   class: 'icon', target: '_blank'
               %br
-              = link_to 'Blog', articles_path, class: 'h3'
+              = link_to 'Blog', articles_path(locale: locale), class: 'h3'
               .hidden-xs.hidden-sm
               = link_to 'Google blog', 'https://www.chris-on-rails.blogspot.de/', 
                   class: 'h3'
