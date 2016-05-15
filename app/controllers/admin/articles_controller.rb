@@ -3,26 +3,9 @@ class Admin::ArticlesController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_validation
 
   def index
-    @articles = Article.localized(locale)
-                        .preload(:tags)
-                        .by_publishing
-                        .by_creation
-  end
-
-  def show
-    @article = Article.find params[:id]
-    @article.published_at ||= Time.current
-#    @localized_article = LocalizedArticle.new article, locale
-    render template: 'articles/show'
-  end
-
-  def new
-    @article = Article.new
-  end
-
-  def create
-    @article = Article.new article_params
-    @article.save!
+    @articles = TranslatedArticle.localized(locale)
+                                  .search(params[:search])
+                                  .preload(:tags)
     flash[:notice] = success_note(@article)
     redirect_to [:edit, :admin, @article]
   end
@@ -46,7 +29,9 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.find params[:id]
     @article.destroy
   end
-private
+
+  private
+
   def success_note article
     I18n.t("admin.articles.saved", title: LocalizedArticle.new(article).title)
   end

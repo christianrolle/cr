@@ -12,6 +12,7 @@ class Article < ActiveRecord::Base
     dependent: :delete_all
   has_many :tags, through: :article_tag_positions
   has_many :translated_articles
+#  has_one :localized_article, -> { merge(TranslatedArticle.localized(locale) }
 
   before_validation :set_slug
 
@@ -24,7 +25,10 @@ class Article < ActiveRecord::Base
     allow_nil: true
   validates :content_en, presence: true, if: -> { released? && title.present? }
 
-  scope :localized, ->(locale) { eager_load(:translated_article) }
+  scope :localized, ->(locale) { 
+    eager_load(:translated_articles)
+      .merge(TranslatedArticle.localized(locale))
+  }
   scope :by_creation, -> { order("#{table_name}.created_at ASC") }
   scope :published, -> { where("published_at < ?", Time.current) }
   scope :by_publishing, -> { published.order('published_at DESC') }
@@ -33,13 +37,12 @@ class Article < ActiveRecord::Base
     published_at.present?
   end
 
+#  delegate :title, to: :
+
   private
 
   def set_slug
     self.slug = title.parameterize if title.present?
   end
 
-  def title
-    title_en
-  end
 end
