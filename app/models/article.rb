@@ -12,9 +12,6 @@ class Article < ActiveRecord::Base
     dependent: :delete_all
   has_many :tags, through: :article_tag_positions
   has_many :translated_articles
-  has_one :translated_article, ->(locale) { 
-    merge(TranslatedArticle.localized locale)
-  }
 
   before_validation :set_slug
 
