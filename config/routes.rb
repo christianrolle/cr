@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   match 'logout', to: "user_sessions#destroy", via: :get
   get "sitemap.xml" => "home#sitemap", format: :xml, as: :sitemap
   get "robots.txt" => "home#robots", format: :text, as: :robots
-  root 'articles#index'
 
   resources :user_sessions, only: :create
-  resources :articles, path: 'blog', only: [:index, :show]
+  scope '(:locale)' do
+    root 'articles#index'
+    resources :articles, path: 'blog', only: [:index, :show]
+  end
   resources :documents, only: :show
   resources :messages, only: :create
   namespace :admin do
