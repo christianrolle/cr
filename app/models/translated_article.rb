@@ -31,7 +31,7 @@ class TranslatedArticle < ActiveRecord::Base
     where("title LIKE ?", "%#{term}%")
   }
 
-  delegate :released?, :published_at, to: :article
+  delegate :released?, :published_at, :image, to: :article
 
   private
 
