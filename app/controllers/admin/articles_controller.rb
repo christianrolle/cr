@@ -3,7 +3,10 @@ class Admin::ArticlesController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_validation
 
   def index
-    @articles = Article.preload(:tags).by_publishing.by_creation
+    @articles = Article.localized(locale)
+                        .preload(:tags)
+                        .by_publishing
+                        .by_creation
   end
 
   def show

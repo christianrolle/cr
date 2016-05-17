@@ -21,7 +21,9 @@ class TranslatedArticle < ActiveRecord::Base
     allow_nil: true
   validates :text, presence: true, if: -> { released? && title.present? }
 
-  scope :localized, ->(locale) { where(locale: locales[locale.to_s]) }
+  scope :localized, ->(locale) { 
+    where(table_name => { locale: locales[locale.to_s] })
+  }
   scope :by_publishing, -> { 
     eager_load(:article).merge(Article.published).merge(Article.by_publishing) 
   }

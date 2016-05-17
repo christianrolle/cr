@@ -1,10 +1,10 @@
 class ArticlesController < ApplicationController
 
   def index
-    @articles = TranslatedArticle.localized(locale)
-                                  .search(params[:search])
-                                  .preload(:tags)
-                                  .by_publishing
+    @articles = Article.published
+                        .search_localized(params[:search], locale)
+                        .preload(:tags)
+                        .by_publishing
   end
 
   def show

@@ -1,4 +1,5 @@
 class Tag < ActiveRecord::Base
+
   validates :name, presence: true, uniqueness: true
 
   scope :ordered, -> { order('name ASC') }
@@ -6,4 +7,5 @@ class Tag < ActiveRecord::Base
   scope :search, -> (term=nil) { 
     where 'name LIKE :term', { term: "%#{term}%" } if term.present?
   }
+
 end

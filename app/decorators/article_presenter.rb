@@ -5,9 +5,10 @@ class ArticlePresenter < Presenter
     css = 'list-unstyled tags glyphicon glyphicon-tag'
     css << 's' if tags.size > 1
     h.content_tag(:ol, class: css) do
-      tags.inject(''.html_safe) { |html, tag|
-        html += h.content_tag(:li, tag.name)
+      article_tag_positions.inject(''.html_safe) { |html, tag_position|
+        html += h.content_tag(:li, tag_position.name)
       }
+
     end
   end
 

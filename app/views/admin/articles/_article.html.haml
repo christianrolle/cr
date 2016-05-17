@@ -1,17 +1,16 @@
 %li.alternated.list-group-item.clearfix{ id: dom_id(article) }
   .row
-    - decorate(article) do |localized_article|
-      .col-md-8
-        %h1.h3.lobster
-          = localized_article.title
-        = present(article, ArticlePresenter).tags_with_icon
-      .col-md-2
-        = localized_article.published_on
-      .col-md-2.text-right
-        = link_to('', article, rel: 'preview', 
-            class: 'btn btn-default glyphicon glyphicon-eye-open',
-            target: '_blank') if article.released?
-        = link_to '', [:edit, :admin, article], 
-            class: 'btn btn-default glyphicon glyphicon-pencil'
-        = link_to '', [:admin, article], remote: true, method: :delete, 
-            class: 'btn btn-default glyphicon glyphicon-trash'
+    .col-md-8
+      %h1.h3.lobster
+        = article.title
+      = present(article, ArticlePresenter).tags_with_icon
+    .col-md-2
+      = decorate(article).published_on
+    .col-md-2.text-right
+      = link_to('', article, rel: 'preview', 
+          class: 'btn btn-default glyphicon glyphicon-eye-open',
+          target: '_blank') if article.released?
+      = link_to '', [:edit, :admin, article], 
+          class: 'btn btn-default glyphicon glyphicon-pencil'
+      = link_to '', [:admin, article], remote: true, method: :delete, 
+          class: 'btn btn-default glyphicon glyphicon-trash'

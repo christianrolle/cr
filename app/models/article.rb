@@ -13,13 +13,18 @@ class Article < ActiveRecord::Base
   has_many :tags, through: :article_tag_positions
   has_many :translated_articles
 
-  scope :localized, ->(locale) { 
-    eager_load(:translated_articles)
-      .merge(TranslatedArticle.localized(locale))
-  }
-  scope :by_creation, -> { order("#{table_name}.created_at ASC") }
   scope :published, -> { where("published_at < ?", Time.current) }
   scope :by_publishing, -> { order('published_at DESC') }
+  scope :by_creation, -> { order("#{table_name}.created_at ASC") }
+  scope :localized, ->(locale) { 
+    joins(:translated_articles)
+      .select('articles.*, title, text, summary, slug')
+      .merge(TranslatedArticle.localized(locale))
+  }
+  scope :search_localized, ->(term, locale) {
+    localized(locale)
+      .merge(TranslatedArticle.search(term))
+  }
 
   def released?
     published_at.present?
