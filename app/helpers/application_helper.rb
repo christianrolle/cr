@@ -30,10 +30,11 @@ module ApplicationHelper
       'data-dismiss' => 'modal'
   end
 
-  def decorate_collection collection, decorator_class=nil, decorator_type=nil
-    return collection if collection.blank?
-    decorator_class ||= "#{collection.first.class}#{decorator_type}".constantize
-    collection.map{ |model| decorator_class.new(model, locale) }
+  def decorate model, decorator_class=nil
+    decorator_class ||= "#{model.class}Decorator".constantize
+    decorator = decorator_class.new(model)
+    return decorator unless block_given?
+    yield(decorator)
   end
 
   def present model, presenter_class=nil
