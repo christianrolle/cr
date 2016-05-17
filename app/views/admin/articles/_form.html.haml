@@ -1,6 +1,6 @@
 .messages.alert= flash[:notice]
 = form_for [:admin, @article], html: { id: nil, class: 'admin article' } do |f|
-  = present(@article) do |article_presenter|
+  - present(@article) do |article_presenter|
     .row
       .col-xs-12.col-md-3
         = article_presenter.link_to_avatar
