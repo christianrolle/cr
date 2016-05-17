@@ -10,8 +10,8 @@
       = link_to('', article_path(translated_article.slug), 
           rel: 'preview', class: 'btn btn-default glyphicon glyphicon-eye-open',
           target: '_blank') if translated_article.released?
-      = link_to '', edit_admin_article_path(translated_article), 
+      = link_to '', edit_admin_article_path(translated_article.article), 
           class: 'btn btn-default glyphicon glyphicon-pencil'
-      = link_to '', admin_article_path(translated_article), 
+      = link_to '', admin_article_path(translated_article.article), 
           remote: true, method: :delete, 
           class: 'btn btn-default glyphicon glyphicon-trash'
