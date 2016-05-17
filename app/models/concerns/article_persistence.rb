@@ -40,7 +40,7 @@ class ArticlePersistence
   end
 
   def extract_article_attributes attributes
-    attributes.slice(@article.class.column_names).except(:id)
+    attributes.slice(*@article.class.column_names).except('id')
   end
 
   def find_or_build_translated_article locale
