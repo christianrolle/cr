@@ -1,7 +1,5 @@
 class TranslatedArticle < ActiveRecord::Base
 
-  mount_uploader :image, ArticleImageUploader
-
   enum locale: { en: 1, de: 2 }
 
   belongs_to :article
