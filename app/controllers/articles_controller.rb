@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.published
+                        .tagged(params[:tag_slug])
                         .search_localized(params[:search], locale)
                         .preload(:tags)
                         .by_publishing
