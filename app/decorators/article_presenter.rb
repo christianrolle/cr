@@ -23,8 +23,17 @@ class ArticlePresenter < Presenter
     @url ||= h.article_url(model.slug, locale: locale)
   end
 
+  def translated_articles_by_locale
+    %w(en de).map { |locale| translated_article_by_locale locale }
+  end
+
   private
 
   delegate :tags, to: :model
+
+  def translated_article_by_locale locale
+    translated_articles.detect { |article| article.locale == locale } ||
+      model.translated_articles.build(locale: locale)
+  end
 
 end
