@@ -8,7 +8,6 @@ class ArticlePresenter < Presenter
       article_tag_positions.inject(''.html_safe) { |html, article_tag_position|
         html += h.content_tag(:li, article_tag_position.tag_name)
       }
-
     end
   end
 
