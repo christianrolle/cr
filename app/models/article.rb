@@ -18,12 +18,16 @@ class Article < ActiveRecord::Base
   scope :by_creation, -> { order("#{table_name}.created_at ASC") }
   scope :localized, ->(locale) { 
     joins(:translated_articles)
-      .select('articles.*, title, text, summary, slug')
+      .select('articles.*, translated_articles.title, text, summary, translated_articles.slug')
       .merge(TranslatedArticle.localized(locale))
   }
   scope :search_localized, ->(term, locale) {
     localized(locale)
       .merge(TranslatedArticle.search(term))
+  }
+  scope :tagged, ->(tag_slug) {
+    return preload(:tags) if tag_slug.blank?
+    eager_load(:tags).merge(Tag.slugged(tag_slug))
   }
 
   def released?
