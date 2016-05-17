@@ -1,0 +1,19 @@
+.col-sm-6.col-xs-12
+  .form-group
+    = label "translated_article_#{translated_article.locale}_title", 
+        t(".#{translated_article.locale}")
+    = text_field_tag "article[translated_articles][#{translated_article.locale}]title", 
+        translated_article.title, class: 'form-control', 
+        id: "translated_article_#{translated_article.locale}_title",
+        placeholder: Article.human_attribute_name('title')
+  .form-group
+    = text_area_tag "article[translated_articles][#{translated_article.locale}]summary", 
+        translated_article.summary,
+        rows: 3, class: 'form-control',
+        placeholder: Article.human_attribute_name('summary')
+  .form-group
+    = text_area_tag "article[translated_articles][#{translated_article.locale}]text", 
+        translated_article.text,
+        rows: 40, class: 'form-control',
+        placeholder: Article.human_attribute_name('content')
+
