@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = TranslatedArticle.find_by_slug params[:id]
+    @article = TranslatedArticle.find_by_slug params[:slug]
     alternate_to alternate_url(@article)
   end
 
