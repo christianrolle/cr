@@ -12,18 +12,6 @@ class Article < ActiveRecord::Base
     dependent: :delete_all
   has_many :tags, through: :article_tag_positions
   has_many :translated_articles
-#  has_one :localized_article, -> { merge(TranslatedArticle.localized(locale) }
-
-  before_validation :set_slug
-
-  validates :title_en, 
-    uniqueness: { scope: :locale }, 
-    length: { in: 3..200 }, 
-    allow_blank: true
-  validates :slug, 
-    uniqueness: { scope: :locale }, 
-    allow_nil: true
-  validates :content_en, presence: true, if: -> { released? && title.present? }
 
   scope :localized, ->(locale) { 
     eager_load(:translated_articles)
@@ -35,14 +23,6 @@ class Article < ActiveRecord::Base
 
   def released?
     published_at.present?
-  end
-
-#  delegate :title, to: :
-
-  private
-
-  def set_slug
-    self.slug = title.parameterize if title.present?
   end
 
 end
