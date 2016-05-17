@@ -15,7 +15,9 @@ class ArticlePersistence
   def attributes= new_attributes
     attributes = new_attributes.stringify_keys
     @article.attributes = extract_article_attributes(attributes)
-    @article.translated_articles = find_or_build_translated_articles(attributes['translated_articles'])
+    translation_attributes = attributes['translated_articles']
+    return if translation_attributes.nil?
+    translated_articles = find_or_build_translations(translation_attributes)
   end
 
   def save!
@@ -29,8 +31,8 @@ class ArticlePersistence
 
   private
 
-  def find_or_build_translated_articles attributes
-    %w(en de).map do |locale|
+  def find_or_build_translations attributes
+    TranslatedArticle.locales.keys.map do |locale|
       translated_article = find_or_build_translated_article(locale)
       translated_article.attributes = attributes[locale]
       translated_article
@@ -42,8 +44,8 @@ class ArticlePersistence
   end
 
   def find_or_build_translated_article locale
-    translated_article = @article.translated_articles.localized(locale).first
+    translated_article = translated_articles.localized(locale).first
     return translated_article if translated_article.present?
-    @article.translated_articles.build(locale: locale)
+    translated_articles.build(locale: locale)
   end
 end
