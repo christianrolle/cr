@@ -18,7 +18,8 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new article_params
+    @article = ArticlePersistence.new Article.new
+    @article.attributes = article_params
     @article.save!
     flash[:notice] = success_note(@article)
     redirect_to [:edit, :admin, @article]
@@ -29,7 +30,7 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def update
-    article = Article.find params[:id]
+    article = ArticlePersistence.find(params[:id])
     article.attributes = article_params
     article.save!
     
@@ -60,7 +61,9 @@ class Admin::ArticlesController < ApplicationController
   def article_params
     params.require(:article)
       .permit(:published_at, :image, tag_ids: [], 
-        translated_articles: [:en, :de] )
+        translated_articles: { 
+          en: [:title, :text, :summary], de: [:title, :text, :summary] 
+        } )
       .transform_values{ |value| value if value.present? }
   end
 end
