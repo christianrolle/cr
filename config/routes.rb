@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :user_sessions, only: :create
   scope '(:locale)' do
     root 'articles#index'
+    resources :tags, param: :slug do
+      resources :articles, path: 'blog', only: :index
+    end
     resources :articles, path: 'blog', only: [:index, :show]
   end
   resources :documents, only: :show
