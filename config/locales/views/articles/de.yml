@@ -14,5 +14,6 @@ de:
       form:
         back: Zurück zur Liste
         preview: Vorschau
-        english: Englisch
-        german: Deutsch
+      translated_article_form:
+        en: Englisch
+        de: Deutsch
