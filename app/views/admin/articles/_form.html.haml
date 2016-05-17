@@ -15,7 +15,7 @@
           .col-xs-12.col-md-5
             .form-group.input-group
               %i.glyphicon.glyphicon-search.pre.form-control-mark
-              = text_field_tag "article[tag_names]", nil, autocomplete: 'off', 
+              = text_field_tag "tag_names", nil, autocomplete: 'off', 
                   id: nil, class: 'form-control tag search', placeholder: 'Tags',
                   data: { search: admin_tags_path }
               %span.input-group-addon.pointer
