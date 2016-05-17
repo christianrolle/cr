@@ -1,61 +1,42 @@
 .messages.alert= flash[:notice]
 = form_for [:admin, @article], html: { id: nil, class: 'admin article' } do |f|
-  .row
-    .col-xs-12.col-md-3
-      = present(@article).link_to_avatar
+  = present(@article) do |article_presenter|
+    .row
+      .col-xs-12.col-md-3
+        = article_presenter.link_to_avatar
 
-    .col-xs-12.col-md-5
-      .row
-        .col-xs-12.col-md-7.btn-group.round
-          = f.submit class: 'btn btn-default'
-          = link_to t('.preview'), [:admin, @article], 
-              class: 'btn btn-default' unless @article.new_record?
-          = link_to t('.back'), admin_articles_path, class: 'btn btn-default'
-        .col-xs-12.col-md-5
-          .form-group.input-group
-            %i.glyphicon.glyphicon-search.pre.form-control-mark
-            = text_field_tag "article[tag_names]", nil, autocomplete: 'off', 
-                id: nil, class: 'form-control tag search', placeholder: 'Tags',
-                data: { search: admin_tags_path }
-            %span.input-group-addon.pointer
-              = link_to '', admin_tags_path, remote: true,
-                  class: 'glyphicon glyphicon-list-alt'
-      .row
-        .col-xs-12.tags
-          = hidden_field_tag 'article[tag_ids][]', nil, id: nil
-          = render partial: 'tag', collection: @article.tags
- 
-    .col-xs-12.col-md-4
-      .col-xs-12.col-md-6.form-group.input-group.pull-right
-        .row.text-right
-          = f.label :published_at
+      .col-xs-12.col-md-5
         .row
-          .input-group.text-right
-            = f.datetime_local_field :published_at, class: 'form-control'
-            %span.input-group-addon.pointer
-              %span.glyphicon.glyphicon-calendar{ "aria-hidden" => true }
+          .col-xs-12.col-md-7.btn-group.round
+            = f.submit class: 'btn btn-default'
+            = link_to t('.preview'), [:admin, @article], 
+                class: 'btn btn-default' unless @article.new_record?
+            = link_to t('.back'), admin_articles_path, class: 'btn btn-default'
+          .col-xs-12.col-md-5
+            .form-group.input-group
+              %i.glyphicon.glyphicon-search.pre.form-control-mark
+              = text_field_tag "article[tag_names]", nil, autocomplete: 'off', 
+                  id: nil, class: 'form-control tag search', placeholder: 'Tags',
+                  data: { search: admin_tags_path }
+              %span.input-group-addon.pointer
+                = link_to '', admin_tags_path, remote: true,
+                    class: 'glyphicon glyphicon-list-alt'
+        .row
+          .col-xs-12.tags
+            = hidden_field_tag 'article[tag_ids][]', nil, id: nil
+            = render partial: 'tag', collection: @article.tags
+   
+      .col-xs-12.col-md-4
+        .col-xs-12.col-md-6.form-group.input-group.pull-right
+          .row.text-right
+            = f.label :published_at
+          .row
+            .input-group.text-right
+              = f.datetime_local_field :published_at, class: 'form-control'
+              %span.input-group-addon.pointer
+                %span.glyphicon.glyphicon-calendar{ "aria-hidden" => true }
 
-  .row
-    .col-sm-6.col-xs-12
-      .form-group
-        = f.label :title_en, t('.english')
-        = f.text_field :title_en, class: 'form-control',
-            placeholder: Article.human_attribute_name('title_en')
-      .form-group
-        = f.text_area :summary_en, rows: 3, class: 'form-control',
-            placeholder: Article.human_attribute_name('summary_en')
-      .form-group
-        = f.text_area :content_en, rows: 40, class: 'form-control',
-            placeholder: Article.human_attribute_name('content_en')
-
-    .col-sm-6.col-xs-12
-      .form-group
-        = f.label :title_de, t('.german')
-        = f.text_field :title_de, class: 'form-control', 
-            placeholder: Article.human_attribute_name('title_de')
-      .form-group
-        = f.text_area :summary_de, rows: 3, class: 'form-control',
-            placeholder: Article.human_attribute_name('summary_de')
-      .form-group
-        = f.text_area :content_de, rows: 40, class: 'form-control',
-            placeholder: Article.human_attribute_name('content_de')
+    .row
+      = render partial: 'translated_article_form',
+          collection: article_presenter.translated_articles_by_locale,
+          as: :translated_article
