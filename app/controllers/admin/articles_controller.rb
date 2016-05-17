@@ -16,6 +16,7 @@ class Admin::ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    render action: :edit
   end
 
   def create
@@ -33,6 +34,7 @@ class Admin::ArticlesController < ApplicationController
     article = Article.find params[:id]
     article.attributes = article_params
     article.save!
+    
     flash[:notice] = success_note(article)
     respond_to do |format|
       format.js { render template: 'shared/message' }
@@ -48,7 +50,8 @@ class Admin::ArticlesController < ApplicationController
   private
 
   def success_note article
-    I18n.t("admin.articles.saved", title: LocalizedArticle.new(article).title)
+    I18n.t("admin.articles.saved", 
+      title: article.translated_articles.localized(locale).first.title)
   end
 
   def render_validation record_invalid_exception
@@ -58,8 +61,8 @@ class Admin::ArticlesController < ApplicationController
 
   def article_params
     params.require(:article)
-      .permit(:title_de, :title_en, :content_de, :content_en, :summary_de, 
-        :summary_en, :published_at, :image, tag_ids: [])
+      .permit(:published_at, :image, tag_ids: [], 
+        translated_articles: [:en, :de] )
       .transform_values{ |value| value if value.present? }
   end
 end
