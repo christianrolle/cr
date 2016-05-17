@@ -6,7 +6,7 @@ class ArticlePresenter < Presenter
     css << 's' if tags.size > 1
     h.content_tag(:ol, class: css) do
       article_tag_positions.inject(''.html_safe) { |html, article_tag_position|
-        html += h.content_tag(:li, article_tag_position.tag_name)
+        html += h.content_tag(:li, link_to_tagged_articles(article_tag_position.tag))
       }
     end
   end
@@ -28,6 +28,10 @@ class ArticlePresenter < Presenter
   end
 
   private
+
+  def link_to_tagged_articles tag
+    h.link_to(tag.name, h.tag_articles_path(tag.slug))
+  end
 
   delegate :tags, to: :model
 
