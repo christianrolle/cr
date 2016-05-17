@@ -19,7 +19,7 @@ class Article < ActiveRecord::Base
   }
   scope :by_creation, -> { order("#{table_name}.created_at ASC") }
   scope :published, -> { where("published_at < ?", Time.current) }
-  scope :by_publishing, -> { published.order('published_at DESC') }
+  scope :by_publishing, -> { order('published_at DESC') }
 
   def released?
     published_at.present?

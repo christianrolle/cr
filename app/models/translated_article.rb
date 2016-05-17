@@ -22,7 +22,9 @@ class TranslatedArticle < ActiveRecord::Base
   validates :text, presence: true, if: -> { released? && title.present? }
 
   scope :localized, ->(locale) { where(locale: locales[locale.to_s]) }
-  scope :by_publishing, -> { eager_load(:article).merge(Article.by_publishing) }
+  scope :by_publishing, -> { 
+    eager_load(:article).merge(Article.published).merge(Article.by_publishing) 
+  }
   scope :search, ->(term) {
     term = term.to_s.strip
     return if term.empty?
