@@ -30,7 +30,8 @@ class ArticlePresenter < Presenter
   private
 
   def link_to_tagged_articles tag
-    h.link_to(tag.name, h.tag_articles_path(tag.slug), rel: :search)
+    h.link_to(tag.name, h.tag_articles_path(tag.slug), rel: :search, 
+              hreflang: I18n.locale)
   end
 
   delegate :tags, to: :model
