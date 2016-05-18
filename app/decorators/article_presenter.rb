@@ -4,9 +4,9 @@ class ArticlePresenter < Presenter
     return if tags.blank?
     css = 'list-unstyled tags glyphicon glyphicon-tag'
     css << 's' if tags.size > 1
-    h.content_tag(:ol, class: css) do
+    h.content_tag(:div, class: css) do
       article_tag_positions.inject(''.html_safe) { |html, article_tag_position|
-        html += h.content_tag(:li, link_to_tagged_articles(article_tag_position.tag))
+        html += link_to_tagged_articles(article_tag_position.tag)
       }
     end
   end
@@ -30,7 +30,7 @@ class ArticlePresenter < Presenter
   private
 
   def link_to_tagged_articles tag
-    h.link_to(tag.name, h.tag_articles_path(tag.slug))
+    h.link_to(tag.name, h.tag_articles_path(tag.slug), rel: :search)
   end
 
   delegate :tags, to: :model
