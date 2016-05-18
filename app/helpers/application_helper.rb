@@ -46,7 +46,7 @@ module ApplicationHelper
 
   def link_to_share_social service, options={}
     url = SOCIAL_SHARE_SERVICE_URLS[service] + '?' + options.to_param
-    link_to I18n.t("social.#{service}"), url, rel: :nofollow, 
+    link_to I18n.t("social.#{service}"), url, rel: 'external nofollow', 
       class: "share #{service} icon"
   end
 
