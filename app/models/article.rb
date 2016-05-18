@@ -27,7 +27,7 @@ class Article < ActiveRecord::Base
   }
   scope :tagged, ->(tag_slug) {
     return preload(:tags) if tag_slug.blank?
-    eager_load(:tags).merge(Tag.slugged(tag_slug))
+    joins(:tags).merge(Tag.slugged(tag_slug))
   }
 
   def released?
