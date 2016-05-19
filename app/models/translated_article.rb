@@ -1,6 +1,8 @@
 class TranslatedArticle < ActiveRecord::Base
 
   enum locale: { en: 1, de: 2 }
+  
+  LOCALIZABLE_ATTRIBUTES = %w(title text summary slug)
 
   belongs_to :article
   has_many :article_tag_positions, through: :article
@@ -31,6 +33,10 @@ class TranslatedArticle < ActiveRecord::Base
     term = term.to_s.strip
     return if term.empty?
     where("title LIKE ?", "%#{term}%")
+  }
+  scope :select_localizeables, -> { 
+    attributes = LOCALIZABLE_ATTRIBUTES.map { |name| "#{table_name}.#{name}" }
+    select(attributes.join(', '))
   }
 
   delegate :released?, :published_at, :image, to: :article
