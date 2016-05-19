@@ -31,3 +31,12 @@
     = link_to_share_social :googleplus, url: article_presenter.url
     = link_to_share_social :facebook, u: article_presenter.url, 
         title: @article.title, summary: @article.summary
+
+    .related_articles
+      - decorate(@article, ArticleDecorator) do |decorated_article|
+        .next
+          Next
+          =# render decorated_article.related_article(:next)
+        .previous
+          Previous
+          =# render decorated_article.related_article(:previous)

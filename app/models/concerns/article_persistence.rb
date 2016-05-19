@@ -2,7 +2,7 @@ class ArticlePersistence
 
   attr_reader :article
 
-  delegate :translated_articles, :to_model, to: :article
+  delegate :translated_articles, to: :article
 
   def initialize article
     @article = article
@@ -26,10 +26,39 @@ class ArticlePersistence
       @article.translated_articles.map { |translated_article|
         translated_article.save! if translated_article.changed?
       }
+      reassociate_siblings @article
     end
   end
 
   private
+
+  def reassociate_siblings article
+    reassociate_next article.previous_article, article.next_article
+    reassociate_previous article.next_article, article.previous_article
+
+    previous_article = Article.published_before(article.published_at)
+                              .by_publishing
+                              .first
+    next_article = Article.published_after(article.published_at)
+                          .by_publishing(:asc)
+                          .first
+
+    reassociate_next previous_article, article
+    reassociate_previous next_article, article
+
+    reassociate_next article, next_article
+    reassociate_previous article, previous_article
+  end
+
+  def reassociate_next article, next_article
+    return if article.nil?
+    article.next_article = next_article
+  end
+
+  def reassociate_previous article, previous_article
+    return if article.nil?
+    article.previous_article = previous_article
+  end
 
   def find_or_build_translations attributes
     TranslatedArticle.locales.keys.map do |locale|
