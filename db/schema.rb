@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517195535) do
+ActiveRecord::Schema.define(version: 20160519134338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "article_relations", force: :cascade do |t|
+    t.integer "kind"
+    t.integer "article_id"
+    t.integer "related_article_id"
+  end
+
+  add_index "article_relations", ["article_id", "related_article_id"], name: "index_article_relations_on_article_id_and_related_article_id", unique: true, using: :btree
 
   create_table "article_tag_positions", force: :cascade do |t|
     t.integer "article_id"
@@ -35,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160517195535) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "image"
+    t.string   "slug"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -91,6 +100,7 @@ ActiveRecord::Schema.define(version: 20160517195535) do
     t.datetime "updated_at",                       null: false
   end
 
+  add_foreign_key "article_relations", "articles"
   add_foreign_key "article_tag_positions", "articles"
   add_foreign_key "article_tag_positions", "tags"
   add_foreign_key "translated_articles", "articles"
