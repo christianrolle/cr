@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
   private
 
   def alternate_url article
-    url_for(params.merge({ locale: @locale.secondary, id: @article.slug }))
+    url_for(params.merge({ locale: @locale.secondary, slug: @article.slug }))
   end
 
 end
