@@ -47,7 +47,7 @@ class Article < ActiveRecord::Base
     joins(:tags).merge(Tag.slugged(tag_slug)) if tag_slug.present?
   }
 
-  delegate :title, :text, :summary, :slug, to: :translated_article
+  delegate :title, :text, :summary, to: :translated_article
 
   def released?
     published_at.present?
