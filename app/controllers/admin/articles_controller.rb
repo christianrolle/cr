@@ -3,8 +3,7 @@ class Admin::ArticlesController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_validation
 
   def index
-    @articles = Article.localized(locale)
-                        .preload(:tags)
+    @articles = Article.preload(:tags, :translated_article)
                         .by_publishing
                         .by_creation
   end
