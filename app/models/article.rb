@@ -2,12 +2,6 @@ class Article < ActiveRecord::Base
 
   mount_uploader :image, ArticleImageUploader
 
-  enum locale: [:de, :en]
-
-  # TODO: legacy association start - best before: 15.05.2016
-  has_many :article_tags, dependent: :delete_all
-  has_many :legacy_tags, through: :article_tags, class_name: Tag
-  # legacy association stop
   has_many :article_tag_positions, 
     -> { order('article_tag_positions.position ASC') },
     dependent: :delete_all
@@ -17,7 +11,10 @@ class Article < ActiveRecord::Base
     merge(TranslatedArticle.localized(I18n.locale)) 
   }
   has_many :article_relations, dependent: :delete_all
-  has_many :related_articles, through: :article_relations
+  has_many :related_articles, 
+    -> { select("articles.*, article_relations.kind") },
+    through: :article_relations
+
   has_one :article_relation
   has_one :previous_article_relation, -> { previous },
           class_name: ArticleRelation
@@ -28,19 +25,17 @@ class Article < ActiveRecord::Base
   has_one :next_article, through: :next_article_relation, 
           source: :related_article
 
+  validates :slug, uniqueness: true, allow_nil: true
+  validates :slug, presence: true, if: :released?
+
   scope :published, -> { where("published_at < ?", Time.current) }
   scope :published_before, ->(time) { published.where("published_at < ?", time) }
   scope :published_after, ->(time) { published.where("published_at > ?", time) }
   scope :by_publishing, ->(order=:desc) { order(published_at: order) }
   scope :by_creation, -> { order("#{table_name}.created_at ASC") }
-  scope :localized, ->(locale) { 
-    joins(:translated_articles)
-      .select("#{table_name}.*")
-      .merge(TranslatedArticle.select_localizeables)
-      .merge(TranslatedArticle.localized(locale))
-  }
-  scope :search_localized, ->(term, locale) {
-    localized(locale)
+  scope :search, ->(term) {
+    return if term.blank?
+    joins(:translated_article)
       .merge(TranslatedArticle.search(term))
   }
   scope :tagged, ->(tag_slug) { 
