@@ -22,6 +22,7 @@ class ArticleDecorator
   private
 
   def article_relations
-    @article_relations ||= @article.article_relations.preload(:related_articles)
+    @article_relations ||= @article.article_relations.preload(:related_article)
   end
+
 end
