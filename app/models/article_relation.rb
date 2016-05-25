@@ -5,5 +5,5 @@ class ArticleRelation < ActiveRecord::Base
   belongs_to :article
   belongs_to :related_article, class_name: Article 
 
-  delegate :title, :slug, to: :related_article
+  delegate :title, :summary, :slug, to: :related_article
 end
