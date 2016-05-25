@@ -2,7 +2,7 @@ class ArticlePersistence
 
   attr_reader :article
 
-  delegate :translated_articles, to: :article
+  delegate :translated_articles, :to_model, to: :article
 
   def initialize article
     @article = article
@@ -15,22 +15,34 @@ class ArticlePersistence
   def attributes= new_attributes
     attributes = new_attributes.stringify_keys
     @article.attributes = extract_article_attributes(attributes)
-    translation_attributes = attributes['translated_articles']
-    return if translation_attributes.nil?
-    translated_articles = find_or_build_translations(translation_attributes)
+    assign_translations attributes['translated_articles']
   end
 
   def save!
+    return save_with_translations unless @article.published_at_changed?
+    save_with_translations do |article|
+      reassociate_siblings(article)
+    end
+  end
+
+  private
+
+  def save_with_translations &block
     @article.transaction do
       @article.save!
       @article.translated_articles.map { |translated_article|
         translated_article.save! if translated_article.changed?
       }
-      reassociate_siblings @article
+      block.call(@article) if block_given?
     end
   end
 
-  private
+  def assign_translations translations
+    TranslatedArticle.locales.keys.map do |locale|
+      next if translations[locale].nil?
+      find_or_build_translation(locale).attributes = translations[locale] 
+    end
+  end
 
   def reassociate_siblings article
     reassociate_next article.previous_article, article.next_article
@@ -60,21 +72,14 @@ class ArticlePersistence
     article.previous_article = previous_article
   end
 
-  def find_or_build_translations attributes
-    TranslatedArticle.locales.keys.map do |locale|
-      translated_article = find_or_build_translated_article(locale)
-      translated_article.attributes = attributes[locale]
-      translated_article
-    end
-  end
-
   def extract_article_attributes attributes
     attributes.slice(*@article.class.column_names).except('id')
   end
 
-  def find_or_build_translated_article locale
-    translated_article = translated_articles.localized(locale).first
-    return translated_article if translated_article.present?
-    translated_articles.build(locale: locale)
+  def find_or_build_translation locale
+    translated_articles
+      .detect { |translation| translation.locale.eql?(locale) } || 
+        translated_articles.build(locale: locale)
   end
+
 end
