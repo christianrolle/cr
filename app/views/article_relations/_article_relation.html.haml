@@ -1,0 +1,7 @@
+%div{ class: article_relation.kind }
+  %h3
+    = t(".#{article_relation.kind}")
+    = link_to article_relation.title, 
+      article_path(article_relation.slug, locale: locale), 
+      type: 'text', rel: article_relation.kind,  hreflang: locale, 
+      class: 'lobster'
