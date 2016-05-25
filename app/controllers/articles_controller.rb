@@ -3,14 +3,13 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.published
                         .tagged(params[:tag_slug])
-                        .search_localized(params[:search], locale)
-                        .preload(:tags)
+                        .search(params[:search])
+                        .preload(:tags, :translated_article)
                         .by_publishing
   end
 
   def show
-    #@article = TranslatedArticle.find_by_slug params[:slug]
-    @article = Article.find_by_slug params[:slug]
+    @article = Article.preload(:tags).find_by_slug(params[:slug])
     alternate_to alternate_url(@article)
   end
 
