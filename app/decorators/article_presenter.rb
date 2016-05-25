@@ -27,7 +27,19 @@ class ArticlePresenter < Presenter
     %w(en de).map { |locale| translated_article_by_locale locale }
   end
 
+  def render_related_article kind
+    article_relation = find_article_relation(kind.to_s)
+    return if article_relation.nil?
+    h.render article_relation
+  end
+
   private
+
+  def find_article_relation kind
+    model.article_relations.detect { |article_relation| 
+      article_relation.kind == kind
+    }
+  end
 
   def link_to_tagged_articles tag
     h.link_to(tag.name, h.tag_articles_path(tag.slug), rel: :search, 
@@ -35,6 +47,7 @@ class ArticlePresenter < Presenter
   end
 
   delegate :tags, to: :model
+  delegate :locale, to: I18n
 
   def translated_article_by_locale locale
     translated_articles.detect { |article| article.locale == locale } ||
