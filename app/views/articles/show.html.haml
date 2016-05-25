@@ -33,10 +33,6 @@
         title: @article.title, summary: @article.summary
 
     .related_articles
-      - decorate(@article, ArticleDecorator) do |decorated_article|
-        .next
-          Next
-          =# render decorated_article.related_article(:next)
-        .previous
-          Previous
-          =# render decorated_article.related_article(:previous)
+      = article_presenter.render_related_article :previous
+      = article_presenter.render_related_article :next
+
