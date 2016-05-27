@@ -41,8 +41,8 @@
     }
   }
   main {
-    & > * { max-width: 1014px; }
     header {
+      max-width: $max-width;
       margin-top: 1em;  
       font-size: 0.9em;
 
@@ -50,6 +50,7 @@
       h1 { margin-top: 0px; }
     }
     article {
+      max-width: $max-width;
       padding: 1em 0px;
       time {
         display: block;
@@ -139,6 +140,7 @@
       }
     }
     footer {
+      max-width: $max-width;
       margin-bottom: 2em;
       span { margin-right: 1em; }
       .related_articles {

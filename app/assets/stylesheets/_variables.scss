@@ -19,3 +19,5 @@ $retina       : "#{$screen} and (min-width : 320px)";
 $phone        : "#{$screen} and (min-width : 480px)";
 $tablet       : "#{$screen} and (min-width : 768px)";
 $desktop      : "#{$screen} and (min-width : 1200px)";
+
+$max-width    : '1024px'
