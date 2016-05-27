@@ -14,8 +14,9 @@ class ArticlePersistence
 
   def attributes= new_attributes
     attributes = new_attributes.stringify_keys
-    @article.attributes = extract_article_attributes(attributes)
-    assign_translations attributes['translated_articles']
+    assign_translations attributes.extract!('translated_articles')
+    @article.attributes = attributes.extract!(*@article.class.column_names)
+    @association_attributes = attributes
   end
 
   def save!
@@ -30,6 +31,7 @@ class ArticlePersistence
   def save_with_translations &block
     @article.transaction do
       @article.save!
+      @article.attributes = @association_attributes
       @article.translated_articles.map { |translated_article|
         translated_article.save! if translated_article.changed?
       }
@@ -38,6 +40,7 @@ class ArticlePersistence
   end
 
   def assign_translations translations
+    return if translations.blank?
     TranslatedArticle.locales.keys.map do |locale|
       next if translations[locale].nil?
       find_or_build_translation(locale).attributes = translations[locale] 
@@ -73,7 +76,7 @@ class ArticlePersistence
   end
 
   def extract_article_attributes attributes
-    attributes.slice(*@article.class.column_names).except('id')
+    attributes.slice('tag_ids', 'published_at', 'slug', 'image').except('id')
   end
 
   def find_or_build_translation locale
