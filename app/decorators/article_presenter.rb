@@ -30,7 +30,8 @@ class ArticlePresenter < Presenter
   def render_related_article kind
     article_relation = find_article_relation(kind.to_s)
     return if article_relation.nil?
-    h.render article_relation
+    h.render partial: 'article_relations/article_relation', 
+              object: article_relation
   end
 
   private
