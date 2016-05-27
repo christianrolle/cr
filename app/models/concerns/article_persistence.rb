@@ -76,7 +76,7 @@ class ArticlePersistence
   end
 
   def extract_article_attributes attributes
-    attributes.slice('tag_ids', 'published_at', 'slug', 'image').except('id')
+    attributes.slice('tag_ids', 'published_at', 'image')
   end
 
   def find_or_build_translation locale

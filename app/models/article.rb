@@ -25,6 +25,7 @@ class Article < ActiveRecord::Base
   has_one :next_article, through: :next_article_relation, 
           source: :related_article
 
+  before_validation :set_slug
   validates :slug, uniqueness: true, allow_nil: true
   validates :slug, presence: true, if: :released?
 
@@ -46,6 +47,13 @@ class Article < ActiveRecord::Base
 
   def released?
     published_at.present?
+  end
+
+  private
+
+  def set_slug
+    translation = translated_articles.detect(&:en?)
+    self.slug = translation.title.parameterize if translation.present?
   end
 
 end
