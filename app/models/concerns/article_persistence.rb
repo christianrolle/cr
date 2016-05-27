@@ -14,7 +14,7 @@ class ArticlePersistence
 
   def attributes= new_attributes
     attributes = new_attributes.stringify_keys
-    assign_translations attributes.extract!('translated_articles')
+    assign_translations attributes.delete('translated_articles')
     @article.attributes = attributes.extract!(*@article.class.column_names)
     @association_attributes = attributes
   end
