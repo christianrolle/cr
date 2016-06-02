@@ -45,7 +45,7 @@ class Admin::ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find params[:id]
-    @article.destroy
+    ArticlePersistence.destroy(@article)
   end
 
   private

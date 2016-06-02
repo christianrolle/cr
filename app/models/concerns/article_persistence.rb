@@ -26,7 +26,23 @@ class ArticlePersistence
     end
   end
 
+  def destroy
+    @article.transaction do
+      reassociate_previous_and_next @article
+      @article.destroy
+    end
+  end
+
+  def self.destroy article
+    new(article).destroy
+  end
+
   private
+  
+  def reassociate_previous_and_next article
+    reassociate_next article.previous_article, article.next_article
+    reassociate_previous article.next_article, article.previous_article
+  end
 
   def save_with_translations &block
     @article.transaction do
@@ -48,8 +64,7 @@ class ArticlePersistence
   end
 
   def reassociate_siblings article
-    reassociate_next article.previous_article, article.next_article
-    reassociate_previous article.next_article, article.previous_article
+    reassociate_previous_and_next article
 
     previous_article = Article.published_before(article.published_at)
                               .by_publishing
