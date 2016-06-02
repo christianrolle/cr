@@ -6,7 +6,7 @@ class Article < ActiveRecord::Base
     -> { order('article_tag_positions.position ASC') },
     dependent: :delete_all
   has_many :tags, through: :article_tag_positions
-  has_many :translated_articles
+  has_many :translated_articles, dependent: :delete_all
   has_one :translated_article, -> {
     merge(TranslatedArticle.localized(I18n.locale)) 
   }
