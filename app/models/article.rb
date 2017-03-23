@@ -2,7 +2,7 @@ class Article < ActiveRecord::Base
 
   mount_uploader :image, ArticleImageUploader
 
-  has_many :article_tag_positions, 
+  has_many :article_tag_positions,
     -> { order('article_tag_positions.position ASC') },
     dependent: :delete_all
   has_many :tags, through: :article_tag_positions
