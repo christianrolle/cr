@@ -1,7 +1,6 @@
+# Controller for messaging
 class MessagesController < ApplicationController
-
-  protect_from_forgery with: :null_session, 
-    only: Proc.new { |c| c.request.format.json? }
+  protect_from_forgery with: :null_session, only: proc { |c| c.request.format.json? }
 
   def create
     @message = message_params[:text]
@@ -13,5 +12,4 @@ class MessagesController < ApplicationController
   def message_params
     params.require(:message).permit(:text)
   end
-
 end

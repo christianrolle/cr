@@ -1,21 +1,18 @@
+# frozen_string_literal: true
+
+# Presents the resume
 class Resume
   include Singleton
-  
+
   DateRange = Struct.new(:start, :duration) do
-    def localized_date date
+    def localized_date(date)
       I18n.l(date, format: :month)
     end
-   
+
     def to_s
       localized_end = duration.nil? ? I18n.t('today') : localized_date(start + duration)
       "#{localized_date(start)} - #{localized_end}"
     end
-  end
-
-  private
-  
-
-  def self.to_date year, month, duration=nil
   end
 
   DATES = {
@@ -27,16 +24,17 @@ class Resume
     hs: DateRange.new(Date.new(2001, 9), 4.years),
     aok: DateRange.new(Date.new(1997, 9), 35.months),
     school: DateRange.new(Date.new(1984, 9), 12.years)
-  }
-  
-  public
+  }.freeze
 
-  def self.period company
+  def self.period(company)
     DATES[company.to_sym].to_s
   end
 
-  def self.translate company, key
+  def self.translate(company, key)
     I18n.t("documents.resume.#{company}.#{key}", default: '')
   end
 
+  def self.to_date(_year, _month, _duration = nil); end
+
+  private_class_method :to_date
 end

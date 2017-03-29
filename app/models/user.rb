@@ -1,5 +1,6 @@
+# Model for user accounts (currently admin only)
 class User < ActiveRecord::Base
   acts_as_authentic do |c|
     c.login_field = 'email'
-  end # block optional
+  end
 end

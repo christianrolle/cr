@@ -1,7 +1,6 @@
 require 'test_helper'
 
-class Admin::ArticlesControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+module Admin
+  class ArticlesControllerTest < ActionController::TestCase
+  end
 end
