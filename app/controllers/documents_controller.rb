@@ -1,3 +1,4 @@
+# Controller for all kind og documents like resume
 class DocumentsController < ApplicationController
   helper Layout::InlineHelper
 
@@ -7,7 +8,7 @@ class DocumentsController < ApplicationController
 
   private
 
-  def render_document layout=nil
+  def render_document(layout = nil)
     render action: params[:document].underscore, layout: layout
   end
 
@@ -15,5 +16,4 @@ class DocumentsController < ApplicationController
     return true if params[:layout].nil?
     params[:layout]
   end
-
 end

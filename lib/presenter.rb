@@ -1,15 +1,17 @@
+# Base class for presenting model objects in the view layer
 class Presenter < SimpleDelegator
-  def initialize model, view=nil
+  def initialize(model, view = nil)
     @view = view
     super(model)
   end
 
-  def context view
+  def context(view)
     @view = view
     self
   end
 
   private
+
   def h
     @view
   end

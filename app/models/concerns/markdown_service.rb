@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Transforms articles texts into Markdown
 class MarkdownService
   attr_reader :markdown
 
@@ -14,6 +17,7 @@ class MarkdownService
   end
 
   private
+
   def markdown_renderer
     options = {
       syntax_highlighter: 'rouge',
@@ -27,4 +31,3 @@ class MarkdownService
     markdown_renderer.to_html
   end
 end
-

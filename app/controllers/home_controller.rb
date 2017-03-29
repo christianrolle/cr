@@ -1,13 +1,13 @@
+# Controller for search engine related sitemap
 class HomeController < ApplicationController
   def sitemap
-    path = Rails.root.join("public", "sitemaps", current_site.key, "sitemap.xml")
-    if File.exists?(path)
+    path = Rails.root.join('public', 'sitemaps', current_site.key, 'sitemap.xml')
+    if File.exist?(path)
       render xml: open(path).read
     else
-      render text: "Sitemap not found.", status: :not_found
+      render text: 'Sitemap not found.', status: :not_found
     end
   end
 
-  def robots
-  end
+  def robots; end
 end
