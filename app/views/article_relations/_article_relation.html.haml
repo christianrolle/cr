@@ -1,7 +1,7 @@
 %div.row.article.h3{ class: article_relation.kind }
   .col-xs-11
     = link_to article_relation.title, 
-      article_path(article_relation.slug, locale: locale), 
+      article_path(article_relation.related_article.translated_article), 
       type: 'text', rel: article_relation.kind,  hreflang: locale, 
       class: 'lobster center-block'
     %summary= article_relation.summary

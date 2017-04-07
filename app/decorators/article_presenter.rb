@@ -23,7 +23,7 @@ class ArticlePresenter < Presenter
   # rubocop:enable Metrics/AbcSize
 
   def url
-    @url ||= h.article_url(model.slug, locale: locale)
+    @url ||= h.article_url(model)
   end
 
   def translated_articles_by_locale

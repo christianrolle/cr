@@ -48,7 +48,6 @@ class Article < ActiveRecord::Base
   private
 
   def set_slug
-    translation = translated_articles.detect(&:en?)
-    self.slug = translation.title.parameterize if translation.present?
+    self.slug = translation.title.parameterize
   end
 end

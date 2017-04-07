@@ -31,6 +31,7 @@ gem 'rouge'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'turbolinks'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # schedules CRON jobs for example for updating sitemap.xml once a day

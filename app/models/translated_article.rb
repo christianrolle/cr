@@ -5,6 +5,7 @@ class TranslatedArticle < ActiveRecord::Base
   enum locale: { en: 1, de: 2 }
 
   belongs_to :article
+  has_many :article_relations, through: :article
   has_many :article_tag_positions, through: :article
   has_many :tags, through: :article_tag_positions
 
@@ -17,14 +18,24 @@ class TranslatedArticle < ActiveRecord::Base
   scope :localized, ->(locale) {
     where(table_name => { locale: locales[locale.to_s] })
   }
-  scope :by_publishing, -> {
-    eager_load(:article).merge(Article.published).merge(Article.by_publishing)
-  }
+  scope :by_publishing, -> do
+    eager_load(:article)
+      .merge(Article.published)
+      .merge(Article.by_publishing)
+  end
   scope :search, ->(term) {
     term = term.to_s.strip
     return if term.empty?
     where('title LIKE ?', "%#{term}%")
   }
+  scope :tagged, ->(tag_slug) do
+    return if tag_slug.blank?
+    joins(:tags).merge(Tag.slugged(tag_slug))
+  end
+
+  def to_param
+    "#{id}-#{slug}"
+  end
 
   delegate :released?, :published_at, :image, to: :article
 end

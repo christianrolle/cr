@@ -2,8 +2,11 @@
 class Locale
   attr_accessor :alternate_url
 
-  def initialize(locale)
-    @locale = self.class.accept_or_default locale.to_sym
+  delegate :to_s, to: :@locale
+
+  def initialize(locale = nil)
+    locale = locale.to_s.to_sym
+    @locale = self.class.accept_or_default locale
   end
 
   def current
@@ -22,6 +25,4 @@ class Locale
     return locale if available.include?(locale)
     I18n.default_locale
   end
-
-  private_class_method :accept_or_default
 end

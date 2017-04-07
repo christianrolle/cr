@@ -13,17 +13,27 @@ class ApplicationController < ActionController::Base
   def strict_transport_security
     response.headers['Strict-Transport-Security'] = 'max-age=0; includeSubDomains'
   end
-
+=begin
   def set_locale
-    session[:locale] = params[:locale]
+    session[:locale] = params[:locale] if params[:locale]
     session[:locale] ||= extract_locale_from_header
     @locale = Locale.new session[:locale]
+    I18n.locale = @locale.current
+  end
+=end
+  def set_locale
+    @locale = Locale.new requested_locale
+    session[:locale] = @locale.to_s
     I18n.locale = @locale.current
   end
 
   def switch_locale_and_redirect_to_referer
     session[:locale] = params[:locale]
     redirect_to request.referer
+  end
+
+  def requested_locale
+    params[:locale] || session[:locale] || extract_locale_from_header
   end
 
   def extract_locale_from_header
